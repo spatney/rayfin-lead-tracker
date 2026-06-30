@@ -1,7 +1,7 @@
-import { Todo } from './Todo.js';
+import { Lead } from './Lead.js';
 
-export type TodoAppSchema = {
-  Todo: Todo;
+export type AppSchema = {
+  Lead: Lead;
 };
 
-export const schema = [Todo];
+export const schema = [Lead];

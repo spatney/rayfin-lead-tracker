@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import { LogoMark } from '@/components/icons';
 import { useAuth } from '@/hooks/AuthContext';
 
 const msLogo = (
@@ -45,26 +46,14 @@ export function AuthPage() {
     <div className="flex min-h-screen items-center justify-center bg-slate-50 p-4">
       <div className="w-full max-w-sm">
         <div className="mb-8 flex flex-col items-center text-center">
-          <span className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-600 text-white shadow-sm">
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2.5}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M5 13l4 4L19 7"
-              />
-            </svg>
+          <span className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-600 text-white shadow-sm shadow-indigo-600/30">
+            <LogoMark className="h-6 w-6" />
           </span>
           <h1 className="text-2xl font-bold tracking-tight text-slate-900">
-            Todo App
+            LeadFlow
           </h1>
           <p className="mt-1.5 text-sm text-slate-500">
-            Sign in to manage your tasks.
+            Sign in to manage your sales pipeline.
           </p>
         </div>
 

@@ -1,0 +1,170 @@
+import type { SVGProps } from 'react';
+
+type IconProps = SVGProps<SVGSVGElement>;
+
+function Base({ children, ...props }: IconProps & { children: React.ReactNode }) {
+  return (
+    <svg
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={1.7}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      {children}
+    </svg>
+  );
+}
+
+/** Brand mark — a stylized lead funnel. */
+export function LogoMark({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none">
+      <rect x="3" y="4" width="18" height="3.4" rx="1.7" fill="currentColor" />
+      <rect x="6" y="10.3" width="12" height="3.4" rx="1.7" fill="currentColor" opacity="0.75" />
+      <rect x="9" y="16.6" width="6" height="3.4" rx="1.7" fill="currentColor" opacity="0.5" />
+    </svg>
+  );
+}
+
+export function GridIcon(props: IconProps) {
+  return (
+    <Base {...props}>
+      <rect x="3.5" y="3.5" width="7" height="7" rx="1.5" />
+      <rect x="13.5" y="3.5" width="7" height="7" rx="1.5" />
+      <rect x="3.5" y="13.5" width="7" height="7" rx="1.5" />
+      <rect x="13.5" y="13.5" width="7" height="7" rx="1.5" />
+    </Base>
+  );
+}
+
+export function UsersIcon(props: IconProps) {
+  return (
+    <Base {...props}>
+      <path d="M16 19v-1.5a3.5 3.5 0 0 0-3.5-3.5h-5A3.5 3.5 0 0 0 4 17.5V19" />
+      <circle cx="10" cy="8" r="3.2" />
+      <path d="M20 19v-1.5a3.5 3.5 0 0 0-2.6-3.4M15.5 5.1a3.2 3.2 0 0 1 0 6" />
+    </Base>
+  );
+}
+
+export function PlusIcon(props: IconProps) {
+  return (
+    <Base {...props}>
+      <path d="M12 5v14M5 12h14" />
+    </Base>
+  );
+}
+
+export function SparklesIcon(props: IconProps) {
+  return (
+    <Base {...props}>
+      <path d="M12 4l1.6 4.4L18 10l-4.4 1.6L12 16l-1.6-4.4L6 10l4.4-1.6L12 4Z" />
+      <path d="M18.5 14.5l.7 1.9 1.9.7-1.9.7-.7 1.9-.7-1.9-1.9-.7 1.9-.7.7-1.9Z" />
+    </Base>
+  );
+}
+
+export function TrashIcon(props: IconProps) {
+  return (
+    <Base {...props}>
+      <path d="M4.5 7h15M9.5 7V5.5A1.5 1.5 0 0 1 11 4h2a1.5 1.5 0 0 1 1.5 1.5V7M6.5 7l.8 11.2A2 2 0 0 0 9.3 20h5.4a2 2 0 0 0 2-1.8L17.5 7" />
+    </Base>
+  );
+}
+
+export function SearchIcon(props: IconProps) {
+  return (
+    <Base {...props}>
+      <circle cx="11" cy="11" r="6.5" />
+      <path d="M16 16l4 4" />
+    </Base>
+  );
+}
+
+export function XIcon(props: IconProps) {
+  return (
+    <Base {...props}>
+      <path d="M6 6l12 12M18 6L6 18" />
+    </Base>
+  );
+}
+
+export function SignOutIcon(props: IconProps) {
+  return (
+    <Base {...props}>
+      <path d="M15 4h2.5A1.5 1.5 0 0 1 19 5.5v13a1.5 1.5 0 0 1-1.5 1.5H15" />
+      <path d="M10 8l-4 4 4 4M6 12h10" />
+    </Base>
+  );
+}
+
+export function TrendingUpIcon(props: IconProps) {
+  return (
+    <Base {...props}>
+      <path d="M3.5 16.5l5-5 3.5 3.5L20 7" />
+      <path d="M15 7h5v5" />
+    </Base>
+  );
+}
+
+export function TargetIcon(props: IconProps) {
+  return (
+    <Base {...props}>
+      <circle cx="12" cy="12" r="8" />
+      <circle cx="12" cy="12" r="4.4" />
+      <circle cx="12" cy="12" r="1" fill="currentColor" stroke="none" />
+    </Base>
+  );
+}
+
+export function LayersIcon(props: IconProps) {
+  return (
+    <Base {...props}>
+      <path d="M12 3.5l8.5 4.5L12 12.5 3.5 8 12 3.5Z" />
+      <path d="M4 12l8 4.3L20 12M4 16l8 4.3L20 16" />
+    </Base>
+  );
+}
+
+export function DollarIcon(props: IconProps) {
+  return (
+    <Base {...props}>
+      <path d="M12 3.5v17M15.5 7.2A3 3 0 0 0 12.8 6h-1.5a2.8 2.8 0 0 0 0 5.6h1.4a2.8 2.8 0 0 1 0 5.6h-1.7a3 3 0 0 1-2.7-1.4" />
+    </Base>
+  );
+}
+
+export function StarIcon(props: IconProps) {
+  return (
+    <Base {...props}>
+      <path d="M12 4.5l2.2 4.5 4.9.7-3.6 3.5.9 4.9-4.4-2.3-4.4 2.3.9-4.9L6.9 9.7l4.9-.7L12 4.5Z" />
+    </Base>
+  );
+}
+
+export function ChevronDownIcon(props: IconProps) {
+  return (
+    <Base {...props}>
+      <path d="M6 9.5l6 6 6-6" />
+    </Base>
+  );
+}
+
+export function FunnelIcon(props: IconProps) {
+  return (
+    <Base {...props}>
+      <path d="M4 5.5h16l-6.2 7.2V19l-3.6-2v-4.3L4 5.5Z" />
+    </Base>
+  );
+}
+
+export function CheckIcon(props: IconProps) {
+  return (
+    <Base {...props}>
+      <path d="M5 12.5l4.5 4.5L19 7" />
+    </Base>
+  );
+}

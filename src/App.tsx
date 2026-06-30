@@ -1,8 +1,11 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
+import { AppLayout } from '@/components/AppLayout';
 import { AuthPage } from '@/components/AuthPage';
 import { useAuth } from '@/hooks/AuthContext';
-import { HomePage } from '@/pages/HomePage';
+import { LeadsProvider } from '@/hooks/LeadsContext';
+import { DashboardPage } from '@/pages/DashboardPage';
+import { LeadsPage } from '@/pages/LeadsPage';
 
 function AuthGuard({
   children,
@@ -41,13 +44,17 @@ function App() {
           }
         />
         <Route
-          path="/"
           element={
             <AuthGuard requireAuth={true}>
-              <HomePage />
+              <LeadsProvider>
+                <AppLayout />
+              </LeadsProvider>
             </AuthGuard>
           }
-        />
+        >
+          <Route path="/" element={<DashboardPage />} />
+          <Route path="/leads" element={<LeadsPage />} />
+        </Route>
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
