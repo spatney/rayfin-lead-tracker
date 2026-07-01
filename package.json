@@ -17,12 +17,12 @@
     "rayfin:db": "rayfin up db apply"
   },
   "dependencies": {
-    "@graphein/react": "^0.10.0",
+    "@graphein/react": "^0.11.0",
     "@microsoft/rayfin-auth-provider-fabric": "^1.33.2",
     "@microsoft/rayfin-client": "^1.33.2",
     "@microsoft/rayfin-core": "^1.33.2",
     "@tailwindcss/vite": "^4.1.11",
-    "graphein": "^0.10.0",
+    "graphein": "^0.11.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.1.1"
