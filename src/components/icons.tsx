@@ -168,3 +168,12 @@ export function CheckIcon(props: IconProps) {
     </Base>
   );
 }
+
+export function PenIcon(props: IconProps) {
+  return (
+    <Base {...props}>
+      <path d="M4 20h4L18.4 9.6a2 2 0 0 0-2.8-2.8L5.2 17.2 4 20Z" />
+      <path d="M13.5 6.9l3.6 3.6" />
+    </Base>
+  );
+}

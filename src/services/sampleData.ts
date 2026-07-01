@@ -88,52 +88,55 @@ function clamp(n: number, min: number, max: number): number {
 
 const DAY_MS = 86_400_000;
 
+/** Build one realistic, varied sample lead. Pure (no network). */
+export function buildSampleLead(): NewLead {
+  const now = Date.now();
+  const first = pick(FIRST_NAMES);
+  const last = pick(LAST_NAMES);
+  const root = pick(COMPANY_ROOTS);
+  const suffix = pick(COMPANY_SUFFIXES);
+  const company = `${root} ${suffix}`;
+  const slug = `${root}${suffix}`.toLowerCase().replace(/[^a-z0-9]/g, '');
+
+  const status = weighted(STATUS_WEIGHTS);
+  const source = weighted(SOURCE_WEIGHTS);
+  const industry = pick(LEAD_INDUSTRIES);
+
+  const score = clamp(Math.round(STAGE_SCORE[status] + randInt(-14, 14)), 1, 100);
+  const base = randInt(4, 240) * 1000;
+  const value = Math.round((base * (0.6 + score / 140)) / 500) * 500;
+
+  const daysAgo = Math.floor(Math.pow(Math.random(), 1.7) * 360);
+  const createdAt = new Date(now - daysAgo * DAY_MS - randInt(0, DAY_MS));
+
+  const email = `${first}.${last}@${slug}.com`.toLowerCase();
+  const phone = `+1 (${randInt(200, 989)}) ${randInt(200, 989)}-${String(
+    randInt(0, 9999)
+  ).padStart(4, '0')}`;
+
+  return {
+    name: `${first} ${last}`,
+    company,
+    email,
+    phone,
+    status,
+    source,
+    industry,
+    value,
+    score,
+    createdAt,
+  };
+}
+
 /**
  * Generate `count` realistic, varied sample leads. Pure (no network): used both
  * by the "Generate sample data" action and by headless chart validation.
  * createdAt is biased toward recent months so the trend reads like a growing book.
  */
 export function buildSampleLeads(count: number): NewLead[] {
-  const now = Date.now();
   const leads: NewLead[] = [];
-
   for (let i = 0; i < count; i++) {
-    const first = pick(FIRST_NAMES);
-    const last = pick(LAST_NAMES);
-    const root = pick(COMPANY_ROOTS);
-    const suffix = pick(COMPANY_SUFFIXES);
-    const company = `${root} ${suffix}`;
-    const slug = `${root}${suffix}`.toLowerCase().replace(/[^a-z0-9]/g, '');
-
-    const status = weighted(STATUS_WEIGHTS);
-    const source = weighted(SOURCE_WEIGHTS);
-    const industry = pick(LEAD_INDUSTRIES);
-
-    const score = clamp(Math.round(STAGE_SCORE[status] + randInt(-14, 14)), 1, 100);
-    const base = randInt(4, 240) * 1000;
-    const value = Math.round((base * (0.6 + score / 140)) / 500) * 500;
-
-    const daysAgo = Math.floor(Math.pow(Math.random(), 1.7) * 360);
-    const createdAt = new Date(now - daysAgo * DAY_MS - randInt(0, DAY_MS));
-
-    const email = `${first}.${last}@${slug}.com`.toLowerCase();
-    const phone = `+1 (${randInt(200, 989)}) ${randInt(200, 989)}-${String(
-      randInt(0, 9999)
-    ).padStart(4, '0')}`;
-
-    leads.push({
-      name: `${first} ${last}`,
-      company,
-      email,
-      phone,
-      status,
-      source,
-      industry,
-      value,
-      score,
-      createdAt,
-    });
+    leads.push(buildSampleLead());
   }
-
   return leads;
 }

@@ -5,6 +5,7 @@ import {
   ChevronDownIcon,
   PlusIcon,
   SearchIcon,
+  SparklesIcon,
   TrashIcon,
   UsersIcon,
   XIcon,
@@ -20,6 +21,7 @@ import {
   type NewLead,
 } from '@/services/leadTypes';
 import { createLead, deleteLead, updateLead } from '@/services/leads';
+import { buildSampleLead } from '@/services/sampleData';
 import { formatCurrency, formatNumber, relativeTime } from '@/services/format';
 
 const PAGE_SIZE = 12;
@@ -105,6 +107,22 @@ function AddLeadModal({ onClose, onCreated }: AddLeadModalProps) {
 
   const set = (key: keyof typeof form, value: string) =>
     setForm((prev) => ({ ...prev, [key]: value }));
+
+  const autoFill = () => {
+    const sample = buildSampleLead();
+    setForm({
+      name: sample.name,
+      company: sample.company,
+      email: sample.email,
+      phone: sample.phone,
+      status: sample.status,
+      source: sample.source,
+      industry: sample.industry,
+      value: String(sample.value),
+      score: String(sample.score),
+    });
+    setError(null);
+  };
 
   const submit = async () => {
     if (!form.name.trim() || !form.company.trim()) {
@@ -242,20 +260,30 @@ function AddLeadModal({ onClose, onCreated }: AddLeadModalProps) {
 
         {error && <p className="mt-4 text-sm text-rose-600">{error}</p>}
 
-        <div className="mt-6 flex justify-end gap-2.5">
+        <div className="mt-6 flex flex-col-reverse gap-2.5 sm:flex-row sm:items-center sm:justify-between">
           <button
-            onClick={onClose}
-            className="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50"
+            type="button"
+            onClick={autoFill}
+            className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 hover:text-indigo-600"
           >
-            Cancel
+            <SparklesIcon className="h-4 w-4" />
+            Auto-fill sample
           </button>
-          <button
-            onClick={() => void submit()}
-            disabled={busy}
-            className="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm shadow-indigo-600/30 transition-colors hover:bg-indigo-700 disabled:opacity-70"
-          >
-            {busy ? 'Saving…' : 'Create lead'}
-          </button>
+          <div className="flex justify-end gap-2.5">
+            <button
+              onClick={onClose}
+              className="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50"
+            >
+              Cancel
+            </button>
+            <button
+              onClick={() => void submit()}
+              disabled={busy}
+              className="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm shadow-indigo-600/30 transition-colors hover:bg-indigo-700 disabled:opacity-70"
+            >
+              {busy ? 'Saving…' : 'Create lead'}
+            </button>
+          </div>
         </div>
       </div>
     </div>

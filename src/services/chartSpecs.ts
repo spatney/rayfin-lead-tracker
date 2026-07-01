@@ -41,6 +41,11 @@ const baseColors = {
 
 export const chartTheme: ThemeInput = { base: 'light', color: baseColors };
 
+/** Toggle graphein's hand-drawn "sketch" rendering on any spec. */
+export function withSketch(spec: ChartSpec, sketch: boolean): ChartSpec {
+  return { ...spec, sketch };
+}
+
 function themed(palette: string[]): ThemeInput {
   return { base: 'light', color: { ...baseColors, palette } };
 }

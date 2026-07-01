@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Chart } from '@graphein/react';
 
@@ -6,6 +6,7 @@ import { ClearLeadsButton, GenerateLeadsButton } from '@/components/leadActions'
 import {
   DollarIcon,
   LayersIcon,
+  PenIcon,
   TargetIcon,
   UsersIcon,
 } from '@/components/icons';
@@ -25,6 +26,7 @@ import {
   buildSourceBarSpec,
   buildStatusDonutSpec,
   buildTopLeadsTableSpec,
+  withSketch,
 } from '@/services/chartSpecs';
 import {
   formatCompactCurrency,
@@ -83,8 +85,34 @@ function EmptyDashboard() {
   );
 }
 
+function SketchToggle({
+  value,
+  onChange,
+}: {
+  value: boolean;
+  onChange: (value: boolean) => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={() => onChange(!value)}
+      aria-pressed={value}
+      title="Toggle hand-drawn sketch style"
+      className={`inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-colors ${
+        value
+          ? 'bg-indigo-600 text-white shadow-sm shadow-indigo-600/30 hover:bg-indigo-700'
+          : 'border border-slate-200 bg-white text-slate-700 shadow-sm hover:bg-slate-50'
+      }`}
+    >
+      <PenIcon className="h-4 w-4" />
+      {value ? 'Sketch: On' : 'Sketch: Off'}
+    </button>
+  );
+}
+
 export function DashboardPage() {
   const { leads, loading } = useLeads();
+  const [sketch, setSketch] = useState(false);
 
   const data = useMemo(() => {
     const kpis = computeKpis(leads);
@@ -124,7 +152,12 @@ export function DashboardPage() {
       <PageHeader
         title="Dashboard"
         subtitle="Your sales pipeline at a glance"
-        actions={<ClearLeadsButton />}
+        actions={
+          <>
+            <SketchToggle value={sketch} onChange={setSketch} />
+            <ClearLeadsButton />
+          </>
+        }
       />
 
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
@@ -165,7 +198,7 @@ export function DashboardPage() {
           className="lg:col-span-8"
         >
           <div className="h-72">
-            <Chart spec={buildLeadsOverTimeSpec(overTime)} />
+            <Chart spec={withSketch(buildLeadsOverTimeSpec(overTime), sketch)} />
           </div>
         </ChartCard>
 
@@ -175,7 +208,7 @@ export function DashboardPage() {
           className="lg:col-span-4"
         >
           <div className="h-72">
-            <Chart spec={buildStatusDonutSpec(statuses)} />
+            <Chart spec={withSketch(buildStatusDonutSpec(statuses), sketch)} />
           </div>
         </ChartCard>
 
@@ -185,7 +218,7 @@ export function DashboardPage() {
           className="lg:col-span-5"
         >
           <div className="h-80">
-            <Chart spec={buildPipelineFunnelSpec(stages)} />
+            <Chart spec={withSketch(buildPipelineFunnelSpec(stages), sketch)} />
           </div>
         </ChartCard>
 
@@ -195,7 +228,7 @@ export function DashboardPage() {
           className="lg:col-span-7"
         >
           <div className="h-80">
-            <Chart spec={buildSourceBarSpec(sources)} />
+            <Chart spec={withSketch(buildSourceBarSpec(sources), sketch)} />
           </div>
         </ChartCard>
 
@@ -205,7 +238,7 @@ export function DashboardPage() {
           className="lg:col-span-12"
         >
           <div className="h-96">
-            <Chart spec={buildTopLeadsTableSpec(top)} />
+            <Chart spec={withSketch(buildTopLeadsTableSpec(top), sketch)} />
           </div>
         </ChartCard>
       </div>
