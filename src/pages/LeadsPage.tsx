@@ -374,8 +374,7 @@ export function LeadsPage() {
         }
         actions={
           <>
-            {hasLeads && <ClearLeadsButton />}
-            <GenerateLeadsButton tone="soft" />
+            {hasLeads ? <ClearLeadsButton /> : <GenerateLeadsButton tone="soft" />}
             <button
               onClick={() => setShowAdd(true)}
               className="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm shadow-indigo-600/30 transition-colors hover:bg-indigo-700"

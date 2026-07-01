@@ -117,22 +117,32 @@ export function leadsByStatus(leads: LeadItem[]): StatusCount[] {
   return [...map.values()].filter((e) => e.count > 0);
 }
 
+/**
+ * Cumulative pipeline funnel. Each stage counts every lead that has reached at
+ * least that stage, so "New" equals the full lead count and later stages show
+ * how many progressed that far — the funnel reads as a stage-to-stage
+ * conversion rate. Leads still sitting at New, and lost leads (whose drop-off
+ * stage we don't track), count only at the entry stage.
+ */
 export function pipelineByStage(leads: LeadItem[]): StageCount[] {
-  const counts = new Map<string, { count: number; value: number }>();
-  for (const stage of PIPELINE_STAGES) {
-    counts.set(stage, { count: 0, value: 0 });
-  }
+  const rankOf = new Map<string, number>();
+  PIPELINE_STAGES.forEach((stage, i) => rankOf.set(stage, i));
+
+  const counts = PIPELINE_STAGES.map(() => ({ count: 0, value: 0 }));
+
   for (const lead of leads) {
-    const entry = counts.get(lead.status);
-    if (entry) {
-      entry.count += 1;
-      entry.value += lead.value;
+    const reached = rankOf.get(lead.status) ?? 0;
+    for (let i = 0; i <= reached; i++) {
+      counts[i].count += 1;
+      counts[i].value += lead.value;
     }
   }
-  return PIPELINE_STAGES.map((stage) => {
-    const entry = counts.get(stage) ?? { count: 0, value: 0 };
-    return { stage, count: entry.count, value: entry.value };
-  });
+
+  return PIPELINE_STAGES.map((stage, i) => ({
+    stage,
+    count: counts[i].count,
+    value: counts[i].value,
+  }));
 }
 
 export function leadsBySource(leads: LeadItem[]): SourceCount[] {

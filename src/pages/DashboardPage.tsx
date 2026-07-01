@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { Chart } from '@graphein/react';
 
-import { GenerateLeadsButton } from '@/components/leadActions';
+import { ClearLeadsButton, GenerateLeadsButton } from '@/components/leadActions';
 import {
   DollarIcon,
   LayersIcon,
@@ -124,7 +124,7 @@ export function DashboardPage() {
       <PageHeader
         title="Dashboard"
         subtitle="Your sales pipeline at a glance"
-        actions={<GenerateLeadsButton tone="soft" />}
+        actions={<ClearLeadsButton />}
       />
 
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
