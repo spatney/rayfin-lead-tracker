@@ -1,14 +1,16 @@
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Chart } from '@graphein/react';
+import { Chart, createSelectionStore, useSelection } from '@graphein/react';
 
 import { ClearLeadsButton, GenerateLeadsButton } from '@/components/leadActions';
 import {
   DollarIcon,
+  FunnelIcon,
   LayersIcon,
   PenIcon,
   TargetIcon,
   UsersIcon,
+  XIcon,
 } from '@/components/icons';
 import { ChartCard, KpiCard, PageHeader, type Accent } from '@/components/ui';
 import { useLeads } from '@/hooks/LeadsContext';
@@ -114,17 +116,42 @@ export function DashboardPage() {
   const { leads, loading } = useLeads();
   const [sketch, setSketch] = useState(false);
 
+  // Shared selection bus: the bar chart publishes the clicked source here, and
+  // we both read it (to cross-filter) and can clear it (to reset the bar).
+  const store = useMemo(() => createSelectionStore(), []);
+  const [sourceSel, setSourceSel] = useSelection(store, 'source');
+
+  const sourceFilter = useMemo(() => {
+    if (!sourceSel || sourceSel.kind !== 'point') return [];
+    return sourceSel.tuples.map((tuple) => String(tuple[0]));
+  }, [sourceSel]);
+
+  // The bar chart always reflects every source, so all bars stay clickable.
+  const bySource = useMemo(() => leadsBySource(leads), [leads]);
+  const barSpec = useMemo(
+    () => withSketch(buildSourceBarSpec(bySource), sketch),
+    [bySource, sketch]
+  );
+
+  // Every other visual + the KPI tiles respect the clicked-source filter.
+  const filteredLeads = useMemo(
+    () =>
+      sourceFilter.length > 0
+        ? leads.filter((lead) => sourceFilter.includes(lead.source))
+        : leads,
+    [leads, sourceFilter]
+  );
+
   const data = useMemo(() => {
-    const kpis = computeKpis(leads);
-    const statuses = leadsByStatus(leads);
-    const stages = pipelineByStage(leads);
-    const sources = leadsBySource(leads);
-    const overTime = leadsOverTime(leads);
-    const top = topLeads(leads, 8);
+    const kpis = computeKpis(filteredLeads);
+    const statuses = leadsByStatus(filteredLeads);
+    const stages = pipelineByStage(filteredLeads);
+    const overTime = leadsOverTime(filteredLeads);
+    const top = topLeads(filteredLeads, 8);
     const wonCount = statuses.find((s) => s.status === 'Won')?.count ?? 0;
     const lostCount = statuses.find((s) => s.status === 'Lost')?.count ?? 0;
-    return { kpis, statuses, stages, sources, overTime, top, wonCount, lostCount };
-  }, [leads]);
+    return { kpis, statuses, stages, overTime, top, wonCount, lostCount };
+  }, [filteredLeads]);
 
   if (loading && leads.length === 0) {
     return (
@@ -144,8 +171,7 @@ export function DashboardPage() {
     );
   }
 
-  const { kpis, statuses, stages, sources, overTime, top, wonCount, lostCount } =
-    data;
+  const { kpis, statuses, stages, overTime, top, wonCount, lostCount } = data;
 
   return (
     <>
@@ -159,6 +185,33 @@ export function DashboardPage() {
           </>
         }
       />
+
+      {sourceFilter.length > 0 && (
+        <div className="mb-5 flex flex-wrap items-center gap-2 rounded-2xl border border-indigo-100 bg-indigo-50/70 px-4 py-3">
+          <FunnelIcon className="h-4 w-4 text-indigo-600" />
+          <span className="text-sm font-medium text-indigo-900">
+            Filtered by source
+          </span>
+          <div className="flex flex-wrap items-center gap-1.5">
+            {sourceFilter.map((source) => (
+              <span
+                key={source}
+                className="inline-flex items-center rounded-full bg-white px-2.5 py-0.5 text-xs font-semibold text-indigo-700 shadow-sm ring-1 ring-indigo-100"
+              >
+                {source}
+              </span>
+            ))}
+          </div>
+          <button
+            type="button"
+            onClick={() => setSourceSel(null)}
+            className="ml-auto inline-flex items-center gap-1 rounded-lg px-2 py-1 text-xs font-semibold text-indigo-700 transition-colors hover:bg-white"
+          >
+            <XIcon className="h-3.5 w-3.5" />
+            Clear filter
+          </button>
+        </div>
+      )}
 
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
         <KpiCard
@@ -224,11 +277,11 @@ export function DashboardPage() {
 
         <ChartCard
           title="Leads by source"
-          subtitle="Where your leads come from"
+          subtitle="Click a bar to filter the dashboard"
           className="lg:col-span-7"
         >
           <div className="h-80">
-            <Chart spec={withSketch(buildSourceBarSpec(sources), sketch)} />
+            <Chart spec={barSpec} store={store} />
           </div>
         </ChartCard>
 

@@ -81,7 +81,11 @@ export function buildStatusDonutSpec(statuses: StatusCount[]): ChartSpec {
   };
 }
 
-/** Vertical bars of lead volume per acquisition source. */
+/**
+ * Vertical bars of lead volume per acquisition source. Interactive: clicking a
+ * bar publishes a `source` point-selection (for dashboard cross-filtering) and
+ * highlights the picked bar while dimming the rest.
+ */
 export function buildSourceBarSpec(sources: SourceCount[]): ChartSpec {
   return {
     type: 'bar',
@@ -93,6 +97,13 @@ export function buildSourceBarSpec(sources: SourceCount[]): ChartSpec {
     },
     cornerRadius: 8,
     legend: false,
+    params: [
+      {
+        name: 'source',
+        select: { type: 'point', on: 'click', fields: ['source'], empty: 'all' },
+      },
+    ],
+    highlight: { param: 'source' },
   };
 }
 
