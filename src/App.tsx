@@ -6,6 +6,7 @@ import { useAuth } from '@/hooks/AuthContext';
 import { LeadsProvider } from '@/hooks/LeadsContext';
 import { DashboardPage } from '@/pages/DashboardPage';
 import { LeadsPage } from '@/pages/LeadsPage';
+import { MetricsPage } from '@/pages/MetricsPage';
 
 function AuthGuard({
   children,
@@ -54,6 +55,7 @@ function App() {
         >
           <Route path="/" element={<DashboardPage />} />
           <Route path="/leads" element={<LeadsPage />} />
+          <Route path="/metrics" element={<MetricsPage />} />
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

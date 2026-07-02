@@ -177,3 +177,20 @@ export function PenIcon(props: IconProps) {
     </Base>
   );
 }
+
+export function ActivityIcon(props: IconProps) {
+  return (
+    <Base {...props}>
+      <path d="M3 12h4l3 7 4-14 3 7h4" />
+    </Base>
+  );
+}
+
+export function ClockIcon(props: IconProps) {
+  return (
+    <Base {...props}>
+      <circle cx="12" cy="12" r="8.5" />
+      <path d="M12 7.5V12l3 1.8" />
+    </Base>
+  );
+}

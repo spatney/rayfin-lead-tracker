@@ -566,11 +566,11 @@ function EmptyLeads({ onAdd }: { onAdd: () => void }) {
           No leads yet
         </h2>
         <p className="mx-auto mt-2 max-w-sm text-sm text-slate-500">
-          Add your first lead, or generate ten thousand realistic samples to see
+          Add your first lead, or generate a thousand realistic samples to see
           the tracker in action.
         </p>
         <div className="mt-6 flex flex-col items-center gap-3">
-          <GenerateLeadsButton count={10000} />
+          <GenerateLeadsButton count={1000} />
           <button
             onClick={onAdd}
             className="text-sm font-medium text-slate-500 underline-offset-4 hover:text-indigo-600 hover:underline"

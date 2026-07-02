@@ -13,7 +13,7 @@ function Spinner({ className = 'h-4 w-4' }: { className?: string }) {
 }
 
 export function GenerateLeadsButton({
-  count = 10000,
+  count = 1000,
   tone = 'primary',
 }: {
   count?: number;

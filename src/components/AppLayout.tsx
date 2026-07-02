@@ -1,11 +1,18 @@
 import { NavLink, Outlet } from 'react-router-dom';
 
-import { GridIcon, LogoMark, SignOutIcon, UsersIcon } from '@/components/icons';
+import {
+  ActivityIcon,
+  GridIcon,
+  LogoMark,
+  SignOutIcon,
+  UsersIcon,
+} from '@/components/icons';
 import { useAuth } from '@/hooks/AuthContext';
 
 const NAV = [
   { to: '/', label: 'Dashboard', Icon: GridIcon, end: true },
   { to: '/leads', label: 'Leads', Icon: UsersIcon, end: false },
+  { to: '/metrics', label: 'Performance', Icon: ActivityIcon, end: false },
 ];
 
 function Brand({ compact = false }: { compact?: boolean }) {

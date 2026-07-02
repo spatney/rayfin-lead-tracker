@@ -1,5 +1,6 @@
 import { getRayfinClient } from './rayfinClient';
 import { buildSampleLeads } from './sampleData';
+import { timed } from './metrics';
 import type { LeadItem, NewLead } from './leadTypes';
 
 const LEAD_FIELDS = [
@@ -37,7 +38,7 @@ const PAGE_SIZE = 500;
 const WRITE_CHUNK = 50;
 
 /** Fetch every lead for the signed-in user, paging through the cursor API. */
-export async function getLeads(): Promise<LeadItem[]> {
+async function fetchAllLeads(): Promise<LeadItem[]> {
   const client = getRayfinClient();
   const all: LeadItem[] = [];
   let cursor: string | undefined;
@@ -72,6 +73,11 @@ export async function getLeads(): Promise<LeadItem[]> {
   return all;
 }
 
+/** Fetch every lead for the signed-in user, timed as a `query` metric. */
+export function getLeads(): Promise<LeadItem[]> {
+  return timed('query', 'Load all leads', fetchAllLeads, (rows) => rows.length);
+}
+
 function currentUserId(): string {
   const client = getRayfinClient();
   const session = client.auth.getSession();
@@ -84,22 +90,27 @@ function currentUserId(): string {
 export async function createLead(input: NewLead): Promise<void> {
   const client = getRayfinClient();
   const userId = currentUserId();
-  await client.data.Lead.create({ ...input, user_id: userId });
+  await timed(
+    'create',
+    'Create lead',
+    () => client.data.Lead.create({ ...input, user_id: userId }),
+    () => 1
+  );
 }
 
 export async function updateLead(id: string, updates: LeadUpdate): Promise<void> {
   const client = getRayfinClient();
-  await client.data.Lead.update({ id }, updates);
+  await timed('update', 'Update lead', () => client.data.Lead.update({ id }, updates), () => 1);
 }
 
 export async function deleteLead(id: string): Promise<void> {
   const client = getRayfinClient();
-  await client.data.Lead.delete({ id });
+  await timed('delete', 'Delete lead', () => client.data.Lead.delete({ id }), () => 1);
 }
 
 /** Bulk-create varied sample leads in parallel chunks, reporting progress. */
-export async function generateSampleLeads(
-  count = 10000,
+async function insertSampleLeads(
+  count: number,
   onProgress?: ProgressFn
 ): Promise<number> {
   const client = getRayfinClient();
@@ -119,8 +130,21 @@ export async function generateSampleLeads(
   return done;
 }
 
+/** Generate sample leads, timed as an `insert` metric. */
+export function generateSampleLeads(
+  count = 1000,
+  onProgress?: ProgressFn
+): Promise<number> {
+  return timed(
+    'insert',
+    `Generate ${count.toLocaleString()} leads`,
+    () => insertSampleLeads(count, onProgress),
+    (inserted) => inserted
+  );
+}
+
 /** Delete every lead for the signed-in user (used by the "Clear all" action). */
-export async function deleteAllLeads(onProgress?: ProgressFn): Promise<number> {
+async function clearAllLeads(onProgress?: ProgressFn): Promise<number> {
   const client = getRayfinClient();
   const ids: string[] = [];
   let cursor: string | undefined;
@@ -143,4 +167,14 @@ export async function deleteAllLeads(onProgress?: ProgressFn): Promise<number> {
     onProgress?.(done, ids.length);
   }
   return done;
+}
+
+/** Clear all leads, timed as a `delete` metric. */
+export function deleteAllLeads(onProgress?: ProgressFn): Promise<number> {
+  return timed(
+    'delete',
+    'Clear all leads',
+    () => clearAllLeads(onProgress),
+    (deleted) => deleted
+  );
 }

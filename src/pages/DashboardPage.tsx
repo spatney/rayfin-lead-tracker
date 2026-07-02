@@ -74,7 +74,7 @@ function EmptyDashboard() {
           the dashboard, or add leads by hand on the Leads page.
         </p>
         <div className="mt-6 flex flex-col items-center gap-3">
-          <GenerateLeadsButton count={10000} />
+          <GenerateLeadsButton count={1000} />
           <Link
             to="/leads"
             className="text-sm font-medium text-slate-500 underline-offset-4 hover:text-indigo-600 hover:underline"
