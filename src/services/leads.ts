@@ -34,7 +34,7 @@ export type LeadUpdate = Partial<
 export type ProgressFn = (done: number, total: number) => void;
 
 const PAGE_SIZE = 500;
-const WRITE_CHUNK = 25;
+const WRITE_CHUNK = 50;
 
 /** Fetch every lead for the signed-in user, paging through the cursor API. */
 export async function getLeads(): Promise<LeadItem[]> {
@@ -99,7 +99,7 @@ export async function deleteLead(id: string): Promise<void> {
 
 /** Bulk-create varied sample leads in parallel chunks, reporting progress. */
 export async function generateSampleLeads(
-  count = 1000,
+  count = 10000,
   onProgress?: ProgressFn
 ): Promise<number> {
   const client = getRayfinClient();
