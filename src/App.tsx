@@ -4,6 +4,7 @@ import { AppLayout } from '@/components/AppLayout';
 import { AuthPage } from '@/components/AuthPage';
 import { useAuth } from '@/hooks/AuthContext';
 import { LeadsProvider } from '@/hooks/LeadsContext';
+import { DeleteAllLeadsProvider } from '@/hooks/useDeleteAllLeads';
 import { DashboardPage } from '@/pages/DashboardPage';
 import { LeadsPage } from '@/pages/LeadsPage';
 import { MetricsPage } from '@/pages/MetricsPage';
@@ -48,7 +49,9 @@ function App() {
           element={
             <AuthGuard requireAuth={true}>
               <LeadsProvider>
-                <AppLayout />
+                <DeleteAllLeadsProvider>
+                  <AppLayout />
+                </DeleteAllLeadsProvider>
               </LeadsProvider>
             </AuthGuard>
           }

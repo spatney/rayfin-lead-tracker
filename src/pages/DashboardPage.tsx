@@ -99,7 +99,7 @@ function HeaderMenu({
 }) {
   const [open, setOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
-  const { run: deleteAllLeads, busy: deleting } = useDeleteAllLeads();
+  const { run: deleteAllLeads, busy: deleting, progress } = useDeleteAllLeads();
 
   useEffect(() => {
     if (!open) return;
@@ -170,8 +170,16 @@ function HeaderMenu({
             }}
             className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm font-medium text-rose-600 transition-colors hover:bg-rose-50 disabled:cursor-not-allowed disabled:opacity-70"
           >
-            <TrashIcon className="h-4 w-4" />
-            <span className="flex-1">Delete all leads</span>
+            {deleting ? (
+              <span className="flex h-4 w-4 items-center justify-center">
+                <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-current border-t-transparent" />
+              </span>
+            ) : (
+              <TrashIcon className="h-4 w-4" />
+            )}
+            <span className="flex-1">
+              {deleting ? `Deleting… ${progress.percent}%` : 'Delete all leads'}
+            </span>
           </button>
         </div>
       )}

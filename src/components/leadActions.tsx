@@ -59,7 +59,7 @@ export function GenerateLeadsButton({
 }
 
 export function ClearLeadsButton() {
-  const { run, busy } = useDeleteAllLeads();
+  const { run, busy, progress } = useDeleteAllLeads();
 
   return (
     <button
@@ -68,7 +68,7 @@ export function ClearLeadsButton() {
       className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm font-medium text-slate-600 shadow-sm transition-colors hover:bg-slate-50 hover:text-rose-600 disabled:opacity-70"
     >
       {busy ? <Spinner /> : <TrashIcon className="h-4 w-4" />}
-      Clear all
+      {busy ? `Deleting… ${progress.percent}%` : 'Clear all'}
     </button>
   );
 }

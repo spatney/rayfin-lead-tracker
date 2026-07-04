@@ -8,6 +8,7 @@ import {
   UsersIcon,
 } from '@/components/icons';
 import { useAuth } from '@/hooks/AuthContext';
+import { DeleteAllLeadsOverlay } from '@/hooks/useDeleteAllLeads';
 
 const NAV = [
   { to: '/', label: 'Dashboard', Icon: GridIcon, end: true },
@@ -40,6 +41,7 @@ export function AppLayout() {
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
+      <DeleteAllLeadsOverlay />
       <aside className="fixed inset-y-0 left-0 z-30 hidden w-64 flex-col bg-slate-900 lg:flex">
         <div className="px-5 py-6">
           <Brand />
