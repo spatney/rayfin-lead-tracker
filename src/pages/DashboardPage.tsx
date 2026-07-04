@@ -1,18 +1,16 @@
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Chart, createSelectionStore, useSelection } from '@graphein/react';
+import type { ChartSpec } from 'graphein';
 
 import { ClearLeadsButton, GenerateLeadsButton } from '@/components/leadActions';
 import {
-  DollarIcon,
   FunnelIcon,
   LayersIcon,
   PenIcon,
-  TargetIcon,
-  UsersIcon,
   XIcon,
 } from '@/components/icons';
-import { ChartCard, KpiCard, PageHeader, type Accent } from '@/components/ui';
+import { ChartCard, PageHeader } from '@/components/ui';
 import { useLeads } from '@/hooks/LeadsContext';
 import {
   computeKpis,
@@ -25,28 +23,30 @@ import {
 import {
   buildLeadsOverTimeSpec,
   buildPipelineFunnelSpec,
+  buildPipelineValueKpiSpec,
   buildSourceBarSpec,
   buildStatusDonutSpec,
   buildTopLeadsTableSpec,
+  buildTotalLeadsKpiSpec,
+  buildWinRateKpiSpec,
+  buildWonValueKpiSpec,
   withSketch,
 } from '@/services/chartSpecs';
-import {
-  formatCompactCurrency,
-  formatNumber,
-  formatPercent,
-} from '@/services/format';
 
-const INDIGO: Accent = { bg: 'bg-indigo-50', text: 'text-indigo-600' };
-const SKY: Accent = { bg: 'bg-sky-50', text: 'text-sky-600' };
-const GREEN: Accent = { bg: 'bg-green-50', text: 'text-green-600' };
-const AMBER: Accent = { bg: 'bg-amber-50', text: 'text-amber-600' };
+function KpiTile({ spec }: { spec: ChartSpec }) {
+  return (
+    <div className="h-36 overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-1 shadow-sm shadow-slate-200/40">
+      <Chart spec={spec} />
+    </div>
+  );
+}
 
 function DashboardSkeleton() {
   return (
     <div className="animate-pulse space-y-5">
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
         {Array.from({ length: 4 }).map((_, i) => (
-          <div key={i} className="h-28 rounded-2xl bg-slate-200/70" />
+          <div key={i} className="h-36 rounded-2xl bg-slate-200/70" />
         ))}
       </div>
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-12">
@@ -214,33 +214,29 @@ export function DashboardPage() {
       )}
 
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
-        <KpiCard
-          label="Total leads"
-          value={formatNumber(kpis.totalLeads)}
-          hint={`${formatNumber(kpis.openLeads)} open · avg score ${kpis.avgScore}`}
-          icon={UsersIcon}
-          accent={INDIGO}
+        <KpiTile
+          spec={withSketch(
+            buildTotalLeadsKpiSpec(kpis.totalLeads, overTime),
+            sketch
+          )}
         />
-        <KpiCard
-          label="Pipeline value"
-          value={formatCompactCurrency(kpis.pipelineValue)}
-          hint={`Across ${formatNumber(kpis.openLeads)} open deals`}
-          icon={LayersIcon}
-          accent={SKY}
+        <KpiTile
+          spec={withSketch(
+            buildPipelineValueKpiSpec(kpis.pipelineValue, overTime),
+            sketch
+          )}
         />
-        <KpiCard
-          label="Won value"
-          value={formatCompactCurrency(kpis.wonValue)}
-          hint={`${formatNumber(wonCount)} deals closed`}
-          icon={DollarIcon}
-          accent={GREEN}
+        <KpiTile
+          spec={withSketch(
+            buildWonValueKpiSpec(kpis.wonValue, kpis.lostValue),
+            sketch
+          )}
         />
-        <KpiCard
-          label="Win rate"
-          value={formatPercent(kpis.winRate)}
-          hint={`${formatNumber(wonCount)} won · ${formatNumber(lostCount)} lost`}
-          icon={TargetIcon}
-          accent={AMBER}
+        <KpiTile
+          spec={withSketch(
+            buildWinRateKpiSpec(kpis.winRate, wonCount, lostCount),
+            sketch
+          )}
         />
       </div>
 

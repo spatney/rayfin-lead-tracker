@@ -46,6 +46,93 @@ export function withSketch(spec: ChartSpec, sketch: boolean): ChartSpec {
   return { ...spec, sketch };
 }
 
+/**
+ * KPI scorecard tiles rendered by graphein's `kpi` visual. Left-aligned to match
+ * the dashboard and enriched with a sparkline or comparison row; each is meant to
+ * sit inside a rounded card container (which supplies the border/shadow chrome).
+ */
+
+/** Total leads, with a sparkline of new leads created per month. */
+export function buildTotalLeadsKpiSpec(
+  totalLeads: number,
+  overTime: OverTimePoint[]
+): ChartSpec {
+  return {
+    type: 'kpi',
+    theme: chartTheme,
+    data: overTime.map((p) => ({ month: p.label, leads: p.leads })),
+    value: totalLeads,
+    format: ',d',
+    label: 'Total leads',
+    labelPosition: 'above',
+    align: 'start',
+    sparkline: { field: 'leads', markers: true },
+    description: 'Total leads with the trend of new leads created per month.',
+  };
+}
+
+/** Open-pipeline value, with a sparkline of deal value created per month. */
+export function buildPipelineValueKpiSpec(
+  pipelineValue: number,
+  overTime: OverTimePoint[]
+): ChartSpec {
+  return {
+    type: 'kpi',
+    theme: chartTheme,
+    data: overTime.map((p) => ({ month: p.label, value: p.value })),
+    value: pipelineValue,
+    format: '$.2s',
+    label: 'Pipeline value',
+    labelPosition: 'above',
+    align: 'start',
+    sparkline: { field: 'value', markers: true },
+    description: 'Open pipeline value with the trend of deal value created per month.',
+  };
+}
+
+/** Won value, compared against lost value. */
+export function buildWonValueKpiSpec(
+  wonValue: number,
+  lostValue: number
+): ChartSpec {
+  const delta =
+    lostValue > 0 ? (wonValue - lostValue) / lostValue : wonValue > 0 ? 1 : 0;
+  return {
+    type: 'kpi',
+    theme: chartTheme,
+    value: wonValue,
+    format: '$.2s',
+    label: 'Won value',
+    labelPosition: 'above',
+    align: 'start',
+    comparisons: [
+      { label: 'vs lost', delta, amount: wonValue - lostValue, amountFormat: '$.2s' },
+    ],
+    description: 'Total won value compared with lost value.',
+  };
+}
+
+/** Win rate, with the net win margin across decided deals. */
+export function buildWinRateKpiSpec(
+  winRate: number,
+  wonCount: number,
+  lostCount: number
+): ChartSpec {
+  const decided = wonCount + lostCount;
+  const delta = decided > 0 ? (wonCount - lostCount) / decided : 0;
+  return {
+    type: 'kpi',
+    theme: chartTheme,
+    value: winRate,
+    format: '.0%',
+    label: 'Win rate',
+    labelPosition: 'above',
+    align: 'start',
+    comparisons: [{ label: 'Decided', delta, amount: decided, amountFormat: ',d' }],
+    description: 'Win rate across decided deals, with the net win margin.',
+  };
+}
+
 function themed(palette: string[]): ThemeInput {
   return { base: 'light', color: { ...baseColors, palette } };
 }
