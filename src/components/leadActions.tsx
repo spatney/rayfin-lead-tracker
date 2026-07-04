@@ -2,7 +2,8 @@ import { useState } from 'react';
 
 import { SparklesIcon, TrashIcon } from '@/components/icons';
 import { useLeads } from '@/hooks/LeadsContext';
-import { deleteAllLeads, generateSampleLeads } from '@/services/leads';
+import { useDeleteAllLeads } from '@/hooks/useDeleteAllLeads';
+import { generateSampleLeads } from '@/services/leads';
 
 function Spinner({ className = 'h-4 w-4' }: { className?: string }) {
   return (
@@ -58,29 +59,7 @@ export function GenerateLeadsButton({
 }
 
 export function ClearLeadsButton() {
-  const { refresh } = useLeads();
-  const [busy, setBusy] = useState(false);
-
-  const run = async () => {
-    if (busy) return;
-    if (
-      !window.confirm(
-        'Delete all leads? This permanently removes every lead in your workspace.'
-      )
-    ) {
-      return;
-    }
-    setBusy(true);
-    try {
-      await deleteAllLeads();
-      await refresh();
-    } catch (err) {
-      console.error('Failed to clear leads:', err);
-      window.alert('Sorry — clearing leads failed. Please try again.');
-    } finally {
-      setBusy(false);
-    }
-  };
+  const { run, busy } = useDeleteAllLeads();
 
   return (
     <button

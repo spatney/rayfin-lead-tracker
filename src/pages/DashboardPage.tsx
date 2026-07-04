@@ -1,15 +1,18 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Chart, createSelectionStore, useSelection } from '@graphein/react';
 import type { ChartSpec } from 'graphein';
 
-import { ClearLeadsButton, GenerateLeadsButton } from '@/components/leadActions';
+import { GenerateLeadsButton } from '@/components/leadActions';
 import {
   FunnelIcon,
   LayersIcon,
+  MoreVerticalIcon,
   PenIcon,
+  TrashIcon,
   XIcon,
 } from '@/components/icons';
+import { useDeleteAllLeads } from '@/hooks/useDeleteAllLeads';
 import { ChartCard, PageHeader } from '@/components/ui';
 import { useLeads } from '@/hooks/LeadsContext';
 import {
@@ -87,28 +90,92 @@ function EmptyDashboard() {
   );
 }
 
-function SketchToggle({
-  value,
-  onChange,
+function HeaderMenu({
+  sketch,
+  onSketchChange,
 }: {
-  value: boolean;
-  onChange: (value: boolean) => void;
+  sketch: boolean;
+  onSketchChange: (value: boolean) => void;
 }) {
+  const [open, setOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const { run: deleteAllLeads, busy: deleting } = useDeleteAllLeads();
+
+  useEffect(() => {
+    if (!open) return;
+    const onPointerDown = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setOpen(false);
+      }
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setOpen(false);
+    };
+    document.addEventListener('mousedown', onPointerDown);
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', onPointerDown);
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, [open]);
+
   return (
-    <button
-      type="button"
-      onClick={() => onChange(!value)}
-      aria-pressed={value}
-      title="Toggle hand-drawn sketch style"
-      className={`inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-colors ${
-        value
-          ? 'bg-indigo-600 text-white shadow-sm shadow-indigo-600/30 hover:bg-indigo-700'
-          : 'border border-slate-200 bg-white text-slate-700 shadow-sm hover:bg-slate-50'
-      }`}
-    >
-      <PenIcon className="h-4 w-4" />
-      {value ? 'Sketch: On' : 'Sketch: Off'}
-    </button>
+    <div ref={menuRef} className="relative">
+      <button
+        type="button"
+        onClick={() => setOpen((prev) => !prev)}
+        aria-haspopup="menu"
+        aria-expanded={open}
+        title="More actions"
+        className={`inline-flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600 shadow-sm transition-colors hover:bg-slate-50 ${
+          open ? 'bg-slate-50 text-slate-900' : ''
+        }`}
+      >
+        <MoreVerticalIcon className="h-5 w-5" />
+      </button>
+
+      {open && (
+        <div
+          role="menu"
+          className="absolute right-0 z-40 mt-2 w-64 overflow-hidden rounded-xl border border-slate-200 bg-white p-1.5 shadow-lg shadow-slate-300/50"
+        >
+          <button
+            type="button"
+            role="menuitemcheckbox"
+            aria-checked={sketch}
+            onClick={() => onSketchChange(!sketch)}
+            title="Toggle hand-drawn sketch style"
+            className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50"
+          >
+            <PenIcon className="h-4 w-4 text-slate-400" />
+            <span className="flex-1">Sketch style</span>
+            <span
+              className={`inline-flex items-center rounded-full px-2 py-0.5 text-xs font-semibold ${
+                sketch ? 'bg-indigo-600 text-white' : 'bg-slate-100 text-slate-500'
+              }`}
+            >
+              {sketch ? 'On' : 'Off'}
+            </span>
+          </button>
+
+          <div className="my-1 h-px bg-slate-100" />
+
+          <button
+            type="button"
+            role="menuitem"
+            disabled={deleting}
+            onClick={() => {
+              setOpen(false);
+              void deleteAllLeads();
+            }}
+            className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm font-medium text-rose-600 transition-colors hover:bg-rose-50 disabled:cursor-not-allowed disabled:opacity-70"
+          >
+            <TrashIcon className="h-4 w-4" />
+            <span className="flex-1">Delete all leads</span>
+          </button>
+        </div>
+      )}
+    </div>
   );
 }
 
@@ -178,15 +245,12 @@ export function DashboardPage() {
       <PageHeader
         title="Dashboard"
         subtitle="Your sales pipeline at a glance"
-        actions={
-          <>
-            <SketchToggle value={sketch} onChange={setSketch} />
-            <ClearLeadsButton />
-          </>
-        }
+        actions={<HeaderMenu sketch={sketch} onSketchChange={setSketch} />}
       />
 
-      {sourceFilter.length > 0 && (
+      {/* Persistent filter toolbar: this row always occupies the same space, so
+          applying or clearing a source filter never shifts the dashboard below. */}
+      {sourceFilter.length > 0 ? (
         <div className="mb-5 flex flex-wrap items-center gap-2 rounded-2xl border border-indigo-100 bg-indigo-50/70 px-4 py-3">
           <FunnelIcon className="h-4 w-4 text-indigo-600" />
           <span className="text-sm font-medium text-indigo-900">
@@ -210,6 +274,16 @@ export function DashboardPage() {
             <XIcon className="h-3.5 w-3.5" />
             Clear filter
           </button>
+        </div>
+      ) : (
+        <div className="mb-5 flex flex-wrap items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3">
+          <FunnelIcon className="h-4 w-4 text-slate-400" />
+          <span className="text-sm font-medium text-slate-500">
+            Showing all sources
+          </span>
+          <span className="text-sm text-slate-400">
+            — click a bar in “Leads by source” to filter the dashboard
+          </span>
         </div>
       )}
 
