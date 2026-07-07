@@ -213,15 +213,15 @@ export function buildDealsOverTimeSpec(points: OverTimePoint[]): ChartSpec {
   };
 }
 
-/** Horizontal-reading bar of open pipeline value by owner (dashboard leaderboard). */
+/** Vertical bar of open pipeline value by owner (dashboard leaderboard). */
 export function buildOwnerPipelineSpec(owners: OwnerCount[]): ChartSpec {
   return {
     type: 'bar',
     theme: chartTheme,
     data: owners.map((o) => ({ owner: o.ownerName, value: o.pipelineValue })),
     encoding: {
-      x: { field: 'value', title: 'Open pipeline', format: '$.2s' },
-      y: { field: 'owner', title: 'Owner' },
+      x: { field: 'owner', title: 'Owner' },
+      y: { field: 'value', title: 'Open pipeline', format: '$.2s' },
     },
     cornerRadius: 8,
     legend: false,
