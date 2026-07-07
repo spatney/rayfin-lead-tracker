@@ -4,6 +4,7 @@ import {
   uuid,
   text,
   int,
+  decimal,
   date,
   set,
   one,
@@ -26,7 +27,7 @@ export class Account {
   @text({ max: 60 }) city!: string;
   @text({ max: 60 }) country!: string;
   @int() employeeCount!: number;
-  @int() annualRevenue!: number;
+  @decimal() annualRevenue!: number;
   @set('Strategic', 'Enterprise', 'Mid-Market', 'SMB')
   tier!: 'Strategic' | 'Enterprise' | 'Mid-Market' | 'SMB';
 

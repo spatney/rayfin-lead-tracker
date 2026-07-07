@@ -422,6 +422,11 @@ export async function deleteDeal(id: string): Promise<void> {
 async function insertGraph(options?: SampleOptions, onProgress?: ProgressFn): Promise<number> {
   const client = getRayfinClient();
   const userId = currentUserId();
+
+  // Start from a clean slate so re-running — e.g. retrying after a failed
+  // attempt — never duplicates roots or leaves orphaned rows behind.
+  await deleteGraph();
+
   const graph = buildSampleGraph(options);
   const total = totalRecords(graph);
 
