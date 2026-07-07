@@ -89,16 +89,16 @@ function EmptyMetrics() {
         No operations captured yet
       </h2>
       <p className="mx-auto mt-2 max-w-md text-sm text-slate-500">
-        Every data operation is timed automatically. Generate or clear sample
-        leads, load the dashboard, or edit a lead, and its latency and throughput
+        Every data operation is timed automatically. Generate or reset sample
+        data, load the dashboard, or edit a deal, and its latency and throughput
         will appear here.
       </p>
       <div className="mt-6">
         <Link
-          to="/leads"
+          to="/deals"
           className="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm shadow-indigo-600/30 transition-colors hover:bg-indigo-700"
         >
-          Go to Leads
+          Go to Deals
         </Link>
       </div>
     </div>

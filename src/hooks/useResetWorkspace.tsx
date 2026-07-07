@@ -7,22 +7,22 @@ import {
   type ReactNode,
 } from 'react';
 
-import { useLeads } from '@/hooks/LeadsContext';
-import { deleteAllLeads } from '@/services/leads';
+import { useCrm } from '@/hooks/CrmContext';
+import { resetWorkspace } from '@/services/crm';
 
-type DeleteProgress = {
+type ResetProgress = {
   done: number;
   total: number;
   percent: number;
 };
 
-type DeleteAllLeadsContextValue = {
+type ResetWorkspaceContextValue = {
   run: () => Promise<void>;
   busy: boolean;
-  progress: DeleteProgress;
+  progress: ResetProgress;
 };
 
-const DeleteAllLeadsContext = createContext<DeleteAllLeadsContextValue | undefined>(
+const ResetWorkspaceContext = createContext<ResetWorkspaceContextValue | undefined>(
   undefined
 );
 
@@ -30,10 +30,10 @@ function formatCount(value: number): string {
   return value.toLocaleString();
 }
 
-export function DeleteAllLeadsProvider({ children }: { children: ReactNode }) {
-  const { refresh } = useLeads();
+export function ResetWorkspaceProvider({ children }: { children: ReactNode }) {
+  const { refresh } = useCrm();
   const [busy, setBusy] = useState(false);
-  const [progress, setProgress] = useState<DeleteProgress>({
+  const [progress, setProgress] = useState<ResetProgress>({
     done: 0,
     total: 0,
     percent: 0,
@@ -43,7 +43,7 @@ export function DeleteAllLeadsProvider({ children }: { children: ReactNode }) {
     if (busy) return;
     if (
       !window.confirm(
-        'Delete all leads? This permanently removes every lead in your workspace.'
+        'Reset the workspace? This permanently removes every account, contact, deal, activity and rep.'
       )
     ) {
       return;
@@ -53,7 +53,7 @@ export function DeleteAllLeadsProvider({ children }: { children: ReactNode }) {
     setProgress({ done: 0, total: 0, percent: 0 });
 
     try {
-      await deleteAllLeads((done, total) => {
+      await resetWorkspace((done, total) => {
         setProgress({
           done,
           total,
@@ -62,8 +62,8 @@ export function DeleteAllLeadsProvider({ children }: { children: ReactNode }) {
       });
       await refresh();
     } catch (err) {
-      console.error('Failed to clear leads:', err);
-      window.alert('Sorry — clearing leads failed. Please try again.');
+      console.error('Failed to reset workspace:', err);
+      window.alert('Sorry — resetting the workspace failed. Please try again.');
     } finally {
       setBusy(false);
       setProgress({ done: 0, total: 0, percent: 0 });
@@ -76,30 +76,30 @@ export function DeleteAllLeadsProvider({ children }: { children: ReactNode }) {
   );
 
   return (
-    <DeleteAllLeadsContext.Provider value={value}>
+    <ResetWorkspaceContext.Provider value={value}>
       {children}
-    </DeleteAllLeadsContext.Provider>
+    </ResetWorkspaceContext.Provider>
   );
 }
 
-/** Delete-all-leads action with a confirm prompt and busy state. */
-export function useDeleteAllLeads() {
-  const context = useContext(DeleteAllLeadsContext);
+/** Reset-workspace action with a confirm prompt and busy state. */
+export function useResetWorkspace() {
+  const context = useContext(ResetWorkspaceContext);
   if (context === undefined) {
-    throw new Error('useDeleteAllLeads must be used within a DeleteAllLeadsProvider');
+    throw new Error('useResetWorkspace must be used within a ResetWorkspaceProvider');
   }
   return context;
 }
 
-export function DeleteAllLeadsOverlay() {
-  const { busy, progress } = useDeleteAllLeads();
+export function ResetWorkspaceOverlay() {
+  const { busy, progress } = useResetWorkspace();
 
   if (!busy) return null;
 
   const progressLabel =
     progress.total > 0
-      ? `${formatCount(progress.done)} of ${formatCount(progress.total)} leads removed`
-      : 'Preparing deletion…';
+      ? `${formatCount(progress.done)} of ${formatCount(progress.total)} records removed`
+      : 'Preparing reset…';
 
   return (
     <div
@@ -127,7 +127,7 @@ export function DeleteAllLeadsOverlay() {
 
           <div className="min-w-0 flex-1">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
-              Deleting leads
+              Resetting workspace
             </p>
             <h2 className="mt-1 text-2xl font-bold tracking-tight">
               Cleaning up your workspace

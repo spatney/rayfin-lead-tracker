@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Chart, createSelectionStore, useSelection } from '@graphein/react';
 import type { ChartSpec } from 'graphein';
 
-import { GenerateLeadsButton } from '@/components/leadActions';
+import { GenerateDataButton } from '@/components/dataActions';
 import {
   FunnelIcon,
   LayersIcon,
@@ -12,25 +12,31 @@ import {
   TrashIcon,
   XIcon,
 } from '@/components/icons';
-import { useDeleteAllLeads } from '@/hooks/useDeleteAllLeads';
+import { useResetWorkspace } from '@/hooks/useResetWorkspace';
 import { ChartCard, PageHeader } from '@/components/ui';
-import { useLeads } from '@/hooks/LeadsContext';
+import { useCrm } from '@/hooks/CrmContext';
+import { activityMeta } from '@/services/crmTypes';
+import type { ActivityItem } from '@/services/crmTypes';
+import { relativeTime } from '@/services/format';
 import {
   computeKpis,
-  leadsByStatus,
-  leadsBySource,
-  leadsOverTime,
+  dealsByOwner,
+  dealsByStage,
+  dealsBySource,
+  dealsOverTime,
   pipelineByStage,
-  topLeads,
+  recentActivities,
+  topDeals,
 } from '@/services/analytics';
 import {
-  buildLeadsOverTimeSpec,
+  buildDealsOverTimeSpec,
+  buildOwnerPipelineSpec,
   buildPipelineFunnelSpec,
   buildPipelineValueKpiSpec,
   buildSourceBarSpec,
-  buildStatusDonutSpec,
-  buildTopLeadsTableSpec,
-  buildTotalLeadsKpiSpec,
+  buildStageDonutSpec,
+  buildTopDealsTableSpec,
+  buildTotalDealsKpiSpec,
   buildWinRateKpiSpec,
   buildWonValueKpiSpec,
   withSketch,
@@ -73,16 +79,16 @@ function EmptyDashboard() {
           Bring your pipeline to life
         </h2>
         <p className="mx-auto mt-2 max-w-sm text-sm text-slate-500">
-          There are no leads yet. Generate a realistic sample dataset to explore
-          the dashboard, or add leads by hand on the Leads page.
+          There's no data yet. Generate a realistic sample workspace — accounts,
+          contacts, deals, reps and activity — to explore the dashboard.
         </p>
         <div className="mt-6 flex flex-col items-center gap-3">
-          <GenerateLeadsButton count={1000} />
+          <GenerateDataButton />
           <Link
-            to="/leads"
+            to="/deals"
             className="text-sm font-medium text-slate-500 underline-offset-4 hover:text-indigo-600 hover:underline"
           >
-            Add a lead manually
+            Add a deal manually
           </Link>
         </div>
       </div>
@@ -99,7 +105,7 @@ function HeaderMenu({
 }) {
   const [open, setOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
-  const { run: deleteAllLeads, busy: deleting, progress } = useDeleteAllLeads();
+  const { run: resetWorkspace, busy: resetting, progress } = useResetWorkspace();
 
   useEffect(() => {
     if (!open) return;
@@ -163,14 +169,14 @@ function HeaderMenu({
           <button
             type="button"
             role="menuitem"
-            disabled={deleting}
+            disabled={resetting}
             onClick={() => {
               setOpen(false);
-              void deleteAllLeads();
+              void resetWorkspace();
             }}
             className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm font-medium text-rose-600 transition-colors hover:bg-rose-50 disabled:cursor-not-allowed disabled:opacity-70"
           >
-            {deleting ? (
+            {resetting ? (
               <span className="flex h-4 w-4 items-center justify-center">
                 <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-current border-t-transparent" />
               </span>
@@ -178,7 +184,7 @@ function HeaderMenu({
               <TrashIcon className="h-4 w-4" />
             )}
             <span className="flex-1">
-              {deleting ? `Deleting… ${progress.percent}%` : 'Delete all leads'}
+              {resetting ? `Resetting… ${progress.percent}%` : 'Reset workspace'}
             </span>
           </button>
         </div>
@@ -187,8 +193,46 @@ function HeaderMenu({
   );
 }
 
+function RecentActivityList({ activities }: { activities: ActivityItem[] }) {
+  if (activities.length === 0) {
+    return (
+      <div className="flex h-full items-center justify-center text-sm text-slate-400">
+        No activity logged yet.
+      </div>
+    );
+  }
+  return (
+    <ul className="divide-y divide-slate-100">
+      {activities.map((activity) => {
+        const meta = activityMeta(activity.type);
+        return (
+          <li key={activity.id} className="flex items-start gap-3 py-2.5">
+            <span
+              className={`mt-0.5 inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-xs font-medium ${meta.bg} ${meta.text}`}
+            >
+              <span className={`h-1.5 w-1.5 rounded-full ${meta.dot}`} />
+              {activity.type}
+            </span>
+            <div className="min-w-0 flex-1">
+              <p className="truncate text-sm font-medium text-slate-800">
+                {activity.subject}
+              </p>
+              <p className="truncate text-xs text-slate-500">
+                {activity.dealName} · {activity.ownerName}
+              </p>
+            </div>
+            <span className="shrink-0 text-xs text-slate-400">
+              {relativeTime(activity.occurredAt)}
+            </span>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
 export function DashboardPage() {
-  const { leads, loading } = useLeads();
+  const { deals, activities, loading } = useCrm();
   const [sketch, setSketch] = useState(false);
 
   // Shared selection bus: the bar chart publishes the clicked source here, and
@@ -202,33 +246,36 @@ export function DashboardPage() {
   }, [sourceSel]);
 
   // The bar chart always reflects every source, so all bars stay clickable.
-  const bySource = useMemo(() => leadsBySource(leads), [leads]);
+  const bySource = useMemo(() => dealsBySource(deals), [deals]);
   const barSpec = useMemo(
     () => withSketch(buildSourceBarSpec(bySource), sketch),
     [bySource, sketch]
   );
 
   // Every other visual + the KPI tiles respect the clicked-source filter.
-  const filteredLeads = useMemo(
+  const filteredDeals = useMemo(
     () =>
       sourceFilter.length > 0
-        ? leads.filter((lead) => sourceFilter.includes(lead.source))
-        : leads,
-    [leads, sourceFilter]
+        ? deals.filter((deal) => sourceFilter.includes(deal.source))
+        : deals,
+    [deals, sourceFilter]
   );
 
   const data = useMemo(() => {
-    const kpis = computeKpis(filteredLeads);
-    const statuses = leadsByStatus(filteredLeads);
-    const stages = pipelineByStage(filteredLeads);
-    const overTime = leadsOverTime(filteredLeads);
-    const top = topLeads(filteredLeads, 8);
-    const wonCount = statuses.find((s) => s.status === 'Won')?.count ?? 0;
-    const lostCount = statuses.find((s) => s.status === 'Lost')?.count ?? 0;
-    return { kpis, statuses, stages, overTime, top, wonCount, lostCount };
-  }, [filteredLeads]);
+    const kpis = computeKpis(filteredDeals);
+    const stageCounts = dealsByStage(filteredDeals);
+    const stages = pipelineByStage(filteredDeals);
+    const overTime = dealsOverTime(filteredDeals);
+    const top = topDeals(filteredDeals, 8);
+    const owners = dealsByOwner(filteredDeals);
+    const wonCount = stageCounts.find((s) => s.stage === 'Won')?.count ?? 0;
+    const lostCount = stageCounts.find((s) => s.stage === 'Lost')?.count ?? 0;
+    return { kpis, stageCounts, stages, overTime, top, owners, wonCount, lostCount };
+  }, [filteredDeals]);
 
-  if (loading && leads.length === 0) {
+  const recent = useMemo(() => recentActivities(activities, 7), [activities]);
+
+  if (loading && deals.length === 0) {
     return (
       <>
         <PageHeader title="Dashboard" subtitle="Your sales pipeline at a glance" />
@@ -237,7 +284,7 @@ export function DashboardPage() {
     );
   }
 
-  if (leads.length === 0) {
+  if (deals.length === 0) {
     return (
       <>
         <PageHeader title="Dashboard" subtitle="Your sales pipeline at a glance" />
@@ -246,7 +293,7 @@ export function DashboardPage() {
     );
   }
 
-  const { kpis, statuses, stages, overTime, top, wonCount, lostCount } = data;
+  const { kpis, stageCounts, stages, overTime, top, owners, wonCount, lostCount } = data;
 
   return (
     <>
@@ -294,7 +341,7 @@ export function DashboardPage() {
             </div>
           ) : (
             <span className="text-sm text-slate-400">
-              — click a bar in “Leads by source” to filter the dashboard
+              — click a bar in “Deals by source” to filter the dashboard
             </span>
           )}
         </div>
@@ -324,7 +371,7 @@ export function DashboardPage() {
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
         <KpiTile
           spec={withSketch(
-            buildTotalLeadsKpiSpec(kpis.totalLeads, overTime),
+            buildTotalDealsKpiSpec(kpis.totalDeals, overTime),
             sketch
           )}
         />
@@ -350,22 +397,22 @@ export function DashboardPage() {
 
       <div className="mt-5 grid grid-cols-1 gap-5 lg:grid-cols-12">
         <ChartCard
-          title="New leads over time"
-          subtitle="Leads created per month, trailing 12 months"
+          title="New deals over time"
+          subtitle="Deals created per month, trailing 12 months"
           className="lg:col-span-8"
         >
           <div className="h-72">
-            <Chart spec={withSketch(buildLeadsOverTimeSpec(overTime), sketch)} />
+            <Chart spec={withSketch(buildDealsOverTimeSpec(overTime), sketch)} />
           </div>
         </ChartCard>
 
         <ChartCard
-          title="Leads by status"
+          title="Deals by stage"
           subtitle="Distribution across the pipeline"
           className="lg:col-span-4"
         >
           <div className="h-72">
-            <Chart spec={withSketch(buildStatusDonutSpec(statuses), sketch)} />
+            <Chart spec={withSketch(buildStageDonutSpec(stageCounts), sketch)} />
           </div>
         </ChartCard>
 
@@ -380,7 +427,7 @@ export function DashboardPage() {
         </ChartCard>
 
         <ChartCard
-          title="Leads by source"
+          title="Deals by source"
           subtitle="Click a bar to filter the dashboard"
           className="lg:col-span-7"
         >
@@ -395,7 +442,27 @@ export function DashboardPage() {
           className="lg:col-span-12"
         >
           <div className="h-96">
-            <Chart spec={withSketch(buildTopLeadsTableSpec(top), sketch)} />
+            <Chart spec={withSketch(buildTopDealsTableSpec(top), sketch)} />
+          </div>
+        </ChartCard>
+
+        <ChartCard
+          title="Pipeline by owner"
+          subtitle="Open pipeline value per account executive"
+          className="lg:col-span-7"
+        >
+          <div className="h-80">
+            <Chart spec={withSketch(buildOwnerPipelineSpec(owners), sketch)} />
+          </div>
+        </ChartCard>
+
+        <ChartCard
+          title="Recent activity"
+          subtitle="Latest calls, emails and meetings"
+          className="lg:col-span-5"
+        >
+          <div className="h-80 overflow-auto pr-1">
+            <RecentActivityList activities={recent} />
           </div>
         </ChartCard>
       </div>

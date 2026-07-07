@@ -2,17 +2,21 @@ import { NavLink, Outlet } from 'react-router-dom';
 
 import {
   ActivityIcon,
+  BriefcaseIcon,
+  BuildingIcon,
   GridIcon,
   LogoMark,
   SignOutIcon,
   UsersIcon,
 } from '@/components/icons';
 import { useAuth } from '@/hooks/AuthContext';
-import { DeleteAllLeadsOverlay } from '@/hooks/useDeleteAllLeads';
+import { ResetWorkspaceOverlay } from '@/hooks/useResetWorkspace';
 
 const NAV = [
   { to: '/', label: 'Dashboard', Icon: GridIcon, end: true },
-  { to: '/leads', label: 'Leads', Icon: UsersIcon, end: false },
+  { to: '/deals', label: 'Deals', Icon: BriefcaseIcon, end: false },
+  { to: '/accounts', label: 'Accounts', Icon: BuildingIcon, end: false },
+  { to: '/team', label: 'Team', Icon: UsersIcon, end: false },
   { to: '/metrics', label: 'Performance', Icon: ActivityIcon, end: false },
 ];
 
@@ -41,7 +45,7 @@ export function AppLayout() {
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
-      <DeleteAllLeadsOverlay />
+      <ResetWorkspaceOverlay />
       <aside className="fixed inset-y-0 left-0 z-30 hidden w-64 flex-col bg-slate-900 lg:flex">
         <div className="px-5 py-6">
           <Brand />

@@ -204,3 +204,66 @@ export function ClockIcon(props: IconProps) {
     </Base>
   );
 }
+
+export function BuildingIcon(props: IconProps) {
+  return (
+    <Base {...props}>
+      <path d="M4 20V6a1.5 1.5 0 0 1 1.5-1.5H12A1.5 1.5 0 0 1 13.5 6v14" />
+      <path d="M13.5 9H18a1.5 1.5 0 0 1 1.5 1.5V20" />
+      <path d="M3 20h18M7 8h3M7 11.5h3M7 15h3M16 12.5h1M16 16h1" />
+    </Base>
+  );
+}
+
+export function TagIcon(props: IconProps) {
+  return (
+    <Base {...props}>
+      <path d="M4 4h6.2a2 2 0 0 1 1.4.6l7 7a2 2 0 0 1 0 2.8l-5.8 5.8a2 2 0 0 1-2.8 0l-7-7A2 2 0 0 1 3.4 12V5a1 1 0 0 1 1-1Z" />
+      <circle cx="8" cy="8" r="1.3" fill="currentColor" stroke="none" />
+    </Base>
+  );
+}
+
+export function PhoneIcon(props: IconProps) {
+  return (
+    <Base {...props}>
+      <path d="M6.5 4h3l1.5 4-2 1.5a11 11 0 0 0 5 5l1.5-2 4 1.5v3a1.5 1.5 0 0 1-1.6 1.5A15.5 15.5 0 0 1 5 6.6 1.5 1.5 0 0 1 6.5 4Z" />
+    </Base>
+  );
+}
+
+export function MailIcon(props: IconProps) {
+  return (
+    <Base {...props}>
+      <rect x="3.5" y="5.5" width="17" height="13" rx="2" />
+      <path d="M4 7l8 5.5L20 7" />
+    </Base>
+  );
+}
+
+export function BriefcaseIcon(props: IconProps) {
+  return (
+    <Base {...props}>
+      <rect x="3.5" y="7.5" width="17" height="12" rx="2" />
+      <path d="M9 7.5V6a1.5 1.5 0 0 1 1.5-1.5h3A1.5 1.5 0 0 1 15 6v1.5M3.5 12.5h17" />
+    </Base>
+  );
+}
+
+export function MapPinIcon(props: IconProps) {
+  return (
+    <Base {...props}>
+      <path d="M12 21c4.5-4.2 6.5-7.4 6.5-10.5a6.5 6.5 0 1 0-13 0C5.5 13.6 7.5 16.8 12 21Z" />
+      <circle cx="12" cy="10.5" r="2.4" />
+    </Base>
+  );
+}
+
+export function GlobeIcon(props: IconProps) {
+  return (
+    <Base {...props}>
+      <circle cx="12" cy="12" r="8.5" />
+      <path d="M3.5 12h17M12 3.5c2.5 2.4 3.8 5.4 3.8 8.5S14.5 18.1 12 20.5c-2.5-2.4-3.8-5.4-3.8-8.5S9.5 5.9 12 3.5Z" />
+    </Base>
+  );
+}

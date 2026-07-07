@@ -3,10 +3,12 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { AppLayout } from '@/components/AppLayout';
 import { AuthPage } from '@/components/AuthPage';
 import { useAuth } from '@/hooks/AuthContext';
-import { LeadsProvider } from '@/hooks/LeadsContext';
-import { DeleteAllLeadsProvider } from '@/hooks/useDeleteAllLeads';
+import { CrmProvider } from '@/hooks/CrmContext';
+import { ResetWorkspaceProvider } from '@/hooks/useResetWorkspace';
 import { DashboardPage } from '@/pages/DashboardPage';
-import { LeadsPage } from '@/pages/LeadsPage';
+import { DealsPage } from '@/pages/DealsPage';
+import { AccountsPage } from '@/pages/AccountsPage';
+import { TeamPage } from '@/pages/TeamPage';
 import { MetricsPage } from '@/pages/MetricsPage';
 
 function AuthGuard({
@@ -48,16 +50,18 @@ function App() {
         <Route
           element={
             <AuthGuard requireAuth={true}>
-              <LeadsProvider>
-                <DeleteAllLeadsProvider>
+              <CrmProvider>
+                <ResetWorkspaceProvider>
                   <AppLayout />
-                </DeleteAllLeadsProvider>
-              </LeadsProvider>
+                </ResetWorkspaceProvider>
+              </CrmProvider>
             </AuthGuard>
           }
         >
           <Route path="/" element={<DashboardPage />} />
-          <Route path="/leads" element={<LeadsPage />} />
+          <Route path="/deals" element={<DealsPage />} />
+          <Route path="/accounts" element={<AccountsPage />} />
+          <Route path="/team" element={<TeamPage />} />
           <Route path="/metrics" element={<MetricsPage />} />
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />

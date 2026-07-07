@@ -1,16 +1,20 @@
 import {
-  LEAD_SOURCES,
-  LEAD_STATUSES,
-  LEAD_INDUSTRIES,
+  DEAL_SOURCES,
+  DEAL_STAGES,
+  INDUSTRIES,
   PIPELINE_STAGES,
   isOpen,
-  type LeadItem,
-} from './leadTypes';
+  type AccountItem,
+  type ActivityItem,
+  type DealItem,
+  type RepItem,
+} from './crmTypes';
 
 export interface Kpis {
-  totalLeads: number;
-  openLeads: number;
+  totalDeals: number;
+  openDeals: number;
   pipelineValue: number;
+  weightedPipeline: number;
   wonValue: number;
   lostValue: number;
   winRate: number;
@@ -18,8 +22,8 @@ export interface Kpis {
   newThisMonth: number;
 }
 
-export interface StatusCount {
-  status: string;
+export interface StageCount {
+  stage: string;
   count: number;
   value: number;
 }
@@ -34,17 +38,43 @@ export interface IndustryCount {
   count: number;
 }
 
-export interface StageCount {
-  stage: string;
-  count: number;
-  value: number;
-}
-
 export interface OverTimePoint {
   monthStart: string;
   label: string;
-  leads: number;
+  deals: number;
   value: number;
+}
+
+export interface OwnerCount {
+  ownerId: string;
+  ownerName: string;
+  count: number;
+  pipelineValue: number;
+  wonValue: number;
+}
+
+export interface RepPerformance {
+  rep: RepItem;
+  wonValue: number;
+  pipelineValue: number;
+  openCount: number;
+  wonCount: number;
+  attainment: number;
+}
+
+export interface AccountValue {
+  accountId: string;
+  accountName: string;
+  industry: string;
+  dealCount: number;
+  openValue: number;
+  wonValue: number;
+  totalValue: number;
+}
+
+export interface ActivityTypeCount {
+  type: string;
+  count: number;
 }
 
 function asDate(value: Date): Date {
@@ -56,9 +86,10 @@ function monthKey(d: Date): string {
   return `${d.getFullYear()}-${m}-01`;
 }
 
-export function computeKpis(leads: LeadItem[]): Kpis {
-  let openLeads = 0;
+export function computeKpis(deals: DealItem[]): Kpis {
+  let openDeals = 0;
   let pipelineValue = 0;
+  let weightedPipeline = 0;
   let wonValue = 0;
   let lostValue = 0;
   let won = 0;
@@ -70,21 +101,22 @@ export function computeKpis(leads: LeadItem[]): Kpis {
   const curYear = now.getFullYear();
   const curMonth = now.getMonth();
 
-  for (const lead of leads) {
-    scoreSum += lead.score;
-    if (isOpen(lead.status)) {
-      openLeads += 1;
-      pipelineValue += lead.value;
+  for (const deal of deals) {
+    scoreSum += deal.score;
+    if (isOpen(deal.stage)) {
+      openDeals += 1;
+      pipelineValue += deal.value;
+      weightedPipeline += (deal.value * deal.probability) / 100;
     }
-    if (lead.status === 'Won') {
+    if (deal.stage === 'Won') {
       won += 1;
-      wonValue += lead.value;
+      wonValue += deal.value;
     }
-    if (lead.status === 'Lost') {
+    if (deal.stage === 'Lost') {
       lost += 1;
-      lostValue += lead.value;
+      lostValue += deal.value;
     }
-    const d = asDate(lead.createdAt);
+    const d = asDate(deal.createdAt);
     if (d.getFullYear() === curYear && d.getMonth() === curMonth) {
       newThisMonth += 1;
     }
@@ -92,49 +124,50 @@ export function computeKpis(leads: LeadItem[]): Kpis {
 
   const decided = won + lost;
   return {
-    totalLeads: leads.length,
-    openLeads,
+    totalDeals: deals.length,
+    openDeals,
     pipelineValue,
+    weightedPipeline,
     wonValue,
     lostValue,
     winRate: decided ? won / decided : 0,
-    avgScore: leads.length ? Math.round(scoreSum / leads.length) : 0,
+    avgScore: deals.length ? Math.round(scoreSum / deals.length) : 0,
     newThisMonth,
   };
 }
 
-export function leadsByStatus(leads: LeadItem[]): StatusCount[] {
-  const map = new Map<string, StatusCount>();
-  for (const status of LEAD_STATUSES) {
-    map.set(status, { status, count: 0, value: 0 });
+export function dealsByStage(deals: DealItem[]): StageCount[] {
+  const map = new Map<string, StageCount>();
+  for (const stage of DEAL_STAGES) {
+    map.set(stage, { stage, count: 0, value: 0 });
   }
-  for (const lead of leads) {
-    const entry = map.get(lead.status) ?? { status: lead.status, count: 0, value: 0 };
+  for (const deal of deals) {
+    const entry = map.get(deal.stage) ?? { stage: deal.stage, count: 0, value: 0 };
     entry.count += 1;
-    entry.value += lead.value;
-    map.set(lead.status, entry);
+    entry.value += deal.value;
+    map.set(deal.stage, entry);
   }
   return [...map.values()].filter((e) => e.count > 0);
 }
 
 /**
- * Cumulative pipeline funnel. Each stage counts every lead that has reached at
- * least that stage, so "New" equals the full lead count and later stages show
+ * Cumulative pipeline funnel. Each stage counts every deal that has reached at
+ * least that stage, so "New" equals the full deal count and later stages show
  * how many progressed that far — the funnel reads as a stage-to-stage
- * conversion rate. Leads still sitting at New, and lost leads (whose drop-off
- * stage we don't track), count only at the entry stage.
+ * conversion rate. Lost deals (whose drop-off stage we don't track) count only
+ * at the entry stage.
  */
-export function pipelineByStage(leads: LeadItem[]): StageCount[] {
+export function pipelineByStage(deals: DealItem[]): StageCount[] {
   const rankOf = new Map<string, number>();
   PIPELINE_STAGES.forEach((stage, i) => rankOf.set(stage, i));
 
   const counts = PIPELINE_STAGES.map(() => ({ count: 0, value: 0 }));
 
-  for (const lead of leads) {
-    const reached = rankOf.get(lead.status) ?? 0;
+  for (const deal of deals) {
+    const reached = rankOf.get(deal.stage) ?? 0;
     for (let i = 0; i <= reached; i++) {
       counts[i].count += 1;
-      counts[i].value += lead.value;
+      counts[i].value += deal.value;
     }
   }
 
@@ -145,11 +178,11 @@ export function pipelineByStage(leads: LeadItem[]): StageCount[] {
   }));
 }
 
-export function leadsBySource(leads: LeadItem[]): SourceCount[] {
+export function dealsBySource(deals: DealItem[]): SourceCount[] {
   const map = new Map<string, number>();
-  for (const source of LEAD_SOURCES) map.set(source, 0);
-  for (const lead of leads) {
-    map.set(lead.source, (map.get(lead.source) ?? 0) + 1);
+  for (const source of DEAL_SOURCES) map.set(source, 0);
+  for (const deal of deals) {
+    map.set(deal.source, (map.get(deal.source) ?? 0) + 1);
   }
   return [...map.entries()]
     .map(([source, count]) => ({ source, count }))
@@ -157,11 +190,11 @@ export function leadsBySource(leads: LeadItem[]): SourceCount[] {
     .sort((a, b) => b.count - a.count);
 }
 
-export function leadsByIndustry(leads: LeadItem[]): IndustryCount[] {
+export function dealsByIndustry(deals: DealItem[]): IndustryCount[] {
   const map = new Map<string, number>();
-  for (const industry of LEAD_INDUSTRIES) map.set(industry, 0);
-  for (const lead of leads) {
-    map.set(lead.industry, (map.get(lead.industry) ?? 0) + 1);
+  for (const industry of INDUSTRIES) map.set(industry, 0);
+  for (const deal of deals) {
+    map.set(deal.industry, (map.get(deal.industry) ?? 0) + 1);
   }
   return [...map.entries()]
     .map(([industry, count]) => ({ industry, count }))
@@ -169,7 +202,7 @@ export function leadsByIndustry(leads: LeadItem[]): IndustryCount[] {
     .sort((a, b) => b.count - a.count);
 }
 
-export function leadsOverTime(leads: LeadItem[], months = 12): OverTimePoint[] {
+export function dealsOverTime(deals: DealItem[], months = 12): OverTimePoint[] {
   const now = new Date();
   const buckets: OverTimePoint[] = [];
   const index = new Map<string, OverTimePoint>();
@@ -179,25 +212,123 @@ export function leadsOverTime(leads: LeadItem[], months = 12): OverTimePoint[] {
     const point: OverTimePoint = {
       monthStart: monthKey(d),
       label: d.toLocaleString('en-US', { month: 'short' }),
-      leads: 0,
+      deals: 0,
       value: 0,
     };
     buckets.push(point);
     index.set(point.monthStart, point);
   }
 
-  for (const lead of leads) {
-    const d = asDate(lead.createdAt);
+  for (const deal of deals) {
+    const d = asDate(deal.createdAt);
     const point = index.get(monthKey(new Date(d.getFullYear(), d.getMonth(), 1)));
     if (point) {
-      point.leads += 1;
-      point.value += lead.value;
+      point.deals += 1;
+      point.value += deal.value;
     }
   }
 
   return buckets;
 }
 
-export function topLeads(leads: LeadItem[], n = 8): LeadItem[] {
-  return [...leads].sort((a, b) => b.value - a.value).slice(0, n);
+export function topDeals(deals: DealItem[], n = 8): DealItem[] {
+  return [...deals].sort((a, b) => b.value - a.value).slice(0, n);
+}
+
+/** Aggregate deal volume and value per owner, ranked by open pipeline value. */
+export function dealsByOwner(deals: DealItem[]): OwnerCount[] {
+  const map = new Map<string, OwnerCount>();
+  for (const deal of deals) {
+    const entry =
+      map.get(deal.ownerId) ??
+      { ownerId: deal.ownerId, ownerName: deal.ownerName, count: 0, pipelineValue: 0, wonValue: 0 };
+    entry.count += 1;
+    if (isOpen(deal.stage)) entry.pipelineValue += deal.value;
+    if (deal.stage === 'Won') entry.wonValue += deal.value;
+    map.set(deal.ownerId, entry);
+  }
+  return [...map.values()].sort((a, b) => b.pipelineValue - a.pipelineValue);
+}
+
+/** Per-rep quota attainment (won value ÷ quota), joined to the rep roster. */
+export function repLeaderboard(deals: DealItem[], reps: RepItem[]): RepPerformance[] {
+  const byOwner = new Map<
+    string,
+    { wonValue: number; pipelineValue: number; openCount: number; wonCount: number }
+  >();
+  for (const deal of deals) {
+    const entry =
+      byOwner.get(deal.ownerId) ?? { wonValue: 0, pipelineValue: 0, openCount: 0, wonCount: 0 };
+    if (deal.stage === 'Won') {
+      entry.wonValue += deal.value;
+      entry.wonCount += 1;
+    }
+    if (isOpen(deal.stage)) {
+      entry.pipelineValue += deal.value;
+      entry.openCount += 1;
+    }
+    byOwner.set(deal.ownerId, entry);
+  }
+
+  return reps
+    .map((rep) => {
+      const stats =
+        byOwner.get(rep.id) ?? { wonValue: 0, pipelineValue: 0, openCount: 0, wonCount: 0 };
+      return {
+        rep,
+        wonValue: stats.wonValue,
+        pipelineValue: stats.pipelineValue,
+        openCount: stats.openCount,
+        wonCount: stats.wonCount,
+        attainment: rep.quota > 0 ? stats.wonValue / rep.quota : 0,
+      };
+    })
+    .sort((a, b) => b.attainment - a.attainment);
+}
+
+/** Roll deal value up to accounts, ranked by total value. */
+export function topAccounts(
+  deals: DealItem[],
+  accounts: AccountItem[],
+  n = 8
+): AccountValue[] {
+  const industryOf = new Map(accounts.map((a) => [a.id, a.industry]));
+  const map = new Map<string, AccountValue>();
+
+  for (const deal of deals) {
+    const entry =
+      map.get(deal.accountId) ??
+      {
+        accountId: deal.accountId,
+        accountName: deal.accountName,
+        industry: industryOf.get(deal.accountId) ?? deal.industry,
+        dealCount: 0,
+        openValue: 0,
+        wonValue: 0,
+        totalValue: 0,
+      };
+    entry.dealCount += 1;
+    entry.totalValue += deal.value;
+    if (isOpen(deal.stage)) entry.openValue += deal.value;
+    if (deal.stage === 'Won') entry.wonValue += deal.value;
+    map.set(deal.accountId, entry);
+  }
+
+  return [...map.values()].sort((a, b) => b.totalValue - a.totalValue).slice(0, n);
+}
+
+export function activityByType(activities: ActivityItem[]): ActivityTypeCount[] {
+  const map = new Map<string, number>();
+  for (const activity of activities) {
+    map.set(activity.type, (map.get(activity.type) ?? 0) + 1);
+  }
+  return [...map.entries()]
+    .map(([type, count]) => ({ type, count }))
+    .sort((a, b) => b.count - a.count);
+}
+
+export function recentActivities(activities: ActivityItem[], n = 8): ActivityItem[] {
+  return [...activities]
+    .sort((a, b) => asDate(b.occurredAt).getTime() - asDate(a.occurredAt).getTime())
+    .slice(0, n);
 }

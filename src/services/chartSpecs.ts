@@ -2,14 +2,18 @@ import type { ChartSpec, ThemeInput } from 'graphein';
 
 import {
   PIPELINE_STAGES,
-  statusMeta,
-  type LeadItem,
-} from './leadTypes';
+  activityMeta,
+  stageMeta,
+  type DealItem,
+} from './crmTypes';
 import type {
+  AccountValue,
+  ActivityTypeCount,
   OverTimePoint,
+  OwnerCount,
+  RepPerformance,
   SourceCount,
   StageCount,
-  StatusCount,
 } from './analytics';
 
 const PALETTE = [
@@ -46,28 +50,32 @@ export function withSketch(spec: ChartSpec, sketch: boolean): ChartSpec {
   return { ...spec, sketch };
 }
 
+function themed(palette: string[]): ThemeInput {
+  return { base: 'light', color: { ...baseColors, palette } };
+}
+
 /**
  * KPI scorecard tiles rendered by graphein's `kpi` visual. Left-aligned to match
  * the dashboard and enriched with a sparkline or comparison row; each is meant to
  * sit inside a rounded card container (which supplies the border/shadow chrome).
  */
 
-/** Total leads, with a sparkline of new leads created per month. */
-export function buildTotalLeadsKpiSpec(
-  totalLeads: number,
+/** Total deals, with a sparkline of new deals created per month. */
+export function buildTotalDealsKpiSpec(
+  totalDeals: number,
   overTime: OverTimePoint[]
 ): ChartSpec {
   return {
     type: 'kpi',
     theme: chartTheme,
-    data: overTime.map((p) => ({ month: p.label, leads: p.leads })),
-    value: totalLeads,
+    data: overTime.map((p) => ({ month: p.label, deals: p.deals })),
+    value: totalDeals,
     format: ',d',
-    label: 'Total leads',
+    label: 'Total deals',
     labelPosition: 'above',
     align: 'start',
-    sparkline: { field: 'leads', markers: true },
-    description: 'Total leads with the trend of new leads created per month.',
+    sparkline: { field: 'deals', markers: true },
+    description: 'Total deals with the trend of new deals created per month.',
   };
 }
 
@@ -133,34 +141,30 @@ export function buildWinRateKpiSpec(
   };
 }
 
-function themed(palette: string[]): ThemeInput {
-  return { base: 'light', color: { ...baseColors, palette } };
-}
-
 /** Funnel of the live pipeline, one trapezoid per stage, tinted by stage color. */
 export function buildPipelineFunnelSpec(stages: StageCount[]): ChartSpec {
   return {
     type: 'funnel',
-    theme: themed(PIPELINE_STAGES.map((stage) => statusMeta(stage).color)),
+    theme: themed(PIPELINE_STAGES.map((stage) => stageMeta(stage).color)),
     data: stages.map((s) => ({ stage: s.stage, count: s.count })),
     encoding: {
       stage: { field: 'stage' },
-      value: { field: 'count', title: 'Leads', format: ',d' },
+      value: { field: 'count', title: 'Deals', format: ',d' },
     },
     percent: 'first',
     legend: false,
   };
 }
 
-/** Donut of leads by status, sliced and colored to match the status badges. */
-export function buildStatusDonutSpec(statuses: StatusCount[]): ChartSpec {
+/** Donut of deals by stage, sliced and colored to match the stage badges. */
+export function buildStageDonutSpec(stages: StageCount[]): ChartSpec {
   return {
     type: 'pie',
-    theme: themed(statuses.map((s) => statusMeta(s.status).color)),
-    data: statuses.map((s) => ({ status: s.status, count: s.count })),
+    theme: themed(stages.map((s) => stageMeta(s.stage).color)),
+    data: stages.map((s) => ({ stage: s.stage, count: s.count })),
     encoding: {
       theta: { field: 'count', format: ',d' },
-      color: { field: 'status' },
+      color: { field: 'stage' },
     },
     donut: 0.62,
     labels: { show: true, placement: 'auto', content: 'percent', minShare: 0.04 },
@@ -169,7 +173,7 @@ export function buildStatusDonutSpec(statuses: StatusCount[]): ChartSpec {
 }
 
 /**
- * Vertical bars of lead volume per acquisition source. Interactive: clicking a
+ * Vertical bars of deal volume per acquisition source. Interactive: clicking a
  * bar publishes a `source` point-selection (for dashboard cross-filtering) and
  * highlights the picked bar while dimming the rest.
  */
@@ -180,7 +184,7 @@ export function buildSourceBarSpec(sources: SourceCount[]): ChartSpec {
     data: sources.map((s) => ({ source: s.source, count: s.count })),
     encoding: {
       x: { field: 'source', title: 'Source' },
-      y: { field: 'count', title: 'Leads', format: ',d' },
+      y: { field: 'count', title: 'Deals', format: ',d' },
     },
     cornerRadius: 8,
     legend: false,
@@ -194,37 +198,83 @@ export function buildSourceBarSpec(sources: SourceCount[]): ChartSpec {
   };
 }
 
-/** Smooth area of new leads created per month over the trailing year. */
-export function buildLeadsOverTimeSpec(points: OverTimePoint[]): ChartSpec {
+/** Smooth area of new deals created per month over the trailing year. */
+export function buildDealsOverTimeSpec(points: OverTimePoint[]): ChartSpec {
   return {
     type: 'area',
     theme: chartTheme,
-    data: points.map((p) => ({ month: p.monthStart, leads: p.leads })),
+    data: points.map((p) => ({ month: p.monthStart, deals: p.deals })),
     encoding: {
       x: { field: 'month', type: 'temporal', title: 'Month', format: '%b' },
-      y: { field: 'leads', type: 'quantitative', title: 'New leads', format: ',d' },
+      y: { field: 'deals', type: 'quantitative', title: 'New deals', format: ',d' },
     },
     curve: 'monotone',
     legend: false,
   };
 }
 
+/** Horizontal-reading bar of open pipeline value by owner (dashboard leaderboard). */
+export function buildOwnerPipelineSpec(owners: OwnerCount[]): ChartSpec {
+  return {
+    type: 'bar',
+    theme: chartTheme,
+    data: owners.map((o) => ({ owner: o.ownerName, value: o.pipelineValue })),
+    encoding: {
+      x: { field: 'value', title: 'Open pipeline', format: '$.2s' },
+      y: { field: 'owner', title: 'Owner' },
+    },
+    cornerRadius: 8,
+    legend: false,
+  };
+}
+
+/** Bar of quota attainment per rep, for the Team page. */
+export function buildRepAttainmentSpec(perf: RepPerformance[]): ChartSpec {
+  return {
+    type: 'bar',
+    theme: chartTheme,
+    data: perf.map((p) => ({ rep: p.rep.name, attainment: p.attainment })),
+    encoding: {
+      x: { field: 'rep', title: 'Rep' },
+      y: { field: 'attainment', title: 'Quota attainment', format: '.0%' },
+    },
+    cornerRadius: 8,
+    legend: false,
+  };
+}
+
+/** Donut of activities by type, colored to match the activity badges. */
+export function buildActivityDonutSpec(types: ActivityTypeCount[]): ChartSpec {
+  return {
+    type: 'pie',
+    theme: themed(types.map((t) => activityMeta(t.type).color)),
+    data: types.map((t) => ({ type: t.type, count: t.count })),
+    encoding: {
+      theta: { field: 'count', format: ',d' },
+      color: { field: 'type' },
+    },
+    donut: 0.62,
+    labels: { show: true, placement: 'auto', content: 'percent', minShare: 0.05 },
+    legend: { show: true, position: 'right' },
+  };
+}
+
 /** Detail table of the highest-value opportunities with in-cell formatting. */
-export function buildTopLeadsTableSpec(leads: LeadItem[]): ChartSpec {
+export function buildTopDealsTableSpec(deals: DealItem[]): ChartSpec {
   return {
     type: 'table',
     theme: chartTheme,
-    data: leads.map((l) => ({
-      name: l.name,
-      company: l.company,
-      status: l.status,
-      value: l.value,
-      score: l.score,
+    data: deals.map((d) => ({
+      name: d.name,
+      account: d.accountName,
+      stage: d.stage,
+      value: d.value,
+      score: d.score,
     })),
     columns: [
-      { field: 'name', title: 'Lead' },
-      { field: 'company', title: 'Company' },
-      { field: 'status', title: 'Stage' },
+      { field: 'name', title: 'Deal' },
+      { field: 'account', title: 'Account' },
+      { field: 'stage', title: 'Stage' },
       {
         field: 'value',
         title: 'Deal value',
@@ -241,6 +291,45 @@ export function buildTopLeadsTableSpec(leads: LeadItem[]): ChartSpec {
       },
     ],
     sort: { field: 'value', order: 'desc' },
+    density: 'standard',
+    stickyHeader: true,
+  };
+}
+
+/** Detail table of the top accounts by total deal value. */
+export function buildTopAccountsTableSpec(accounts: AccountValue[]): ChartSpec {
+  return {
+    type: 'table',
+    theme: chartTheme,
+    data: accounts.map((a) => ({
+      account: a.accountName,
+      industry: a.industry,
+      deals: a.dealCount,
+      open: a.openValue,
+      won: a.wonValue,
+    })),
+    columns: [
+      { field: 'account', title: 'Account' },
+      { field: 'industry', title: 'Industry' },
+      { field: 'deals', title: 'Deals', align: 'right', format: ',d' },
+      {
+        field: 'open',
+        title: 'Open value',
+        align: 'right',
+        prefix: '$',
+        format: ',d',
+        conditionalFormat: { type: 'bar', color: '#0ea5e9', showValue: true },
+      },
+      {
+        field: 'won',
+        title: 'Won value',
+        align: 'right',
+        prefix: '$',
+        format: ',d',
+        conditionalFormat: { type: 'bar', color: '#22c55e', showValue: true },
+      },
+    ],
+    sort: { field: 'open', order: 'desc' },
     density: 'standard',
     stickyHeader: true,
   };

@@ -1,6 +1,6 @@
 import type { ComponentType, ReactNode, SVGProps } from 'react';
 
-import { statusMeta } from '@/services/leadTypes';
+import { stageMeta, tierMeta } from '@/services/crmTypes';
 
 type IconType = ComponentType<SVGProps<SVGSVGElement>>;
 
@@ -95,14 +95,36 @@ export function KpiCard({
   );
 }
 
-export function StatusBadge({ status }: { status: string }) {
-  const meta = statusMeta(status);
+export function StageBadge({ stage }: { stage: string }) {
+  const meta = stageMeta(stage);
   return (
     <span
       className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-medium ${meta.bg} ${meta.text}`}
     >
       <span className={`h-1.5 w-1.5 rounded-full ${meta.dot}`} />
       {meta.label}
+    </span>
+  );
+}
+
+export function TierBadge({ tier }: { tier: string }) {
+  const meta = tierMeta(tier);
+  return (
+    <span
+      className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${meta.bg} ${meta.text}`}
+    >
+      {tier}
+    </span>
+  );
+}
+
+export function TagChip({ label, color }: { label: string; color: string }) {
+  return (
+    <span
+      className="inline-flex items-center gap-1.5 rounded-full bg-slate-50 px-2 py-0.5 text-xs font-medium text-slate-600 ring-1 ring-slate-200"
+    >
+      <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: color }} />
+      {label}
     </span>
   );
 }
