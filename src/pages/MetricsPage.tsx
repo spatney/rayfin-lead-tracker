@@ -1,6 +1,6 @@
 import { useMemo, useSyncExternalStore } from 'react';
 import { Link } from 'react-router-dom';
-import { Chart } from '@graphein/react';
+import { ThemedChart } from '@/components/ThemedChart';
 import type { ChartSpec } from 'graphein';
 
 import { ChartCard, KpiCard, PageHeader, type Accent } from '@/components/ui';
@@ -22,17 +22,17 @@ import {
   type MetricKind,
 } from '@/services/metrics';
 
-const INDIGO: Accent = { bg: 'bg-indigo-50', text: 'text-indigo-600' };
-const GREEN: Accent = { bg: 'bg-green-50', text: 'text-green-600' };
-const SKY: Accent = { bg: 'bg-sky-50', text: 'text-sky-600' };
-const AMBER: Accent = { bg: 'bg-amber-50', text: 'text-amber-600' };
+const INDIGO: Accent = { bg: 'bg-indigo-50 dark:bg-indigo-500/15', text: 'text-indigo-600 dark:text-indigo-300' };
+const GREEN: Accent = { bg: 'bg-green-50 dark:bg-green-500/15', text: 'text-green-600 dark:text-green-300' };
+const SKY: Accent = { bg: 'bg-sky-50 dark:bg-sky-500/15', text: 'text-sky-600 dark:text-sky-300' };
+const AMBER: Accent = { bg: 'bg-amber-50 dark:bg-amber-500/15', text: 'text-amber-600 dark:text-amber-300' };
 
 const KIND_META: Record<MetricKind, { label: string; badge: string; dot: string }> = {
-  query: { label: 'Query', badge: 'bg-sky-50 text-sky-700', dot: 'bg-sky-500' },
-  insert: { label: 'Insert', badge: 'bg-indigo-50 text-indigo-700', dot: 'bg-indigo-500' },
-  create: { label: 'Create', badge: 'bg-violet-50 text-violet-700', dot: 'bg-violet-500' },
-  update: { label: 'Update', badge: 'bg-amber-50 text-amber-700', dot: 'bg-amber-500' },
-  delete: { label: 'Delete', badge: 'bg-rose-50 text-rose-700', dot: 'bg-rose-500' },
+  query: { label: 'Query', badge: 'bg-sky-50 text-sky-700 dark:bg-sky-500/15 dark:text-sky-300', dot: 'bg-sky-500' },
+  insert: { label: 'Insert', badge: 'bg-indigo-50 text-indigo-700 dark:bg-indigo-500/15 dark:text-indigo-300', dot: 'bg-indigo-500' },
+  create: { label: 'Create', badge: 'bg-violet-50 text-violet-700 dark:bg-violet-500/15 dark:text-violet-300', dot: 'bg-violet-500' },
+  update: { label: 'Update', badge: 'bg-amber-50 text-amber-700 dark:bg-amber-500/15 dark:text-amber-300', dot: 'bg-amber-500' },
+  delete: { label: 'Delete', badge: 'bg-rose-50 text-rose-700 dark:bg-rose-500/15 dark:text-rose-300', dot: 'bg-rose-500' },
 };
 
 const WRITE_KINDS: MetricKind[] = ['insert', 'create', 'update', 'delete'];
@@ -71,7 +71,7 @@ function ClearStatsButton() {
     <button
       type="button"
       onClick={() => clearMetrics()}
-      className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:bg-slate-50"
+      className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
     >
       <TrashIcon className="h-4 w-4" />
       Clear stats
@@ -81,14 +81,14 @@ function ClearStatsButton() {
 
 function EmptyMetrics() {
   return (
-    <div className="rounded-2xl border border-dashed border-slate-300 bg-white p-12 text-center">
-      <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-50 text-indigo-600">
+    <div className="rounded-2xl border border-dashed border-slate-300 bg-white p-12 text-center dark:border-slate-700 dark:bg-slate-900">
+      <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-50 text-indigo-600 dark:bg-indigo-500/15 dark:text-indigo-300">
         <ActivityIcon className="h-7 w-7" />
       </span>
-      <h2 className="mt-5 text-lg font-bold tracking-tight text-slate-900">
+      <h2 className="mt-5 text-lg font-bold tracking-tight text-slate-900 dark:text-slate-100">
         No operations captured yet
       </h2>
-      <p className="mx-auto mt-2 max-w-md text-sm text-slate-500">
+      <p className="mx-auto mt-2 max-w-md text-sm text-slate-500 dark:text-slate-400">
         Every data operation is timed automatically. Generate or reset sample
         data, load the dashboard, or edit a deal, and its latency and throughput
         will appear here.
@@ -210,7 +210,7 @@ export function MetricsPage() {
           className="lg:col-span-6"
         >
           <div className="h-72">
-            <Chart spec={latencySpec} />
+            <ThemedChart spec={latencySpec} />
           </div>
         </ChartCard>
 
@@ -222,7 +222,7 @@ export function MetricsPage() {
           <div className="-mx-1 overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-slate-200 text-left text-xs font-semibold uppercase tracking-wide text-slate-500">
+                <tr className="border-b border-slate-200 text-left text-xs font-semibold uppercase tracking-wide text-slate-500 dark:border-slate-800 dark:text-slate-400">
                   <th className="px-2 py-2">Operation</th>
                   <th className="px-2 py-2 text-right">Ops</th>
                   <th className="px-2 py-2 text-right">Rows</th>
@@ -235,24 +235,24 @@ export function MetricsPage() {
                 {summaries.map((s) => (
                   <tr
                     key={s.kind}
-                    className="border-b border-slate-100 last:border-0"
+                    className="border-b border-slate-100 last:border-0 dark:border-slate-800"
                   >
                     <td className="px-2 py-2.5">
                       <KindBadge kind={s.kind} />
                     </td>
-                    <td className="px-2 py-2.5 text-right tabular-nums text-slate-700">
+                    <td className="px-2 py-2.5 text-right tabular-nums text-slate-700 dark:text-slate-300">
                       {formatNumber(s.ops)}
                     </td>
-                    <td className="px-2 py-2.5 text-right tabular-nums text-slate-700">
+                    <td className="px-2 py-2.5 text-right tabular-nums text-slate-700 dark:text-slate-300">
                       {formatNumber(s.rows)}
                     </td>
-                    <td className="px-2 py-2.5 text-right tabular-nums text-slate-700">
+                    <td className="px-2 py-2.5 text-right tabular-nums text-slate-700 dark:text-slate-300">
                       {formatDuration(s.avgMs)}
                     </td>
-                    <td className="px-2 py-2.5 text-right tabular-nums text-slate-700">
+                    <td className="px-2 py-2.5 text-right tabular-nums text-slate-700 dark:text-slate-300">
                       {formatDuration(s.maxMs)}
                     </td>
-                    <td className="px-2 py-2.5 text-right tabular-nums font-medium text-slate-900">
+                    <td className="px-2 py-2.5 text-right tabular-nums font-medium text-slate-900 dark:text-slate-100">
                       {rate(s.rowsPerSec)}
                     </td>
                   </tr>
@@ -269,8 +269,8 @@ export function MetricsPage() {
         >
           <div className="-mx-1 max-h-96 overflow-auto">
             <table className="w-full text-sm">
-              <thead className="sticky top-0 bg-white">
-                <tr className="border-b border-slate-200 text-left text-xs font-semibold uppercase tracking-wide text-slate-500">
+              <thead className="sticky top-0 bg-white dark:bg-slate-900">
+                <tr className="border-b border-slate-200 text-left text-xs font-semibold uppercase tracking-wide text-slate-500 dark:border-slate-800 dark:text-slate-400">
                   <th className="px-2 py-2">Time</th>
                   <th className="px-2 py-2">Operation</th>
                   <th className="px-2 py-2">Detail</th>
@@ -288,22 +288,22 @@ export function MetricsPage() {
                   return (
                     <tr
                       key={entry.id}
-                      className="border-b border-slate-100 last:border-0"
+                      className="border-b border-slate-100 last:border-0 dark:border-slate-800"
                     >
-                      <td className="whitespace-nowrap px-2 py-2.5 tabular-nums text-slate-500">
+                      <td className="whitespace-nowrap px-2 py-2.5 tabular-nums text-slate-500 dark:text-slate-400">
                         {timeOfDay(entry.at)}
                       </td>
                       <td className="px-2 py-2.5">
                         <KindBadge kind={entry.kind} />
                       </td>
-                      <td className="px-2 py-2.5 text-slate-700">{entry.label}</td>
-                      <td className="px-2 py-2.5 text-right tabular-nums text-slate-700">
+                      <td className="px-2 py-2.5 text-slate-700 dark:text-slate-300">{entry.label}</td>
+                      <td className="px-2 py-2.5 text-right tabular-nums text-slate-700 dark:text-slate-300">
                         {formatNumber(entry.count)}
                       </td>
-                      <td className="px-2 py-2.5 text-right tabular-nums text-slate-700">
+                      <td className="px-2 py-2.5 text-right tabular-nums text-slate-700 dark:text-slate-300">
                         {formatDuration(entry.durationMs)}
                       </td>
-                      <td className="px-2 py-2.5 text-right tabular-nums font-medium text-slate-900">
+                      <td className="px-2 py-2.5 text-right tabular-nums font-medium text-slate-900 dark:text-slate-100">
                         {rate(perSec)}
                       </td>
                     </tr>

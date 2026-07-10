@@ -9,6 +9,7 @@ import {
   SignOutIcon,
   UsersIcon,
 } from '@/components/icons';
+import { ThemeToggle } from '@/components/ThemeToggle';
 import { useAuth } from '@/hooks/AuthContext';
 import { ResetWorkspaceOverlay } from '@/hooks/useResetWorkspace';
 
@@ -44,7 +45,7 @@ export function AppLayout() {
   const initial = label.charAt(0).toUpperCase();
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
+    <div className="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
       <ResetWorkspaceOverlay />
       <aside className="fixed inset-y-0 left-0 z-30 hidden w-64 flex-col bg-slate-900 lg:flex">
         <div className="px-5 py-6">
@@ -82,18 +83,21 @@ export function AppLayout() {
                 <p className="truncate text-xs text-slate-400">{user.email}</p>
               )}
             </div>
-            <button
-              onClick={() => void signOut()}
-              title="Sign out"
-              className="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-slate-700 hover:text-white"
-            >
-              <SignOutIcon className="h-5 w-5" />
-            </button>
+            <div className="flex items-center gap-0.5">
+              <ThemeToggle variant="sidebar" />
+              <button
+                onClick={() => void signOut()}
+                title="Sign out"
+                className="rounded-lg p-2 text-slate-400 transition-colors hover:bg-slate-700 hover:text-white"
+              >
+                <SignOutIcon className="h-5 w-5" />
+              </button>
+            </div>
           </div>
         </div>
       </aside>
 
-      <header className="sticky top-0 z-30 flex items-center justify-between border-b border-slate-200 bg-slate-900 px-4 py-3 lg:hidden">
+      <header className="sticky top-0 z-30 flex items-center justify-between border-b border-slate-200 bg-slate-900 px-4 py-3 lg:hidden dark:border-slate-800">
         <Brand />
         <div className="flex items-center gap-1.5">
           {NAV.map(({ to, label: navLabel, end }) => (
@@ -112,6 +116,7 @@ export function AppLayout() {
               {navLabel}
             </NavLink>
           ))}
+          <ThemeToggle variant="sidebar" />
           <button
             onClick={() => void signOut()}
             title="Sign out"

@@ -28,7 +28,7 @@ import { formatCurrency, formatNumber, relativeTime } from '@/services/format';
 const PAGE_SIZE = 12;
 
 const fieldBase =
-  'rounded-xl border border-slate-200 bg-white text-sm text-slate-700 shadow-sm transition-colors focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-100';
+  'rounded-xl border border-slate-200 bg-white text-sm text-slate-700 shadow-sm transition-colors focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-100 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:placeholder:text-slate-500 dark:focus:border-indigo-500 dark:focus:ring-indigo-500/30';
 
 function StageSelect({
   value,
@@ -46,7 +46,7 @@ function StageSelect({
         className={`cursor-pointer appearance-none rounded-full py-1 pl-2.5 pr-7 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-indigo-200 ${meta.bg} ${meta.text}`}
       >
         {DEAL_STAGES.map((s) => (
-          <option key={s} value={s} className="bg-white text-slate-700">
+          <option key={s} value={s} className="bg-white text-slate-700 dark:bg-slate-800 dark:text-slate-200">
             {s}
           </option>
         ))}
@@ -81,7 +81,7 @@ function FilterSelect({
           </option>
         ))}
       </select>
-      <ChevronDownIcon className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+      <ChevronDownIcon className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400 dark:text-slate-500" />
     </div>
   );
 }
@@ -109,7 +109,7 @@ function OwnerFilterSelect({
           </option>
         ))}
       </select>
-      <ChevronDownIcon className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+      <ChevronDownIcon className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400 dark:text-slate-500" />
     </div>
   );
 }
@@ -218,26 +218,26 @@ function AddDealModal({ onClose, onCreated }: AddDealModalProps) {
         className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm"
         onClick={onClose}
       />
-      <div className="relative z-10 w-full max-w-lg rounded-2xl bg-white p-6 shadow-xl">
+      <div className="relative z-10 w-full max-w-lg rounded-2xl bg-white p-6 shadow-xl dark:bg-slate-900">
         <div className="mb-5 flex items-start justify-between">
           <div>
-            <h2 className="text-lg font-bold tracking-tight text-slate-900">
+            <h2 className="text-lg font-bold tracking-tight text-slate-900 dark:text-slate-100">
               Add a deal
             </h2>
-            <p className="mt-0.5 text-sm text-slate-500">
+            <p className="mt-0.5 text-sm text-slate-500 dark:text-slate-400">
               Open a new opportunity in your pipeline.
             </p>
           </div>
           <button
             onClick={onClose}
-            className="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600"
+            className="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600 dark:text-slate-500 dark:hover:bg-slate-800 dark:hover:text-slate-300"
           >
             <XIcon className="h-5 w-5" />
           </button>
         </div>
 
         {!canCreate ? (
-          <p className="rounded-xl bg-amber-50 px-4 py-3 text-sm text-amber-700">
+          <p className="rounded-xl bg-amber-50 px-4 py-3 text-sm text-amber-700 dark:bg-amber-500/10 dark:text-amber-300">
             Deals need an account and an owner. Generate sample data first, then
             add deals of your own.
           </p>
@@ -316,7 +316,7 @@ function AddDealModal({ onClose, onCreated }: AddDealModalProps) {
             </div>
             {tags.length > 0 && (
               <div className="sm:col-span-2">
-                <span className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-slate-500">
+                <span className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
                   Tags
                 </span>
                 <div className="flex flex-wrap gap-1.5">
@@ -329,8 +329,8 @@ function AddDealModal({ onClose, onCreated }: AddDealModalProps) {
                         onClick={() => toggleTag(tag.id)}
                         className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium ring-1 transition-colors ${
                           active
-                            ? 'bg-indigo-50 text-indigo-700 ring-indigo-200'
-                            : 'bg-white text-slate-600 ring-slate-200 hover:bg-slate-50'
+                            ? 'bg-indigo-50 text-indigo-700 ring-indigo-200 dark:bg-indigo-500/15 dark:text-indigo-300 dark:ring-indigo-500/30'
+                            : 'bg-white text-slate-600 ring-slate-200 hover:bg-slate-50 dark:bg-slate-800 dark:text-slate-300 dark:ring-slate-700 dark:hover:bg-slate-700'
                         }`}
                       >
                         <span
@@ -347,14 +347,14 @@ function AddDealModal({ onClose, onCreated }: AddDealModalProps) {
           </div>
         )}
 
-        {error && <p className="mt-4 text-sm text-rose-600">{error}</p>}
+        {error && <p className="mt-4 text-sm text-rose-600 dark:text-rose-400">{error}</p>}
 
         <div className="mt-6 flex flex-col-reverse gap-2.5 sm:flex-row sm:items-center sm:justify-between">
           <button
             type="button"
             onClick={autoFill}
             disabled={!canCreate}
-            className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 hover:text-indigo-600 disabled:opacity-50"
+            className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 hover:text-indigo-600 disabled:opacity-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 dark:hover:text-indigo-400"
           >
             <SparklesIcon className="h-4 w-4" />
             Auto-fill sample
@@ -362,7 +362,7 @@ function AddDealModal({ onClose, onCreated }: AddDealModalProps) {
           <div className="flex justify-end gap-2.5">
             <button
               onClick={onClose}
-              className="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50"
+              className="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
             >
               Cancel
             </button>
@@ -389,7 +389,7 @@ function Field({
 }) {
   return (
     <label className="block">
-      <span className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-slate-500">
+      <span className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
         {label}
       </span>
       {children}
@@ -419,7 +419,7 @@ function SelectInput({
           </option>
         ))}
       </select>
-      <ChevronDownIcon className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+      <ChevronDownIcon className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400 dark:text-slate-500" />
     </div>
   );
 }
@@ -449,7 +449,7 @@ function IdSelect({
           </option>
         ))}
       </select>
-      <ChevronDownIcon className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+      <ChevronDownIcon className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400 dark:text-slate-500" />
     </div>
   );
 }
@@ -548,10 +548,10 @@ export function DealsPage() {
       {!hasDeals && !loading ? (
         <EmptyDeals onAdd={() => setShowAdd(true)} />
       ) : (
-        <div className="rounded-2xl border border-slate-200/80 bg-white shadow-sm shadow-slate-200/40">
-          <div className="flex flex-col gap-3 border-b border-slate-100 p-4 lg:flex-row lg:items-center">
+        <div className="rounded-2xl border border-slate-200/80 bg-white shadow-sm shadow-slate-200/40 dark:border-slate-800 dark:bg-slate-900 dark:shadow-none">
+          <div className="flex flex-col gap-3 border-b border-slate-100 p-4 lg:flex-row lg:items-center dark:border-slate-800">
             <div className="relative flex-1">
-              <SearchIcon className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+              <SearchIcon className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400 dark:text-slate-500" />
               <input
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
@@ -583,7 +583,7 @@ export function DealsPage() {
           <div className="overflow-x-auto">
             <table className="w-full text-left text-sm">
               <thead>
-                <tr className="border-b border-slate-100 text-xs font-semibold uppercase tracking-wide text-slate-500">
+                <tr className="border-b border-slate-100 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:border-slate-800 dark:text-slate-400">
                   <th className="px-5 py-3">Deal</th>
                   <th className="hidden px-5 py-3 lg:table-cell">Owner</th>
                   <th className="hidden px-5 py-3 md:table-cell">Source</th>
@@ -605,22 +605,22 @@ export function DealsPage() {
                   return (
                     <tr
                       key={deal.id}
-                      className="border-b border-slate-50 transition-colors last:border-0 hover:bg-slate-50/70"
+                      className="border-b border-slate-50 transition-colors last:border-0 hover:bg-slate-50/70 dark:border-slate-800 dark:hover:bg-slate-800/40"
                     >
                       <td className="px-5 py-3">
-                        <div className="font-medium text-slate-900">{deal.name}</div>
-                        <div className="text-xs text-slate-500">
+                        <div className="font-medium text-slate-900 dark:text-slate-100">{deal.name}</div>
+                        <div className="text-xs text-slate-500 dark:text-slate-400">
                           {deal.accountName}
                           {deal.contactName ? ` · ${deal.contactName}` : ''}
                         </div>
                       </td>
-                      <td className="hidden px-5 py-3 text-slate-600 lg:table-cell">
+                      <td className="hidden px-5 py-3 text-slate-600 lg:table-cell dark:text-slate-300">
                         {deal.ownerName}
                       </td>
-                      <td className="hidden px-5 py-3 text-slate-600 md:table-cell">
+                      <td className="hidden px-5 py-3 text-slate-600 md:table-cell dark:text-slate-300">
                         {deal.source}
                       </td>
-                      <td className="px-5 py-3 text-right font-medium tabular-nums text-slate-900">
+                      <td className="px-5 py-3 text-right font-medium tabular-nums text-slate-900 dark:text-slate-100">
                         {formatCurrency(deal.value)}
                       </td>
                       <td className="hidden px-5 py-3 text-right sm:table-cell">
@@ -638,20 +638,20 @@ export function DealsPage() {
                             <TagChip key={tag.id} label={tag.label} color={tag.color} />
                           ))}
                           {dealTags.length > 2 && (
-                            <span className="text-xs text-slate-400">
+                            <span className="text-xs text-slate-400 dark:text-slate-500">
                               +{dealTags.length - 2}
                             </span>
                           )}
                         </div>
                       </td>
-                      <td className="hidden px-5 py-3 text-xs text-slate-500 lg:table-cell">
+                      <td className="hidden px-5 py-3 text-xs text-slate-500 lg:table-cell dark:text-slate-400">
                         {relativeTime(deal.createdAt)}
                       </td>
                       <td className="px-5 py-3 text-right">
                         <button
                           onClick={() => void remove(deal)}
                           title="Delete deal"
-                          className="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-rose-50 hover:text-rose-600"
+                          className="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-rose-50 hover:text-rose-600 dark:text-slate-500 dark:hover:bg-rose-500/10 dark:hover:text-rose-400"
                         >
                           <TrashIcon className="h-4 w-4" />
                         </button>
@@ -661,7 +661,7 @@ export function DealsPage() {
                 })}
                 {pageItems.length === 0 && (
                   <tr>
-                    <td colSpan={9} className="px-5 py-16 text-center text-sm text-slate-500">
+                    <td colSpan={9} className="px-5 py-16 text-center text-sm text-slate-500 dark:text-slate-400">
                       No deals match your filters.
                     </td>
                   </tr>
@@ -671,10 +671,10 @@ export function DealsPage() {
           </div>
 
           {filtered.length > PAGE_SIZE && (
-            <div className="flex items-center justify-between gap-3 border-t border-slate-100 px-5 py-3 text-sm text-slate-500">
+            <div className="flex items-center justify-between gap-3 border-t border-slate-100 px-5 py-3 text-sm text-slate-500 dark:border-slate-800 dark:text-slate-400">
               <span>
                 Showing{' '}
-                <span className="font-medium text-slate-700">
+                <span className="font-medium text-slate-700 dark:text-slate-300">
                   {(safePage - 1) * PAGE_SIZE + 1}–
                   {Math.min(safePage * PAGE_SIZE, filtered.length)}
                 </span>{' '}
@@ -684,7 +684,7 @@ export function DealsPage() {
                 <button
                   onClick={() => setPage(safePage - 1)}
                   disabled={safePage <= 1}
-                  className="rounded-lg border border-slate-200 px-3 py-1.5 font-medium text-slate-600 transition-colors hover:bg-slate-50 disabled:opacity-40"
+                  className="rounded-lg border border-slate-200 px-3 py-1.5 font-medium text-slate-600 transition-colors hover:bg-slate-50 disabled:opacity-40 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
                 >
                   Previous
                 </button>
@@ -694,7 +694,7 @@ export function DealsPage() {
                 <button
                   onClick={() => setPage(safePage + 1)}
                   disabled={safePage >= totalPages}
-                  className="rounded-lg border border-slate-200 px-3 py-1.5 font-medium text-slate-600 transition-colors hover:bg-slate-50 disabled:opacity-40"
+                  className="rounded-lg border border-slate-200 px-3 py-1.5 font-medium text-slate-600 transition-colors hover:bg-slate-50 disabled:opacity-40 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
                 >
                   Next
                 </button>
@@ -714,14 +714,14 @@ export function DealsPage() {
 function EmptyDeals({ onAdd }: { onAdd: () => void }) {
   return (
     <div className="flex min-h-[55vh] flex-col items-center justify-center text-center">
-      <div className="w-full max-w-md rounded-3xl border border-slate-200/80 bg-white p-10 shadow-sm shadow-slate-200/40">
-        <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-50 text-indigo-600">
+      <div className="w-full max-w-md rounded-3xl border border-slate-200/80 bg-white p-10 shadow-sm shadow-slate-200/40 dark:border-slate-800 dark:bg-slate-900 dark:shadow-none">
+        <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-50 text-indigo-600 dark:bg-indigo-500/15 dark:text-indigo-300">
           <BriefcaseIcon className="h-7 w-7" />
         </span>
-        <h2 className="mt-5 text-lg font-bold tracking-tight text-slate-900">
+        <h2 className="mt-5 text-lg font-bold tracking-tight text-slate-900 dark:text-slate-100">
           No deals yet
         </h2>
-        <p className="mx-auto mt-2 max-w-sm text-sm text-slate-500">
+        <p className="mx-auto mt-2 max-w-sm text-sm text-slate-500 dark:text-slate-400">
           Generate a full sample workspace — reps, accounts, contacts, deals and
           activities — to see the CRM come alive.
         </p>
@@ -729,7 +729,7 @@ function EmptyDeals({ onAdd }: { onAdd: () => void }) {
           <GenerateDataButton />
           <button
             onClick={onAdd}
-            className="text-sm font-medium text-slate-500 underline-offset-4 hover:text-indigo-600 hover:underline"
+            className="text-sm font-medium text-slate-500 underline-offset-4 hover:text-indigo-600 hover:underline dark:text-slate-400 dark:hover:text-indigo-400"
           >
             Add a deal manually
           </button>

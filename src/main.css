@@ -20,6 +20,11 @@
     background-color: var(--color-slate-50);
   }
 
+  html.dark,
+  html.dark body {
+    background-color: var(--color-slate-950);
+  }
+
   body {
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;

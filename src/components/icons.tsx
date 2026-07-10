@@ -267,3 +267,20 @@ export function GlobeIcon(props: IconProps) {
     </Base>
   );
 }
+
+export function SunIcon(props: IconProps) {
+  return (
+    <Base {...props}>
+      <circle cx="12" cy="12" r="4" />
+      <path d="M12 3v2M12 19v2M5.2 5.2l1.4 1.4M17.4 17.4l1.4 1.4M3 12h2M19 12h2M5.2 18.8l1.4-1.4M17.4 6.6l1.4-1.4" />
+    </Base>
+  );
+}
+
+export function MoonIcon(props: IconProps) {
+  return (
+    <Base {...props}>
+      <path d="M20 14.2A8 8 0 0 1 9.8 4a7 7 0 1 0 10.2 10.2Z" />
+    </Base>
+  );
+}

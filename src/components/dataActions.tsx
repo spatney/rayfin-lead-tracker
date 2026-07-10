@@ -46,7 +46,7 @@ export function GenerateDataButton({
   const styles =
     tone === 'primary'
       ? 'bg-indigo-600 text-white shadow-sm shadow-indigo-600/30 hover:bg-indigo-700'
-      : 'border border-slate-200 bg-white text-slate-700 shadow-sm hover:bg-slate-50';
+      : 'border border-slate-200 bg-white text-slate-700 shadow-sm hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700';
 
   return (
     <button onClick={() => void run()} disabled={busy} className={`${base} ${styles}`}>
@@ -63,7 +63,7 @@ export function ResetDataButton() {
     <button
       onClick={() => void run()}
       disabled={busy}
-      className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm font-medium text-slate-600 shadow-sm transition-colors hover:bg-slate-50 hover:text-rose-600 disabled:opacity-70"
+      className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm font-medium text-slate-600 shadow-sm transition-colors hover:bg-slate-50 hover:text-rose-600 disabled:opacity-70 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 dark:hover:text-rose-400"
     >
       {busy ? <Spinner /> : <TrashIcon className="h-4 w-4" />}
       {busy ? `Resetting… ${progress.percent}%` : 'Reset data'}

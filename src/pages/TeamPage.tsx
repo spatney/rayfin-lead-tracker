@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
-import { Chart } from '@graphein/react';
 
 import { GenerateDataButton, ResetDataButton } from '@/components/dataActions';
+import { ThemedChart } from '@/components/ThemedChart';
 import {
   DollarIcon,
   TargetIcon,
@@ -25,10 +25,10 @@ import {
 } from '@/services/format';
 
 const ACCENTS: Record<string, Accent> = {
-  indigo: { bg: 'bg-indigo-50', text: 'text-indigo-600' },
-  amber: { bg: 'bg-amber-50', text: 'text-amber-600' },
-  green: { bg: 'bg-green-50', text: 'text-green-600' },
-  sky: { bg: 'bg-sky-50', text: 'text-sky-600' },
+  indigo: { bg: 'bg-indigo-50 dark:bg-indigo-500/15', text: 'text-indigo-600 dark:text-indigo-300' },
+  amber: { bg: 'bg-amber-50 dark:bg-amber-500/15', text: 'text-amber-600 dark:text-amber-300' },
+  green: { bg: 'bg-green-50 dark:bg-green-500/15', text: 'text-green-600 dark:text-green-300' },
+  sky: { bg: 'bg-sky-50 dark:bg-sky-500/15', text: 'text-sky-600 dark:text-sky-300' },
 };
 
 function initials(name: string): string {
@@ -66,7 +66,7 @@ export function TeamPage() {
     return (
       <>
         <PageHeader title="Team" subtitle="Sales reps and quota attainment" />
-        <div className="h-96 animate-pulse rounded-2xl bg-slate-200/70" />
+        <div className="h-96 animate-pulse rounded-2xl bg-slate-200/70 dark:bg-slate-800/70" />
       </>
     );
   }
@@ -76,14 +76,14 @@ export function TeamPage() {
       <>
         <PageHeader title="Team" subtitle="Sales reps and quota attainment" />
         <div className="flex min-h-[55vh] flex-col items-center justify-center text-center">
-          <div className="w-full max-w-md rounded-3xl border border-slate-200/80 bg-white p-10 shadow-sm shadow-slate-200/40">
-            <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-50 text-indigo-600">
+          <div className="w-full max-w-md rounded-3xl border border-slate-200/80 bg-white p-10 shadow-sm shadow-slate-200/40 dark:border-slate-800 dark:bg-slate-900 dark:shadow-none">
+            <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-50 text-indigo-600 dark:bg-indigo-500/15 dark:text-indigo-300">
               <UsersIcon className="h-7 w-7" />
             </span>
-            <h2 className="mt-5 text-lg font-bold tracking-tight text-slate-900">
+            <h2 className="mt-5 text-lg font-bold tracking-tight text-slate-900 dark:text-slate-100">
               No team yet
             </h2>
-            <p className="mx-auto mt-2 max-w-sm text-sm text-slate-500">
+            <p className="mx-auto mt-2 max-w-sm text-sm text-slate-500 dark:text-slate-400">
               Generate a sample workspace to meet the sales team and track their
               quota attainment.
             </p>
@@ -137,7 +137,7 @@ export function TeamPage() {
           subtitle="Closed-won value as a share of each rep's quota"
         >
           <div className="h-72">
-            <Chart spec={attainmentSpec} />
+            <ThemedChart spec={attainmentSpec} />
           </div>
         </ChartCard>
       </div>
@@ -162,7 +162,7 @@ function RepCard({ perf }: { perf: RepPerformance }) {
         : 'bg-indigo-500';
 
   return (
-    <div className="flex flex-col rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm shadow-slate-200/40">
+    <div className="flex flex-col rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm shadow-slate-200/40 dark:border-slate-800 dark:bg-slate-900 dark:shadow-none">
       <div className="flex items-center gap-3">
         <span
           className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white"
@@ -171,50 +171,50 @@ function RepCard({ perf }: { perf: RepPerformance }) {
           {initials(rep.name)}
         </span>
         <div className="min-w-0 flex-1">
-          <p className="truncate text-sm font-semibold text-slate-900">{rep.name}</p>
-          <p className="truncate text-xs text-slate-500">{rep.title}</p>
+          <p className="truncate text-sm font-semibold text-slate-900 dark:text-slate-100">{rep.name}</p>
+          <p className="truncate text-xs text-slate-500 dark:text-slate-400">{rep.title}</p>
         </div>
-        <span className="shrink-0 rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-600">
+        <span className="shrink-0 rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-600 dark:bg-slate-800 dark:text-slate-300">
           {rep.region}
         </span>
       </div>
 
       <div className="mt-4">
         <div className="mb-1 flex items-center justify-between text-xs">
-          <span className="font-medium text-slate-500">Quota attainment</span>
-          <span className="font-semibold tabular-nums text-slate-700">
+          <span className="font-medium text-slate-500 dark:text-slate-400">Quota attainment</span>
+          <span className="font-semibold tabular-nums text-slate-700 dark:text-slate-300">
             {formatPercent(attainment)}
           </span>
         </div>
-        <div className="h-2 overflow-hidden rounded-full bg-slate-100">
+        <div className="h-2 overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800">
           <div
             className={`h-full rounded-full ${barColor}`}
             style={{ width: `${pct}%` }}
           />
         </div>
-        <p className="mt-1 text-xs text-slate-400">
+        <p className="mt-1 text-xs text-slate-400 dark:text-slate-500">
           {formatCurrency(wonValue)} of {formatCurrency(rep.quota)}
         </p>
       </div>
 
-      <div className="mt-4 grid grid-cols-3 gap-2 border-t border-slate-100 pt-4 text-center">
+      <div className="mt-4 grid grid-cols-3 gap-2 border-t border-slate-100 pt-4 text-center dark:border-slate-800">
         <div>
-          <p className="text-sm font-bold tabular-nums text-slate-900">
+          <p className="text-sm font-bold tabular-nums text-slate-900 dark:text-slate-100">
             {formatCompactCurrency(pipelineValue)}
           </p>
-          <p className="text-xs text-slate-500">Pipeline</p>
+          <p className="text-xs text-slate-500 dark:text-slate-400">Pipeline</p>
         </div>
         <div>
-          <p className="text-sm font-bold tabular-nums text-slate-900">
+          <p className="text-sm font-bold tabular-nums text-slate-900 dark:text-slate-100">
             {formatNumber(openCount)}
           </p>
-          <p className="text-xs text-slate-500">Open</p>
+          <p className="text-xs text-slate-500 dark:text-slate-400">Open</p>
         </div>
         <div>
-          <p className="text-sm font-bold tabular-nums text-slate-900">
+          <p className="text-sm font-bold tabular-nums text-slate-900 dark:text-slate-100">
             {formatNumber(wonCount)}
           </p>
-          <p className="text-xs text-slate-500">Won</p>
+          <p className="text-xs text-slate-500 dark:text-slate-400">Won</p>
         </div>
       </div>
     </div>

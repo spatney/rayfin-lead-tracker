@@ -43,11 +43,47 @@ const baseColors = {
   negative: '#ef4444',
 };
 
+/** Dark counterpart of `baseColors`, tuned to sit on slate-900 cards. */
+const darkColors = {
+  background: '#0f172a',
+  surface: '#1e293b',
+  text: '#e2e8f0',
+  textMuted: '#94a3b8',
+  axis: '#475569',
+  grid: '#1e293b',
+  border: '#334155',
+  accent: '#818cf8',
+  palette: PALETTE,
+  positive: '#22c55e',
+  negative: '#f87171',
+};
+
 export const chartTheme: ThemeInput = { base: 'light', color: baseColors };
 
 /** Toggle graphein's hand-drawn "sketch" rendering on any spec. */
 export function withSketch(spec: ChartSpec, sketch: boolean): ChartSpec {
   return { ...spec, sketch };
+}
+
+/**
+ * Re-theme a spec for light or dark mode while preserving any custom palette a
+ * builder baked in (e.g. stage/activity colors on funnels and donuts).
+ */
+export function applyChartMode(spec: ChartSpec, dark: boolean): ChartSpec {
+  const current = spec.theme;
+  const palette =
+    current &&
+    typeof current === 'object' &&
+    current.color &&
+    Array.isArray(current.color.palette)
+      ? current.color.palette
+      : PALETTE;
+  return {
+    ...spec,
+    theme: dark
+      ? { base: 'dark', color: { ...darkColors, palette } }
+      : { base: 'light', color: { ...baseColors, palette } },
+  };
 }
 
 function themed(palette: string[]): ThemeInput {

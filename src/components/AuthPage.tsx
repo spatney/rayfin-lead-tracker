@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import { LogoMark } from '@/components/icons';
+import { ThemeToggle } from '@/components/ThemeToggle';
 import { useAuth } from '@/hooks/AuthContext';
 
 const msLogo = (
@@ -43,21 +44,22 @@ export function AuthPage() {
     : 'Sign in with Microsoft';
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-slate-50 p-4">
+    <div className="relative flex min-h-screen items-center justify-center bg-slate-50 p-4 dark:bg-slate-950">
+      <ThemeToggle className="absolute right-4 top-4" />
       <div className="w-full max-w-sm">
         <div className="mb-8 flex flex-col items-center text-center">
           <span className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-600 text-white shadow-sm shadow-indigo-600/30">
             <LogoMark className="h-6 w-6" />
           </span>
-          <h1 className="text-2xl font-bold tracking-tight text-slate-900">
+          <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
             LeadFlow
           </h1>
-          <p className="mt-1.5 text-sm text-slate-500">
+          <p className="mt-1.5 text-sm text-slate-500 dark:text-slate-400">
             Sign in to manage your sales pipeline.
           </p>
         </div>
 
-        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 dark:shadow-none">
           <button
             type="button"
             onClick={handleSignIn}
@@ -69,13 +71,13 @@ export function AuthPage() {
           </button>
 
           {error && (
-            <p className="mt-3 rounded-lg bg-red-50 px-3 py-2 text-center text-sm text-red-600">
+            <p className="mt-3 rounded-lg bg-red-50 px-3 py-2 text-center text-sm text-red-600 dark:bg-red-500/10 dark:text-red-400">
               {error}
             </p>
           )}
         </div>
 
-        <p className="mt-6 text-center text-xs text-slate-400">
+        <p className="mt-6 text-center text-xs text-slate-400 dark:text-slate-500">
           Powered by Rayfin on Microsoft Fabric
         </p>
       </div>

@@ -216,13 +216,13 @@ export interface StageMeta {
 }
 
 export const STAGE_META: Record<string, StageMeta> = {
-  New: { label: 'New', color: '#6366f1', text: 'text-indigo-700', bg: 'bg-indigo-50', dot: 'bg-indigo-500' },
-  Contacted: { label: 'Contacted', color: '#0ea5e9', text: 'text-sky-700', bg: 'bg-sky-50', dot: 'bg-sky-500' },
-  Qualified: { label: 'Qualified', color: '#14b8a6', text: 'text-teal-700', bg: 'bg-teal-50', dot: 'bg-teal-500' },
-  Proposal: { label: 'Proposal', color: '#f59e0b', text: 'text-amber-700', bg: 'bg-amber-50', dot: 'bg-amber-500' },
-  Negotiation: { label: 'Negotiation', color: '#a855f7', text: 'text-purple-700', bg: 'bg-purple-50', dot: 'bg-purple-500' },
-  Won: { label: 'Won', color: '#22c55e', text: 'text-green-700', bg: 'bg-green-50', dot: 'bg-green-500' },
-  Lost: { label: 'Lost', color: '#ef4444', text: 'text-rose-700', bg: 'bg-rose-50', dot: 'bg-rose-500' },
+  New: { label: 'New', color: '#6366f1', text: 'text-indigo-700 dark:text-indigo-300', bg: 'bg-indigo-50 dark:bg-indigo-500/15', dot: 'bg-indigo-500' },
+  Contacted: { label: 'Contacted', color: '#0ea5e9', text: 'text-sky-700 dark:text-sky-300', bg: 'bg-sky-50 dark:bg-sky-500/15', dot: 'bg-sky-500' },
+  Qualified: { label: 'Qualified', color: '#14b8a6', text: 'text-teal-700 dark:text-teal-300', bg: 'bg-teal-50 dark:bg-teal-500/15', dot: 'bg-teal-500' },
+  Proposal: { label: 'Proposal', color: '#f59e0b', text: 'text-amber-700 dark:text-amber-300', bg: 'bg-amber-50 dark:bg-amber-500/15', dot: 'bg-amber-500' },
+  Negotiation: { label: 'Negotiation', color: '#a855f7', text: 'text-purple-700 dark:text-purple-300', bg: 'bg-purple-50 dark:bg-purple-500/15', dot: 'bg-purple-500' },
+  Won: { label: 'Won', color: '#22c55e', text: 'text-green-700 dark:text-green-300', bg: 'bg-green-50 dark:bg-green-500/15', dot: 'bg-green-500' },
+  Lost: { label: 'Lost', color: '#ef4444', text: 'text-rose-700 dark:text-rose-300', bg: 'bg-rose-50 dark:bg-rose-500/15', dot: 'bg-rose-500' },
 };
 
 export function stageMeta(stage: string): StageMeta {
@@ -230,8 +230,8 @@ export function stageMeta(stage: string): StageMeta {
     STAGE_META[stage] ?? {
       label: stage,
       color: '#64748b',
-      text: 'text-slate-700',
-      bg: 'bg-slate-100',
+      text: 'text-slate-700 dark:text-slate-300',
+      bg: 'bg-slate-100 dark:bg-slate-700/50',
       dot: 'bg-slate-500',
     }
   );
@@ -243,14 +243,14 @@ export interface TierMeta {
 }
 
 export const TIER_META: Record<string, TierMeta> = {
-  Strategic: { text: 'text-fuchsia-700', bg: 'bg-fuchsia-50' },
-  Enterprise: { text: 'text-indigo-700', bg: 'bg-indigo-50' },
-  'Mid-Market': { text: 'text-sky-700', bg: 'bg-sky-50' },
-  SMB: { text: 'text-slate-600', bg: 'bg-slate-100' },
+  Strategic: { text: 'text-fuchsia-700 dark:text-fuchsia-300', bg: 'bg-fuchsia-50 dark:bg-fuchsia-500/15' },
+  Enterprise: { text: 'text-indigo-700 dark:text-indigo-300', bg: 'bg-indigo-50 dark:bg-indigo-500/15' },
+  'Mid-Market': { text: 'text-sky-700 dark:text-sky-300', bg: 'bg-sky-50 dark:bg-sky-500/15' },
+  SMB: { text: 'text-slate-600 dark:text-slate-300', bg: 'bg-slate-100 dark:bg-slate-700/50' },
 };
 
 export function tierMeta(tier: string): TierMeta {
-  return TIER_META[tier] ?? { text: 'text-slate-600', bg: 'bg-slate-100' };
+  return TIER_META[tier] ?? { text: 'text-slate-600 dark:text-slate-300', bg: 'bg-slate-100 dark:bg-slate-700/50' };
 }
 
 export interface ActivityMeta {
@@ -262,18 +262,18 @@ export interface ActivityMeta {
 }
 
 export const ACTIVITY_META: Record<string, ActivityMeta> = {
-  Call: { text: 'text-sky-700', bg: 'bg-sky-50', dot: 'bg-sky-500', color: '#0ea5e9' },
-  Email: { text: 'text-indigo-700', bg: 'bg-indigo-50', dot: 'bg-indigo-500', color: '#6366f1' },
-  Meeting: { text: 'text-violet-700', bg: 'bg-violet-50', dot: 'bg-violet-500', color: '#8b5cf6' },
-  Demo: { text: 'text-amber-700', bg: 'bg-amber-50', dot: 'bg-amber-500', color: '#f59e0b' },
-  Note: { text: 'text-slate-600', bg: 'bg-slate-100', dot: 'bg-slate-500', color: '#64748b' },
+  Call: { text: 'text-sky-700 dark:text-sky-300', bg: 'bg-sky-50 dark:bg-sky-500/15', dot: 'bg-sky-500', color: '#0ea5e9' },
+  Email: { text: 'text-indigo-700 dark:text-indigo-300', bg: 'bg-indigo-50 dark:bg-indigo-500/15', dot: 'bg-indigo-500', color: '#6366f1' },
+  Meeting: { text: 'text-violet-700 dark:text-violet-300', bg: 'bg-violet-50 dark:bg-violet-500/15', dot: 'bg-violet-500', color: '#8b5cf6' },
+  Demo: { text: 'text-amber-700 dark:text-amber-300', bg: 'bg-amber-50 dark:bg-amber-500/15', dot: 'bg-amber-500', color: '#f59e0b' },
+  Note: { text: 'text-slate-600 dark:text-slate-300', bg: 'bg-slate-100 dark:bg-slate-700/50', dot: 'bg-slate-500', color: '#64748b' },
 };
 
 export function activityMeta(type: string): ActivityMeta {
   return (
     ACTIVITY_META[type] ?? {
-      text: 'text-slate-600',
-      bg: 'bg-slate-100',
+      text: 'text-slate-600 dark:text-slate-300',
+      bg: 'bg-slate-100 dark:bg-slate-700/50',
       dot: 'bg-slate-500',
       color: '#64748b',
     }
