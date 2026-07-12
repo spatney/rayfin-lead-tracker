@@ -72,22 +72,32 @@ export function AppLayout() {
           ))}
         </nav>
 
-        <div className="m-3 rounded-xl bg-slate-800/60 p-3">
-          <div className="flex items-center gap-3">
+        <div className="m-3 rounded-xl bg-slate-800/60 p-3.5">
+          <div className="flex items-start gap-3">
             <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-indigo-500 text-sm font-semibold text-white">
               {initial}
             </span>
-            <div className="min-w-0 flex-1">
-              <p className="truncate text-sm font-medium text-white">{label}</p>
+            <div className="min-w-0 flex-1 pt-0.5">
+              <p className="break-words text-sm font-semibold leading-5 text-white" title={label}>
+                {label}
+              </p>
               {user?.email && (
-                <p className="truncate text-xs text-slate-400">{user.email}</p>
+                <p className="break-all text-xs leading-5 text-slate-400" title={user.email}>
+                  {user.email}
+                </p>
               )}
             </div>
+          </div>
+          <div className="mt-3 flex items-center justify-end gap-1 border-t border-slate-700/70 pt-2">
+            <span className="mr-auto text-[11px] font-medium uppercase tracking-wide text-slate-500">
+              Account
+            </span>
             <div className="flex items-center gap-0.5">
-              <ThemeToggle variant="sidebar" />
+              <ThemeToggle variant="sidebar" className="hover:bg-slate-700" />
               <button
                 onClick={() => void signOut()}
                 title="Sign out"
+                aria-label="Sign out"
                 className="rounded-lg p-2 text-slate-400 transition-colors hover:bg-slate-700 hover:text-white"
               >
                 <SignOutIcon className="h-5 w-5" />
