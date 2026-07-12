@@ -73,7 +73,7 @@ export function AppLayout() {
         </nav>
 
         <div className="m-3 rounded-xl bg-slate-800/60 p-3.5">
-          <div className="flex items-start gap-3">
+          <div className="flex items-center gap-3">
             <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-indigo-500 text-sm font-semibold text-white">
               {initial}
             </span>
