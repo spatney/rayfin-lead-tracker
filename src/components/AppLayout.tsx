@@ -82,7 +82,7 @@ export function AppLayout() {
                 {label}
               </p>
               {user?.email && (
-                <p className="break-all text-xs leading-5 text-slate-400" title={user.email}>
+                <p className="truncate text-xs leading-5 text-slate-400" title={user.email}>
                   {user.email}
                 </p>
               )}
