@@ -185,7 +185,7 @@ function HeaderMenu({
               <TrashIcon className="h-4 w-4" />
             )}
             <span className="flex-1">
-              {resetting ? `Resetting… ${progress.percent}%` : 'Reset workspace'}
+              {resetting ? `Resetting… ${progress.percent}%` : 'Reset app'}
             </span>
           </button>
         </div>

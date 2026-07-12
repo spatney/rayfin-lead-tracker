@@ -620,5 +620,5 @@ async function deleteGraph(onProgress?: ProgressFn): Promise<number> {
 
 /** Delete the entire workspace for the signed-in user, timed as a `delete`. */
 export function resetWorkspace(onProgress?: ProgressFn): Promise<number> {
-  return timed('delete', 'Reset workspace', () => deleteGraph(onProgress), (n) => n);
+  return timed('delete', 'Reset app', () => deleteGraph(onProgress), (n) => n);
 }

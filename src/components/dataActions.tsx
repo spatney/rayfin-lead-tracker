@@ -66,7 +66,7 @@ export function ResetDataButton() {
       className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm font-medium text-slate-600 shadow-sm transition-colors hover:bg-slate-50 hover:text-rose-600 disabled:opacity-70 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 dark:hover:text-rose-400"
     >
       {busy ? <Spinner /> : <TrashIcon className="h-4 w-4" />}
-      {busy ? `Resetting… ${progress.percent}%` : 'Reset data'}
+      {busy ? `Resetting… ${progress.percent}%` : 'Reset app'}
     </button>
   );
 }

@@ -65,8 +65,8 @@ export function ResetWorkspaceProvider({ children }: { children: ReactNode }) {
       });
       await refresh();
     } catch (err) {
-      console.error('Failed to reset workspace:', err);
-      window.alert('Sorry — resetting the workspace failed. Please try again.');
+      console.error('Failed to reset app:', err);
+      window.alert('Sorry — resetting the app failed. Please try again.');
     } finally {
       setBusy(false);
       setProgress({ done: 0, total: 0, percent: 0 });
@@ -115,7 +115,7 @@ export function ResetWorkspaceProvider({ children }: { children: ReactNode }) {
               id="reset-dialog-title"
               className="mt-4 text-xl font-bold tracking-tight text-slate-900 dark:text-slate-100"
             >
-              Reset all workspace data?
+              Reset app?
             </h2>
             <p
               id="reset-dialog-description"
@@ -138,7 +138,7 @@ export function ResetWorkspaceProvider({ children }: { children: ReactNode }) {
                 onClick={() => void confirmReset()}
                 className="inline-flex items-center justify-center rounded-xl bg-rose-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm shadow-rose-600/25 transition-colors hover:bg-rose-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-600"
               >
-                Reset data
+                Reset app
               </button>
             </div>
           </div>
@@ -193,7 +193,7 @@ export function ResetWorkspaceOverlay() {
 
           <div className="min-w-0 flex-1">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
-              Resetting workspace
+              Resetting app
             </p>
             <h2 className="mt-1 text-2xl font-bold tracking-tight">
               Cleaning up your workspace
