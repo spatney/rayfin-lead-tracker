@@ -2,11 +2,14 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
+  useRef,
   useState,
   type ReactNode,
 } from 'react';
 
+import { TrashIcon } from '@/components/icons';
 import { useCrm } from '@/hooks/CrmContext';
 import { resetWorkspace } from '@/services/crm';
 
@@ -17,7 +20,7 @@ type ResetProgress = {
 };
 
 type ResetWorkspaceContextValue = {
-  run: () => Promise<void>;
+  run: () => void;
   busy: boolean;
   progress: ResetProgress;
 };
@@ -33,22 +36,22 @@ function formatCount(value: number): string {
 export function ResetWorkspaceProvider({ children }: { children: ReactNode }) {
   const { refresh } = useCrm();
   const [busy, setBusy] = useState(false);
+  const [confirmOpen, setConfirmOpen] = useState(false);
   const [progress, setProgress] = useState<ResetProgress>({
     done: 0,
     total: 0,
     percent: 0,
   });
+  const cancelButtonRef = useRef<HTMLButtonElement>(null);
 
-  const run = useCallback(async () => {
+  const run = useCallback(() => {
     if (busy) return;
-    if (
-      !window.confirm(
-        'Reset the workspace? This permanently removes every account, contact, deal, activity and rep.'
-      )
-    ) {
-      return;
-    }
+    setConfirmOpen(true);
+  }, [busy]);
 
+  const confirmReset = useCallback(async () => {
+    if (busy) return;
+    setConfirmOpen(false);
     setBusy(true);
     setProgress({ done: 0, total: 0, percent: 0 });
 
@@ -70,6 +73,17 @@ export function ResetWorkspaceProvider({ children }: { children: ReactNode }) {
     }
   }, [busy, refresh]);
 
+  useEffect(() => {
+    if (!confirmOpen) return;
+
+    cancelButtonRef.current?.focus();
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setConfirmOpen(false);
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [confirmOpen]);
+
   const value = useMemo(
     () => ({ run, busy, progress }),
     [run, busy, progress]
@@ -78,6 +92,58 @@ export function ResetWorkspaceProvider({ children }: { children: ReactNode }) {
   return (
     <ResetWorkspaceContext.Provider value={value}>
       {children}
+      {confirmOpen && (
+        <div
+          className="fixed inset-0 z-[60] flex items-center justify-center p-4"
+          role="presentation"
+        >
+          <div
+            className="absolute inset-0 -z-10 bg-slate-950/60 backdrop-blur-sm"
+            onMouseDown={() => setConfirmOpen(false)}
+          />
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="reset-dialog-title"
+            aria-describedby="reset-dialog-description"
+            className="w-full max-w-md rounded-2xl border border-slate-200 bg-white p-6 shadow-2xl shadow-slate-950/30 dark:border-slate-700 dark:bg-slate-900"
+          >
+            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-rose-50 text-rose-600 dark:bg-rose-500/15 dark:text-rose-400">
+              <TrashIcon className="h-5 w-5" />
+            </div>
+            <h2
+              id="reset-dialog-title"
+              className="mt-4 text-xl font-bold tracking-tight text-slate-900 dark:text-slate-100"
+            >
+              Reset all workspace data?
+            </h2>
+            <p
+              id="reset-dialog-description"
+              className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300"
+            >
+              This permanently removes every account, contact, deal, activity, and
+              sales rep. This action cannot be undone.
+            </p>
+            <div className="mt-6 flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">
+              <button
+                ref={cancelButtonRef}
+                type="button"
+                onClick={() => setConfirmOpen(false)}
+                className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={() => void confirmReset()}
+                className="inline-flex items-center justify-center rounded-xl bg-rose-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm shadow-rose-600/25 transition-colors hover:bg-rose-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-600"
+              >
+                Reset data
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </ResetWorkspaceContext.Provider>
   );
 }
