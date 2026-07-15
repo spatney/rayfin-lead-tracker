@@ -30,7 +30,7 @@ function Brand({ compact = false }: { compact?: boolean }) {
       {!compact && (
         <div className="leading-tight">
           <p className="text-sm font-semibold tracking-tight text-white">
-            LeadFlow
+            Lead Tracker
           </p>
           <p className="text-[11px] font-medium text-slate-400">Sales pipeline</p>
         </div>
