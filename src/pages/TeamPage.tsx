@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import { GenerateDataButton, ResetDataButton } from '@/components/dataActions';
 import { ThemedChart } from '@/components/ThemedChart';
@@ -15,6 +15,7 @@ import {
   type Accent,
 } from '@/components/ui';
 import { useCrm } from '@/hooks/CrmContext';
+import { fetchRepPerformance } from '@/services/aggregates';
 import { repLeaderboard, type RepPerformance } from '@/services/analytics';
 import { buildRepAttainmentSpec } from '@/services/chartSpecs';
 import {
@@ -40,9 +41,41 @@ function initials(name: string): string {
 }
 
 export function TeamPage() {
-  const { deals, reps, loading } = useCrm();
+  const { deals, reps, loading, version } = useCrm();
 
-  const perf = useMemo(() => repLeaderboard(deals, reps), [deals, reps]);
+  // Won/open value per rep is rolled up in SQL; only the small rep roster and
+  // the fallback path need row data.
+  const [remote, setRemote] = useState<RepPerformance[] | null>(null);
+  const [failed, setFailed] = useState(false);
+
+  useEffect(() => {
+    if (reps.length === 0) {
+      setRemote([]);
+      return;
+    }
+    let cancelled = false;
+    fetchRepPerformance(reps)
+      .then((rows) => {
+        if (cancelled) return;
+        setRemote(rows);
+        setFailed(false);
+      })
+      .catch((err) => {
+        if (cancelled) return;
+        console.warn('Falling back to client-side rep leaderboard:', err);
+        setFailed(true);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [reps, version]);
+
+  const fallback = useMemo(
+    () => (failed ? repLeaderboard(deals, reps) : null),
+    [failed, deals, reps]
+  );
+
+  const perf = useMemo(() => fallback ?? remote ?? [], [fallback, remote]);
 
   const totals = useMemo(() => {
     const quota = reps.reduce((sum, r) => sum + r.quota, 0);

@@ -16,19 +16,11 @@ import {
 import { useResetWorkspace } from '@/hooks/useResetWorkspace';
 import { ChartCard, PageHeader } from '@/components/ui';
 import { useCrm } from '@/hooks/CrmContext';
+import { useDealAggregates } from '@/hooks/useDealAggregates';
 import { activityMeta } from '@/services/crmTypes';
 import type { ActivityItem } from '@/services/crmTypes';
 import { relativeTime } from '@/services/format';
-import {
-  computeKpis,
-  dealsByOwner,
-  dealsByStage,
-  dealsBySource,
-  dealsOverTime,
-  pipelineByStage,
-  recentActivities,
-  topDeals,
-} from '@/services/analytics';
+import { recentActivities, topDeals } from '@/services/analytics';
 import {
   buildDealsOverTimeSpec,
   buildOwnerPipelineSpec,
@@ -233,7 +225,7 @@ function RecentActivityList({ activities }: { activities: ActivityItem[] }) {
 }
 
 export function DashboardPage() {
-  const { deals, activities, loading } = useCrm();
+  const { deals, activities } = useCrm();
   const [sketch, setSketch] = useState(false);
 
   // Shared selection bus: the bar chart publishes the clicked source here, and
@@ -246,14 +238,19 @@ export function DashboardPage() {
     return sourceSel.tuples.map((tuple) => String(tuple[0]));
   }, [sourceSel]);
 
-  // The bar chart always reflects every source, so all bars stay clickable.
-  const bySource = useMemo(() => dealsBySource(deals), [deals]);
+  // Every KPI and breakdown below is rolled up in SQL: the selected source is
+  // pushed into the query rather than filtering rows in the browser.
+  const { data, loading } = useDealAggregates(sourceFilter);
+  const { kpis, stageCounts, funnel, sourceCounts, owners, overTime, wonCount, lostCount } =
+    data;
+
   const barSpec = useMemo(
-    () => withSketch(buildSourceBarSpec(bySource), sketch),
-    [bySource, sketch]
+    () => withSketch(buildSourceBarSpec(sourceCounts), sketch),
+    [sourceCounts, sketch]
   );
 
-  // Every other visual + the KPI tiles respect the clicked-source filter.
+  // Row-level panels still read the loaded workspace: they show individual
+  // records, which an aggregation cannot return.
   const filteredDeals = useMemo(
     () =>
       sourceFilter.length > 0
@@ -261,22 +258,10 @@ export function DashboardPage() {
         : deals,
     [deals, sourceFilter]
   );
-
-  const data = useMemo(() => {
-    const kpis = computeKpis(filteredDeals);
-    const stageCounts = dealsByStage(filteredDeals);
-    const stages = pipelineByStage(filteredDeals);
-    const overTime = dealsOverTime(filteredDeals);
-    const top = topDeals(filteredDeals, 8);
-    const owners = dealsByOwner(filteredDeals);
-    const wonCount = stageCounts.find((s) => s.stage === 'Won')?.count ?? 0;
-    const lostCount = stageCounts.find((s) => s.stage === 'Lost')?.count ?? 0;
-    return { kpis, stageCounts, stages, overTime, top, owners, wonCount, lostCount };
-  }, [filteredDeals]);
-
+  const top = useMemo(() => topDeals(filteredDeals, 8), [filteredDeals]);
   const recent = useMemo(() => recentActivities(activities, 7), [activities]);
 
-  if (loading && deals.length === 0) {
+  if (loading) {
     return (
       <>
         <PageHeader title="Dashboard" subtitle="Your sales pipeline at a glance" />
@@ -285,7 +270,7 @@ export function DashboardPage() {
     );
   }
 
-  if (deals.length === 0) {
+  if (kpis.totalDeals === 0 && sourceFilter.length === 0) {
     return (
       <>
         <PageHeader title="Dashboard" subtitle="Your sales pipeline at a glance" />
@@ -293,8 +278,6 @@ export function DashboardPage() {
       </>
     );
   }
-
-  const { kpis, stageCounts, stages, overTime, top, owners, wonCount, lostCount } = data;
 
   return (
     <>
@@ -423,7 +406,7 @@ export function DashboardPage() {
           className="lg:col-span-5"
         >
           <div className="h-80">
-            <ThemedChart spec={withSketch(buildPipelineFunnelSpec(stages), sketch)} />
+            <ThemedChart spec={withSketch(buildPipelineFunnelSpec(funnel), sketch)} />
           </div>
         </ChartCard>
 

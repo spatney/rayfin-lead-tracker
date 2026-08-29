@@ -31,6 +31,12 @@ interface CrmContextValue {
   activities: ActivityItem[];
   loading: boolean;
   error: string | null;
+  /**
+   * Bumped after every successful load. Server-side aggregations key off this
+   * so they re-run when the workspace changes without depending on the row
+   * arrays they are meant to avoid touching.
+   */
+  version: number;
   /** Re-fetch the whole workspace from the backend. */
   refresh: () => Promise<void>;
   /** Local optimistic update of deals for snappy UI; pair with a refresh. */
@@ -52,6 +58,7 @@ export function CrmProvider({ children }: { children: ReactNode }) {
   const [workspace, setWorkspace] = useState<Workspace>(EMPTY_WORKSPACE);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [version, setVersion] = useState(0);
   const loadedOnce = useRef(false);
 
   const refresh = useCallback(async () => {
@@ -60,6 +67,7 @@ export function CrmProvider({ children }: { children: ReactNode }) {
       const data = await loadWorkspace();
       setWorkspace(data);
       setError(null);
+      setVersion((n) => n + 1);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load your workspace.');
     } finally {
@@ -89,10 +97,11 @@ export function CrmProvider({ children }: { children: ReactNode }) {
       activities: workspace.activities,
       loading,
       error,
+      version,
       refresh,
       setDeals,
     }),
-    [workspace, loading, error, refresh, setDeals]
+    [workspace, loading, error, version, refresh, setDeals]
   );
 
   return <CrmContext.Provider value={value}>{children}</CrmContext.Provider>;
