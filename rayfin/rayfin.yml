@@ -14,6 +14,7 @@ services:
       - https://wise-wheat-5263296416-westcentralus.webapp.msit.fabricapps.net
       - https://ultra-light-7e9dfef636-westcentralus.webapp.msit.fabricapps.net
       - https://young-shell-2775adba9c-westcentralus.webapp.msit.fabricapps.net
+      - http://localhost:5174
   data:
     enabled: true
     dialect: mssql
