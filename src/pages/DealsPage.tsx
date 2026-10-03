@@ -33,14 +33,17 @@ const fieldBase =
 function StageSelect({
   value,
   onChange,
+  label,
 }: {
   value: string;
   onChange: (stage: string) => void;
+  label: string;
 }) {
   const meta = stageMeta(value);
   return (
     <div className="relative inline-flex">
       <select
+        aria-label={label}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className={`cursor-pointer appearance-none rounded-full py-1 pl-2.5 pr-7 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-indigo-200 ${meta.bg} ${meta.text}`}
@@ -61,15 +64,18 @@ function FilterSelect({
   onChange,
   options,
   allLabel,
+  label,
 }: {
   value: string;
   onChange: (value: string) => void;
   options: readonly string[];
   allLabel: string;
+  label: string;
 }) {
   return (
     <div className="relative">
       <select
+        aria-label={label}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className={`${fieldBase} w-full cursor-pointer appearance-none py-2.5 pl-3.5 pr-9 sm:w-40`}
@@ -98,6 +104,7 @@ function OwnerFilterSelect({
   return (
     <div className="relative">
       <select
+        aria-label="Filter by owner"
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className={`${fieldBase} w-full cursor-pointer appearance-none py-2.5 pl-3.5 pr-9 sm:w-40`}
@@ -229,6 +236,7 @@ function AddDealModal({ onClose, onCreated }: AddDealModalProps) {
             </p>
           </div>
           <button
+            aria-label="Close"
             onClick={onClose}
             className="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600 dark:text-slate-500 dark:hover:bg-slate-800 dark:hover:text-slate-300"
           >
@@ -553,6 +561,7 @@ export function DealsPage() {
             <div className="relative flex-1">
               <SearchIcon className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400 dark:text-slate-500" />
               <input
+                aria-label="Search deals by deal, account, contact or owner"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search deal, account, contact or owner…"
@@ -561,12 +570,14 @@ export function DealsPage() {
             </div>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
               <FilterSelect
+                label="Filter by stage"
                 value={stageFilter}
                 onChange={setStageFilter}
                 options={DEAL_STAGES}
                 allLabel="All stages"
               />
               <FilterSelect
+                label="Filter by source"
                 value={sourceFilter}
                 onChange={setSourceFilter}
                 options={DEAL_SOURCES}
@@ -628,6 +639,7 @@ export function DealsPage() {
                       </td>
                       <td className="px-5 py-3">
                         <StageSelect
+                          label={`Stage for ${deal.name}`}
                           value={deal.stage}
                           onChange={(stage) => void changeStage(deal, stage)}
                         />

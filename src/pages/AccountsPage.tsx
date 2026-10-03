@@ -207,6 +207,7 @@ export function AccountsPage() {
             <div className="relative">
               <SearchIcon className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400 dark:text-slate-500" />
               <input
+                aria-label="Search accounts"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search accounts…"
@@ -215,6 +216,7 @@ export function AccountsPage() {
             </div>
             <div className="relative">
               <select
+                aria-label="Filter by tier"
                 value={tierFilter}
                 onChange={(e) => setTierFilter(e.target.value)}
                 className={`${fieldBase} w-full cursor-pointer appearance-none py-2.5 pl-3.5 pr-9`}
