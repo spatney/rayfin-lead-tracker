@@ -28,9 +28,9 @@ expressed with Rayfin's `@one` / `@many` navigations over explicit `{property}_i
 foreign keys, and a `DealTag` join entity models the many-to-many between deals
 and tags. Creates link existing records using ID-only relationship objects
 (for example, `account: { id: accountId }`); reads and filters still use the
-explicit foreign-key fields. Required foreign-key fields use optional TypeScript
-properties so relationship-only creates type-check; their `@uuid()` and `@one()`
-decorators still keep the database relationships required.
+explicit foreign-key fields. Optional foreign-key fields pair
+`@uuid({ optional: true })` with TypeScript's `?` so their database nullability
+and TypeScript types agree. Creates continue to provide relationship objects.
 Contact and sales-rep emails retain email validation
 and have a maximum length of 254 characters to avoid MSSQL `NVARCHAR(MAX)` columns.
 
@@ -71,13 +71,13 @@ export class Deal {
   @int({ min: 0, max: 100 }) probability!: number;
   @date() expectedCloseDate!: Date;
 
-  @uuid() account_id?: string;
+  @uuid({ optional: true }) account_id?: string;
   @one(() => Account) account?: Account;
 
   @uuid({ optional: true }) contact_id?: string;
   @one(() => Contact, { optional: true }) contact?: Contact;
 
-  @uuid() owner_id?: string;
+  @uuid({ optional: true }) owner_id?: string;
   @one(() => SalesRep) owner?: SalesRep;
 
   @many(() => Activity) activities?: Activity[];

@@ -24,7 +24,7 @@ export class Contact {
   @text({ max: 40 }) phone!: string;
   @text({ max: 90 }) title!: string;
 
-  @uuid() account_id?: string;
+  @uuid({ optional: true }) account_id?: string;
   @one(() => Account) account?: Account;
 
   @many(() => Deal) deals?: Deal[];

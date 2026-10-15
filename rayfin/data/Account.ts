@@ -31,7 +31,7 @@ export class Account {
   @set('Strategic', 'Enterprise', 'Mid-Market', 'SMB')
   tier!: 'Strategic' | 'Enterprise' | 'Mid-Market' | 'SMB';
 
-  @uuid() owner_id?: string;
+  @uuid({ optional: true }) owner_id?: string;
   @one(() => SalesRep) owner?: SalesRep;
 
   @many(() => Contact) contacts?: Contact[];

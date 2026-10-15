@@ -48,13 +48,13 @@ export class Deal {
   @date() expectedCloseDate!: Date;
   @date({ optional: true }) closedAt?: Date;
 
-  @uuid() account_id?: string;
+  @uuid({ optional: true }) account_id?: string;
   @one(() => Account) account?: Account;
 
   @uuid({ optional: true }) contact_id?: string;
   @one(() => Contact, { optional: true }) contact?: Contact;
 
-  @uuid() owner_id?: string;
+  @uuid({ optional: true }) owner_id?: string;
   @one(() => SalesRep) owner?: SalesRep;
 
   @many(() => Activity) activities?: Activity[];
