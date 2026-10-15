@@ -10,10 +10,10 @@ import { Tag } from './Tag.js';
 export class DealTag {
   @uuid() id!: string;
 
-  @uuid() deal_id!: string;
+  @uuid() deal_id?: string;
   @one(() => Deal) deal?: Deal;
 
-  @uuid() tag_id!: string;
+  @uuid() tag_id?: string;
   @one(() => Tag) tag?: Tag;
 
   @text({ max: 200 }) user_id!: string;

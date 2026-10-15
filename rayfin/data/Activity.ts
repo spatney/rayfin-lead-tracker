@@ -23,10 +23,10 @@ export class Activity {
   @text({ max: 400, optional: true }) notes?: string;
   @date() occurredAt!: Date;
 
-  @uuid() deal_id!: string;
+  @uuid() deal_id?: string;
   @one(() => Deal) deal?: Deal;
 
-  @uuid() owner_id!: string;
+  @uuid() owner_id?: string;
   @one(() => SalesRep) owner?: SalesRep;
 
   @date() createdAt!: Date;

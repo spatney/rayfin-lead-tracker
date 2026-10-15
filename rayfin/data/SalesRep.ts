@@ -21,7 +21,7 @@ import { Activity } from './Activity.js';
 export class SalesRep {
   @uuid() id!: string;
   @text({ min: 1, max: 120 }) name!: string;
-  @email() email!: string;
+  @email({ max: 254 }) email!: string;
   @text({ max: 80 }) title!: string;
   @set('North America', 'EMEA', 'APAC', 'LATAM')
   region!: 'North America' | 'EMEA' | 'APAC' | 'LATAM';

@@ -42,19 +42,19 @@ export class Deal {
     | 'Social Media'
     | 'Event'
     | 'Partner';
-  @int() value!: number;
-  @int() score!: number;
-  @int() probability!: number;
+  @int({ min: 0 }) value!: number;
+  @int({ min: 0, max: 100 }) score!: number;
+  @int({ min: 0, max: 100 }) probability!: number;
   @date() expectedCloseDate!: Date;
   @date({ optional: true }) closedAt?: Date;
 
-  @uuid() account_id!: string;
+  @uuid() account_id?: string;
   @one(() => Account) account?: Account;
 
   @uuid({ optional: true }) contact_id?: string;
   @one(() => Contact, { optional: true }) contact?: Contact;
 
-  @uuid() owner_id!: string;
+  @uuid() owner_id?: string;
   @one(() => SalesRep) owner?: SalesRep;
 
   @many(() => Activity) activities?: Activity[];

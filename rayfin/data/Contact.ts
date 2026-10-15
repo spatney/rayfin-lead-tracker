@@ -20,11 +20,11 @@ export class Contact {
   @uuid() id!: string;
   @text({ min: 1, max: 60 }) firstName!: string;
   @text({ min: 1, max: 60 }) lastName!: string;
-  @email() email!: string;
+  @email({ max: 254 }) email!: string;
   @text({ max: 40 }) phone!: string;
   @text({ max: 90 }) title!: string;
 
-  @uuid() account_id!: string;
+  @uuid() account_id?: string;
   @one(() => Account) account?: Account;
 
   @many(() => Deal) deals?: Deal[];

@@ -26,7 +26,13 @@ The workspace is a small relational CRM — seven entities, all scoped to the
 signed-in user so each person only ever sees their own data. Relationships are
 expressed with Rayfin's `@one` / `@many` navigations over explicit `{property}_id`
 foreign keys, and a `DealTag` join entity models the many-to-many between deals
-and tags.
+and tags. Creates link existing records using ID-only relationship objects
+(for example, `account: { id: accountId }`); reads and filters still use the
+explicit foreign-key fields. Required foreign-key fields use optional TypeScript
+properties so relationship-only creates type-check; their `@uuid()` and `@one()`
+decorators still keep the database relationships required.
+Contact and sales-rep emails retain email validation
+and have a maximum length of 254 characters to avoid MSSQL `NVARCHAR(MAX)` columns.
 
 ```text
 SalesRep ──< Account ──< Contact
@@ -60,17 +66,18 @@ export class Deal {
   @text({ min: 1, max: 140 }) name!: string;
   @set('New', 'Contacted', 'Qualified', 'Proposal', 'Negotiation', 'Won', 'Lost')
   stage!: 'New' | 'Contacted' | 'Qualified' | 'Proposal' | 'Negotiation' | 'Won' | 'Lost';
-  @int() value!: number;
-  @int() probability!: number;
+  @int({ min: 0 }) value!: number;
+  @int({ min: 0, max: 100 }) score!: number;
+  @int({ min: 0, max: 100 }) probability!: number;
   @date() expectedCloseDate!: Date;
 
-  @uuid() account_id!: string;
+  @uuid() account_id?: string;
   @one(() => Account) account?: Account;
 
   @uuid({ optional: true }) contact_id?: string;
   @one(() => Contact, { optional: true }) contact?: Contact;
 
-  @uuid() owner_id!: string;
+  @uuid() owner_id?: string;
   @one(() => SalesRep) owner?: SalesRep;
 
   @many(() => Activity) activities?: Activity[];

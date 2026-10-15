@@ -8,7 +8,7 @@
  *
  * Every operation is wrapped in `timed(...)` so the Performance page shows live
  * throughput. Relationships are read via typed dot-paths (e.g. `account.name`)
- * and written via scalar foreign keys (e.g. `account_id`).
+ * and written via ID-only relationship objects (e.g. `account: { id }`).
  */
 
 import { getRayfinClient } from './rayfinClient';
@@ -359,9 +359,9 @@ export async function createDeal(input: NewDeal): Promise<void> {
         probability: input.probability,
         expectedCloseDate: input.expectedCloseDate,
         closedAt: input.closedAt ?? undefined,
-        account_id: input.accountId,
-        contact_id: input.contactId ?? undefined,
-        owner_id: input.ownerId,
+        account: { id: input.accountId },
+        contact: input.contactId ? { id: input.contactId } : undefined,
+        owner: { id: input.ownerId },
         createdAt: input.createdAt,
         user_id: userId,
       });
@@ -369,8 +369,8 @@ export async function createDeal(input: NewDeal): Promise<void> {
         await Promise.all(
           input.tagIds.map((tagId) =>
             client.data.DealTag.create({
-              deal_id: String(deal.id),
-              tag_id: tagId,
+              deal: { id: String(deal.id) },
+              tag: { id: tagId },
               user_id: userId,
             })
           )
@@ -462,7 +462,7 @@ async function insertGraph(options?: SampleOptions, onProgress?: ProgressFn): Pr
         employeeCount: a.employeeCount,
         annualRevenue: a.annualRevenue,
         tier: a.tier,
-        owner_id: repIds[a.ownerIndex],
+        owner: { id: repIds[a.ownerIndex] },
         createdAt: a.createdAt,
         user_id: userId,
       }),
@@ -479,7 +479,7 @@ async function insertGraph(options?: SampleOptions, onProgress?: ProgressFn): Pr
         email: c.email,
         phone: c.phone,
         title: c.title,
-        account_id: accountIds[c.accountIndex],
+        account: { id: accountIds[c.accountIndex] },
         createdAt: c.createdAt,
         user_id: userId,
       }),
@@ -499,9 +499,9 @@ async function insertGraph(options?: SampleOptions, onProgress?: ProgressFn): Pr
         probability: d.probability,
         expectedCloseDate: d.expectedCloseDate,
         closedAt: d.closedAt ?? undefined,
-        account_id: accountIds[d.accountIndex],
-        contact_id: d.contactIndex != null ? contactIds[d.contactIndex] : undefined,
-        owner_id: repIds[d.ownerIndex],
+        account: { id: accountIds[d.accountIndex] },
+        contact: d.contactIndex != null ? { id: contactIds[d.contactIndex] } : undefined,
+        owner: { id: repIds[d.ownerIndex] },
         createdAt: d.createdAt,
         user_id: userId,
       }),
@@ -517,8 +517,8 @@ async function insertGraph(options?: SampleOptions, onProgress?: ProgressFn): Pr
         subject: a.subject,
         notes: a.notes ?? undefined,
         occurredAt: a.occurredAt,
-        deal_id: dealIds[a.dealIndex],
-        owner_id: repIds[a.ownerIndex],
+        deal: { id: dealIds[a.dealIndex] },
+        owner: { id: repIds[a.ownerIndex] },
         createdAt: a.createdAt,
         user_id: userId,
       }),
@@ -527,8 +527,8 @@ async function insertGraph(options?: SampleOptions, onProgress?: ProgressFn): Pr
 
   const dealTagPayloads = graph.deals.flatMap((deal, dealIndex) =>
     deal.tagIndexes.map((tagIndex) => ({
-      deal_id: dealIds[dealIndex],
-      tag_id: tagIds[tagIndex],
+      deal: { id: dealIds[dealIndex] },
+      tag: { id: tagIds[tagIndex] },
     }))
   );
   await createChunked(
