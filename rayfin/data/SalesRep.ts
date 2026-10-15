@@ -1,6 +1,6 @@
 import {
   entity,
-  role,
+  authenticated,
   uuid,
   text,
   email,
@@ -15,7 +15,7 @@ import { Deal } from './Deal.js';
 import { Activity } from './Activity.js';
 
 @entity()
-@role('authenticated', '*', {
+@authenticated('*', {
   policy: (claims, item) => claims.sub.eq(item.user_id),
 })
 export class SalesRep {

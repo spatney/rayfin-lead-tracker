@@ -1,10 +1,10 @@
-import { entity, role, uuid, text, one } from '@microsoft/rayfin-core';
+import { entity, authenticated, uuid, text, one } from '@microsoft/rayfin-core';
 
 import { Deal } from './Deal.js';
 import { Tag } from './Tag.js';
 
 @entity()
-@role('authenticated', '*', {
+@authenticated('*', {
   policy: (claims, item) => claims.sub.eq(item.user_id),
 })
 export class DealTag {

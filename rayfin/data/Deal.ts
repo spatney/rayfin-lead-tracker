@@ -1,6 +1,6 @@
 import {
   entity,
-  role,
+  authenticated,
   uuid,
   text,
   int,
@@ -17,7 +17,7 @@ import { Activity } from './Activity.js';
 import { DealTag } from './DealTag.js';
 
 @entity()
-@role('authenticated', '*', {
+@authenticated('*', {
   policy: (claims, item) => claims.sub.eq(item.user_id),
 })
 export class Deal {
