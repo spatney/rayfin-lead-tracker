@@ -37,3 +37,6 @@ rayfin/.temp/
 *.njsproj
 *.sln
 *.sw?
+
+# micro-fabric (claim token and local state)
+.micro-fabric/

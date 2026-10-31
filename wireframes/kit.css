@@ -1,0 +1,1192 @@
+/* Fabricator wireframe kit v2. Managed by Fabricator: edits are replaced. */
+
+/* Tokens: a hand-drawn sketch, like a Balsamiq mockup, so a screen reads as a wireframe rather
+   than a finished design: white paper, pencil outlines with uneven corners, a handwritten font
+   (Balsamiq Sans where Fabricator shows the screens; Comic Sans or Chalkboard elsewhere) and
+   squiggles for placeholder text, plus one accent (--wf-accent) for what's interactive or
+   selected. Charts draw the first series --wf-c1 in the accent and the rest in grays, --wf-c2
+   (darkest) to --wf-c4. Requirement pins (--wf-pin, violet) and notes (yellow stickies) are the
+   studio's annotations, not part of the design. */
+:root {
+  color-scheme: light;
+  --wf-paper: #fdfdfb;
+  --wf-surface: #fff;
+  --wf-fill: #f0f0ec;
+  --wf-fill-2: #dededa;
+  --wf-line: #cfcfc9;
+  --wf-line-2: #9d9d97;
+  --wf-pencil: #2e2e2e;
+  --wf-ink: #222;
+  --wf-ink-2: #4d4d4d;
+  --wf-ink-3: #7b7b75;
+  --wf-accent: #2a67c6;
+  --wf-accent-soft: #e4edfb;
+  --wf-c1: var(--wf-accent);
+  --wf-c2: #6e6e6e;
+  --wf-c3: #b0b0b0;
+  --wf-c4: #dadada;
+  --wf-pin: #7c3aed;
+  --wf-note: #fff3a6;
+  --wf-stroke: 2px;
+  --wf-radius: 6px;
+  /* Uneven corners bend each edge a little, the way a pen draws a box: --wf-wobble for
+     controls, --wf-wobble-2 for containers. */
+  --wf-wobble: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  --wf-wobble-2: 8px 255px 8px 225px / 225px 8px 255px 8px;
+  --wf-gap: 16px;
+  --wf-font: 'Balsamiq Sans', 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', system-ui, sans-serif;
+}
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+html {
+  background: var(--wf-paper);
+  color: var(--wf-ink);
+  font: 14px/1.45 var(--wf-font);
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+:where(h1, h2, h3, h4, p, figure) {
+  margin: 0;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+a {
+  color: inherit;
+}
+svg {
+  max-width: 100%;
+}
+
+/* Shared shapes. Each class is described in its own section below. */
+.wf-row,
+.wf-toolbar,
+.wf-filter-bar,
+.wf-card-head,
+.wf-legend,
+.wf-pagination,
+.wf-breadcrumb,
+.wf-tabs,
+.wf-topbar,
+.wf-brand,
+.wf-nav-item,
+.wf-list-item,
+.wf-toast {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.wf-row,
+.wf-toolbar,
+.wf-filter-bar,
+.wf-card-head,
+.wf-legend,
+.wf-pagination,
+.wf-breadcrumb {
+  flex-wrap: wrap;
+}
+.wf-btn,
+.wf-chip,
+.wf-badge,
+.wf-check,
+.wf-radio,
+.wf-toggle,
+.wf-input,
+.wf-select,
+.wf-search,
+.wf-avatar {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.wf-main,
+.wf-page,
+.wf-sidebar,
+.wf-nav,
+.wf-col,
+.wf-stack,
+.wf-section,
+.wf-card,
+.wf-card-body,
+.wf-kpi,
+.wf-modal,
+.wf-drawer,
+.wf-field,
+.wf-empty {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+.wf-card,
+.wf-kpi,
+.wf-modal,
+.wf-drawer,
+.wf-btn,
+.wf-input,
+.wf-select,
+.wf-textarea,
+.wf-search,
+.wf-chip,
+.wf-pagination > * {
+  border: var(--wf-stroke) solid var(--wf-pencil);
+  border-radius: var(--wf-wobble);
+  background: var(--wf-surface);
+}
+.wf-card,
+.wf-kpi,
+.wf-modal,
+.wf-drawer {
+  padding: 16px;
+  border-radius: var(--wf-wobble-2);
+}
+.wf-label,
+.wf-small,
+.wf-chip,
+.wf-legend,
+.wf-field,
+.wf-note,
+.wf-tooltip,
+.wf-kpi-label,
+.wf-kpi-delta,
+.wf-table th {
+  font-size: 12px;
+}
+.wf-label,
+.wf-field,
+.wf-kpi-label,
+.wf-table th {
+  font-weight: 700;
+  color: var(--wf-ink-2);
+}
+.wf-muted,
+.wf-kpi-delta,
+.wf-axis,
+.wf-breadcrumb {
+  color: var(--wf-ink-3);
+}
+
+/* Page shell: .wf-app lays out an optional .wf-sidebar (left), .wf-topbar and .wf-main.
+   .wf-page is a simple centered page (style="--w:480px" narrows it). .wf-brand is a logo and
+   the app's name. .wf-nav holds .wf-nav-item links. .is-active marks the current nav item,
+   tab, chip, page or step, in the accent. */
+.wf-app {
+  display: grid;
+  grid-template: 'side top' auto 'side main' 1fr / auto minmax(0, 1fr);
+  min-height: 100vh;
+}
+.wf-sidebar {
+  grid-area: side;
+  gap: 16px;
+  width: 220px;
+  padding: 16px 12px;
+  background: var(--wf-surface);
+  border-right: var(--wf-stroke) solid var(--wf-pencil);
+}
+.wf-topbar {
+  grid-area: top;
+  gap: 16px;
+  min-height: 56px;
+  padding: 8px 24px;
+  background: var(--wf-surface);
+  border-bottom: var(--wf-stroke) solid var(--wf-pencil);
+}
+.wf-main,
+.wf-page {
+  gap: 20px;
+  padding: 24px;
+}
+.wf-main {
+  grid-area: main;
+}
+.wf-page {
+  max-width: var(--w, 1120px);
+  margin: 0 auto;
+  padding-top: 32px;
+}
+.wf-brand {
+  font-weight: 700;
+  white-space: nowrap;
+}
+.wf-brand::before {
+  content: '';
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border: var(--wf-stroke) solid var(--wf-pencil);
+  border-radius: var(--wf-wobble);
+  background: var(--wf-accent);
+}
+.wf-nav {
+  gap: 2px;
+}
+.wf-topbar .wf-nav {
+  flex-direction: row;
+}
+.wf-nav-item {
+  padding: 7px 10px;
+  border-radius: var(--wf-wobble);
+  color: var(--wf-ink-2);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.wf-nav-item.is-active {
+  background: var(--wf-accent-soft);
+  color: var(--wf-accent);
+  font-weight: 700;
+}
+
+/* Layout: .wf-row (a horizontal group that wraps), .wf-col (a column sharing a .wf-row),
+   .wf-stack (a vertical group), .wf-grid (style="--cols:3"; 2 columns on tablets, 1 on phones;
+   children may take .wf-span-2, .wf-span-3 or .wf-span-all), .wf-spacer (pushes what follows
+   to the end of a row), .wf-section (a titled block), .wf-toolbar (a page title and its
+   actions). */
+.wf-row,
+.wf-toolbar {
+  gap: 8px 12px;
+}
+.wf-col {
+  flex: 1 1 0;
+  align-self: stretch;
+}
+.wf-spacer {
+  flex: 1 1 auto;
+}
+.wf-grid {
+  --wf-min: 0px;
+  display: grid;
+  gap: var(--wf-gap);
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(
+      max(var(--wf-min), (100% - (var(--cols, 3) - 1) * var(--wf-gap)) / var(--cols, 3) - 0.5px),
+      1fr
+    )
+  );
+}
+.wf-grid > * {
+  min-width: 0;
+}
+.wf-span-2 {
+  grid-column: span 2;
+}
+.wf-span-3 {
+  grid-column: span 3;
+}
+.wf-span-all {
+  grid-column: 1 / -1;
+}
+
+/* Containers: .wf-card, with an optional .wf-card-head (its first item is the title, its last
+   sits on the right) and .wf-card-body; .wf-panel (a gray inset area); .wf-divider (a line,
+   vertical inside a .wf-row). */
+.wf-card-head {
+  gap: 4px 8px;
+}
+.wf-card-head > :first-child {
+  font-weight: 700;
+}
+.wf-card-head > :last-child:not(:first-child) {
+  margin-left: auto;
+}
+.wf-panel {
+  padding: 16px;
+  border-radius: var(--wf-wobble-2);
+  background: var(--wf-fill);
+}
+.wf-divider {
+  align-self: stretch;
+  margin: 0;
+  border: 0;
+  border-top: var(--wf-stroke) solid var(--wf-line-2);
+}
+.wf-row > .wf-divider {
+  border-top: 0;
+  border-left: var(--wf-stroke) solid var(--wf-line-2);
+}
+
+/* Text: .wf-h1, .wf-h2, .wf-h3, .wf-text, .wf-muted, .wf-label, .wf-small, .wf-link, .wf-num
+   (right-aligned figures), .wf-lines (placeholder text, drawn as squiggles; style="--lines:4"). */
+.wf-h1,
+.wf-h2,
+.wf-h3,
+.wf-text {
+  margin: 0;
+}
+.wf-h1 {
+  font-size: 24px;
+  line-height: 1.25;
+  font-weight: 700;
+}
+.wf-h2 {
+  font-size: 18px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+.wf-h3 {
+  font-size: 15px;
+  line-height: 1.35;
+  font-weight: 700;
+}
+.wf-link {
+  color: var(--wf-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.wf-num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.wf-lines {
+  --lines: 3;
+  display: block;
+  height: calc(var(--lines) * 18px - 8px);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='18'%3E%3Cpath d='M0 5q4.5-4 9 0t9 0 9 0 9 0' fill='none' stroke='%23b4b4ae' stroke-width='1.6'/%3E%3C/svg%3E")
+    0 0 / 36px 18px repeat;
+  mask:
+    linear-gradient(#000 0 0) top / 100% calc(100% - 10px) no-repeat,
+    linear-gradient(#000 0 0) bottom left / 62% 10px no-repeat;
+}
+
+/* Controls: .wf-btn (+ .wf-btn--primary, .wf-btn--ghost, .wf-btn--danger); .wf-input,
+   .wf-select, .wf-textarea, .wf-search (form elements or plain divs); .wf-field (a <label>
+   holding a caption and a control); .wf-check, .wf-radio, .wf-toggle (a <label> around an
+   <input>); .wf-tabs of .wf-tab; .wf-chip; .wf-badge (+ --ok, --warn, --bad: shades, not
+   colors); .wf-avatar (initials); .wf-pagination and .wf-breadcrumb (rows of links);
+   .wf-steps (an <ol>; li.is-done, li.is-active). */
+.wf-btn {
+  justify-content: center;
+  min-height: 32px;
+  padding: 0 14px;
+  color: var(--wf-ink);
+  text-decoration: none;
+}
+.wf-btn--ghost {
+  border-color: transparent;
+  background: transparent;
+}
+.wf-btn--danger {
+  border-width: 3px;
+  font-weight: 700;
+}
+.wf-input,
+.wf-select,
+.wf-textarea,
+.wf-search {
+  min-width: 0;
+  min-height: 32px;
+  padding: 0 10px;
+  color: var(--wf-ink-2);
+}
+:is(.wf-input, .wf-textarea, .wf-search)::placeholder {
+  color: var(--wf-ink-3);
+}
+.wf-textarea {
+  display: flex;
+  width: 100%;
+  min-height: 84px;
+  padding: 8px 10px;
+  resize: none;
+}
+.wf-select {
+  appearance: none;
+  padding-right: 30px;
+  background:
+    linear-gradient(45deg, transparent 50%, var(--wf-pencil) 0) right 16px center / 6px 6px
+      no-repeat,
+    linear-gradient(135deg, var(--wf-pencil) 50%, transparent 0) right 10px center / 6px 6px
+      no-repeat,
+    var(--wf-surface);
+}
+.wf-search {
+  padding-left: 30px;
+  border-radius: 999px;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='6.5' cy='6.5' r='4.6' fill='none' stroke='%232e2e2e' stroke-width='1.8'/%3E%3Cpath d='M10 10l4 4' stroke='%232e2e2e' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E")
+      10px 50% / 14px 14px no-repeat,
+    var(--wf-surface);
+}
+.wf-field {
+  gap: 6px;
+}
+.wf-field
+  > :is(
+    .wf-input,
+    .wf-select,
+    .wf-textarea,
+    .wf-search,
+    .wf-check,
+    .wf-radio,
+    .wf-toggle,
+    .wf-row
+  ) {
+  width: 100%;
+  font-size: 14px;
+  font-weight: 400;
+}
+.wf-field > .wf-small {
+  font-weight: 400;
+}
+.wf-check,
+.wf-radio,
+.wf-toggle {
+  gap: 8px;
+}
+:is(.wf-check, .wf-radio, .wf-toggle) > input {
+  appearance: none;
+  display: inline-grid;
+  place-content: center;
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  border: var(--wf-stroke) solid var(--wf-pencil);
+  border-radius: 3px 5px 3px 4px / 4px 3px 5px 3px;
+  background: var(--wf-surface);
+}
+:is(.wf-check, .wf-radio, .wf-toggle) > input::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+}
+/* The check is a pen stroke in the accent, inside the box. */
+.wf-check > input:checked::before {
+  width: 12px;
+  height: 12px;
+  background: var(--wf-accent);
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6.4 4.9 9.2 10 2.8' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+    center / 100% 100% no-repeat;
+}
+.wf-radio > input,
+:is(.wf-radio, .wf-toggle) > input::before {
+  border-radius: 50%;
+}
+.wf-radio > input:checked::before {
+  background: var(--wf-accent);
+}
+.wf-toggle > input {
+  width: 32px;
+  height: 18px;
+  padding: 0 2px;
+  border-radius: 9px;
+  place-content: center start;
+}
+.wf-toggle > input::before {
+  width: 10px;
+  height: 10px;
+  background: var(--wf-ink-3);
+}
+.wf-toggle > input:checked {
+  border-color: var(--wf-accent);
+  background: var(--wf-accent);
+  place-content: center end;
+}
+.wf-toggle > input:checked::before {
+  background: #fff;
+}
+.wf-tabs {
+  gap: 4px;
+  overflow-x: auto;
+  background: linear-gradient(var(--wf-pencil), var(--wf-pencil)) bottom / 100% var(--wf-stroke)
+    no-repeat;
+}
+.wf-tab {
+  padding: 8px 12px;
+  border-bottom: 3px solid transparent;
+  color: var(--wf-ink-2);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.wf-tab.is-active {
+  border-bottom-color: var(--wf-accent);
+  color: var(--wf-ink);
+  font-weight: 700;
+}
+.wf-chip,
+.wf-badge {
+  border-radius: 999px;
+}
+.wf-chip {
+  min-height: 26px;
+  padding: 0 10px;
+  border-width: 1.5px;
+}
+.wf-badge {
+  padding: 0 8px;
+  border: 1.5px solid transparent;
+  background: var(--wf-fill-2);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 17px;
+}
+.wf-badge--ok,
+.wf-badge--warn {
+  border-color: var(--wf-pencil);
+  background: var(--wf-surface);
+}
+.wf-badge--warn {
+  background: repeating-linear-gradient(-45deg, var(--wf-surface) 0 3px, var(--wf-fill-2) 0 5px);
+}
+.wf-avatar {
+  justify-content: center;
+  flex: none;
+  width: var(--size, 32px);
+  height: var(--size, 32px);
+  overflow: hidden;
+  border: 1.5px solid var(--wf-pencil);
+  border-radius: 50%;
+  background: var(--wf-fill);
+  color: var(--wf-ink-2);
+  font-size: 12px;
+  font-weight: 700;
+}
+.wf-pagination {
+  gap: 4px;
+}
+.wf-pagination > * {
+  display: inline-grid;
+  place-items: center;
+  min-width: 30px;
+  height: 30px;
+  padding: 0 8px;
+  text-decoration: none;
+}
+.wf-breadcrumb {
+  gap: 6px;
+  font-size: 13px;
+}
+.wf-breadcrumb > * + ::before {
+  content: '/';
+  margin-right: 6px;
+  color: var(--wf-line-2);
+}
+.wf-breadcrumb > :last-child {
+  color: var(--wf-ink);
+}
+.wf-breadcrumb a {
+  text-decoration: none;
+}
+.wf-steps {
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: wf-step;
+}
+.wf-steps > li {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--wf-ink-3);
+  font-size: 13px;
+  white-space: nowrap;
+  counter-increment: wf-step;
+}
+.wf-steps > li::before {
+  content: counter(wf-step);
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 24px;
+  height: 24px;
+  border: var(--wf-stroke) solid var(--wf-line-2);
+  border-radius: 50%;
+  background: var(--wf-surface);
+  font-size: 12px;
+  line-height: 1;
+}
+.wf-steps > li:not(:last-child)::after {
+  content: '';
+  flex: 1;
+  min-width: 12px;
+  height: var(--wf-stroke);
+  background: var(--wf-line-2);
+}
+.wf-steps > li.is-active {
+  color: var(--wf-ink);
+  font-weight: 700;
+}
+.wf-steps > li.is-active::before {
+  border-color: var(--wf-accent);
+  color: var(--wf-accent);
+}
+/* The accent fills the main action and the chosen chip, page and finished steps. */
+.wf-btn--primary,
+.wf-chip.is-active,
+.wf-pagination > .is-active,
+.wf-steps > li.is-done::before {
+  border-color: var(--wf-accent);
+  background: var(--wf-accent);
+  color: #fff;
+}
+/* Messages and overlays stay dark: they aren't actions. */
+.wf-badge--bad,
+.wf-toast,
+.wf-tooltip {
+  border-color: var(--wf-ink);
+  background: var(--wf-ink);
+  color: #fff;
+}
+/* A finished step's number becomes a check, drawn like the checkbox's. */
+.wf-steps > li.is-done::before {
+  content: '';
+  background: var(--wf-accent)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6.4 4.9 9.2 10 2.8' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+    center / 12px 12px no-repeat;
+}
+/* Links and muted text on the filled surfaces above stay readable. */
+.wf-toast .wf-link,
+.wf-tooltip .wf-link,
+:is(.wf-btn--primary, .wf-chip.is-active, .wf-pagination > .is-active) :is(.wf-link, .wf-muted) {
+  color: inherit;
+}
+.wf-toast .wf-muted,
+.wf-tooltip .wf-muted {
+  color: #c9c9c4;
+}
+
+/* Data: .wf-kpi (a tile of .wf-kpi-label, .wf-kpi-value and .wf-kpi-delta), .wf-table (a plain
+   <table>), .wf-list of .wf-list-item (rows with dividers), .wf-empty (an empty state: a line or
+   two and a button), .wf-filter-bar (filters in a row). */
+.wf-kpi {
+  gap: 4px;
+  padding: 14px 16px;
+}
+.wf-kpi-value {
+  font-size: 26px;
+  line-height: 1.2;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.wf-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.wf-table :is(th, td) {
+  padding: 9px 10px;
+  border-bottom: 1px solid var(--wf-line);
+  text-align: left;
+}
+.wf-table th {
+  border-bottom: var(--wf-stroke) solid var(--wf-pencil);
+}
+.wf-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+.wf-table .wf-num {
+  text-align: right;
+}
+.wf-list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.wf-list-item {
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--wf-line);
+}
+.wf-list-item:last-child {
+  border-bottom: 0;
+}
+.wf-empty {
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 40px 24px;
+  border: var(--wf-stroke) dashed var(--wf-line-2);
+  border-radius: var(--wf-wobble-2);
+  color: var(--wf-ink-2);
+  text-align: center;
+}
+.wf-empty::before {
+  content: '';
+  width: 40px;
+  height: 40px;
+  border: var(--wf-stroke) solid var(--wf-line-2);
+  border-radius: 50%;
+  background: var(--wf-fill);
+}
+
+/* Charts, in CSS and inline SVG: .wf-chart data-kind="column|bar|line|area|scatter|pie|donut|
+   gauge|funnel|map" (style="--h:240px" sets the height). The first line, slice or gauge value is
+   in the accent (--wf-c1), the rest in grays.
+   - column (the default), bar, funnel: an <i style="--v:60%" data-label="Jan"></i> per bar;
+     .is-active picks one out in the accent.
+   - line, area: <svg class="wf-spark" viewBox="0 0 100 40" preserveAspectRatio="none"> with a
+     <polyline points="0,30 25,22 ..."> per series (the second is dashed) and, for area, a
+     <polygon> under it. A .wf-spark also works alone, e.g. in a .wf-kpi.
+   - scatter: an <i style="--x:30%;--y:60%"></i> per point.
+   - pie, donut: style="--a:45;--b:30;--c:15" (unitless percents; the rest is the last slice).
+   - gauge: style="--v:72%". donut, gauge: data-label="72%" is shown in the middle.
+   .wf-legend: a <span> per series or slice, in order. .wf-axis: a <span> per tick label. */
+.wf-chart {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  gap: 8px;
+  height: var(--h, 180px);
+  padding-bottom: 20px;
+  background:
+    linear-gradient(var(--wf-pencil), var(--wf-pencil)) bottom / 100% var(--wf-stroke) no-repeat,
+    linear-gradient(var(--wf-line) 1px, transparent 0) 0 0 / 100% 25%;
+  background-origin: content-box;
+  background-clip: content-box;
+}
+.wf-chart > i {
+  position: relative;
+  flex: 1 1 0;
+  max-width: 56px;
+  height: var(--v, 50%);
+  border: 1.5px solid var(--wf-pencil);
+  border-bottom: 0;
+  background: var(--wf-c4);
+  font-style: normal;
+}
+.wf-chart > i.is-active {
+  background: var(--wf-c1);
+}
+.wf-chart > i[data-label]::after {
+  content: attr(data-label);
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 4px;
+  font-size: 11px;
+  color: var(--wf-ink-3);
+  white-space: nowrap;
+}
+.wf-chart:is(
+  [data-kind='bar'],
+  [data-kind='funnel'],
+  [data-kind='pie'],
+  [data-kind='donut'],
+  [data-kind='gauge']
+) {
+  padding: 0;
+  background: none;
+}
+.wf-chart:is([data-kind='bar'], [data-kind='funnel']) {
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  height: auto;
+}
+.wf-chart[data-kind='bar'] > i {
+  display: grid;
+  grid-template-columns: var(--label-w, 30%) 1fr;
+  align-items: center;
+  gap: 8px;
+  max-width: none;
+  height: auto;
+  border: 0;
+  background: none;
+}
+.wf-chart[data-kind='bar'] > i::before {
+  content: attr(data-label);
+  overflow: hidden;
+  font-size: 12px;
+  color: var(--wf-ink-2);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.wf-chart[data-kind='bar'] > i::after {
+  content: '';
+  position: static;
+  width: var(--v, 50%);
+  height: 14px;
+  margin: 0;
+  transform: none;
+  border: 1.5px solid var(--wf-pencil);
+  border-left: 0;
+  background: var(--wf-c4);
+}
+.wf-chart[data-kind='bar'] > i.is-active::after {
+  background: var(--wf-c1);
+}
+.wf-chart[data-kind='funnel'] {
+  align-items: center;
+  gap: 4px;
+}
+.wf-chart[data-kind='funnel'] > i {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: var(--v, 50%);
+  max-width: none;
+  height: 30px;
+  border-bottom: 1.5px solid var(--wf-pencil);
+}
+.wf-chart[data-kind='funnel'] > i[data-label]::after {
+  position: static;
+  margin: 0;
+  transform: none;
+  font-size: 12px;
+  color: var(--wf-ink);
+}
+.wf-chart[data-kind='funnel'] > i.is-active[data-label]::after {
+  color: #fff;
+}
+.wf-chart:is([data-kind='line'], [data-kind='area'], [data-kind='scatter']) {
+  display: block;
+  padding-bottom: 0;
+}
+.wf-chart[data-kind='scatter'] > i {
+  position: absolute;
+  left: var(--x, 50%);
+  bottom: var(--y, 50%);
+  width: 10px;
+  height: 10px;
+  margin: 0 0 -5px -5px;
+  border: 1.5px solid var(--wf-pencil);
+  border-radius: 50%;
+  background: var(--wf-c3);
+}
+.wf-spark {
+  display: block;
+  width: 100%;
+  height: var(--h, 40px);
+  overflow: visible;
+}
+.wf-chart > .wf-spark {
+  height: 100%;
+}
+.wf-spark :is(polyline, path, line) {
+  fill: none;
+  stroke: var(--wf-c1);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+.wf-spark :is(polyline, path):nth-of-type(2) {
+  stroke: var(--wf-c2);
+  stroke-dasharray: 5 4;
+}
+.wf-spark :is(polyline, path):nth-of-type(n + 3) {
+  stroke: var(--wf-c3);
+}
+.wf-spark polygon {
+  fill: var(--wf-fill-2);
+  stroke: none;
+}
+.wf-spark polygon:first-of-type {
+  fill: var(--wf-accent-soft);
+}
+.wf-spark line {
+  stroke: var(--wf-line);
+  stroke-width: 1;
+}
+.wf-chart:is([data-kind='pie'], [data-kind='donut'], [data-kind='gauge']) {
+  display: grid;
+  place-items: center;
+  width: var(--size, 160px);
+  height: auto;
+  margin: 0 auto;
+  aspect-ratio: 1;
+  border: var(--wf-stroke) solid var(--wf-pencil);
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--wf-c1) 0 calc(var(--a, 45) * 1%),
+    var(--wf-c2) 0 calc((var(--a, 45) + var(--b, 30)) * 1%),
+    var(--wf-c3) 0 calc((var(--a, 45) + var(--b, 30) + var(--c, 15)) * 1%),
+    var(--wf-c4) 0
+  );
+}
+.wf-chart:is([data-kind='donut'], [data-kind='gauge'])::before {
+  content: attr(data-label);
+  position: absolute;
+  inset: 22%;
+  display: grid;
+  place-items: center;
+  border: var(--wf-stroke) solid var(--wf-pencil);
+  border-radius: 50%;
+  background: var(--wf-surface);
+  font-size: 18px;
+  font-weight: 700;
+}
+.wf-chart[data-kind='gauge'] {
+  width: var(--size, 180px);
+  aspect-ratio: 2;
+  border-bottom: 0;
+  border-radius: 999px 999px 0 0;
+  background: conic-gradient(
+    from -90deg at 50% 100%,
+    var(--wf-c1) 0 calc(var(--v, 60%) / 2),
+    var(--wf-c4) 0 50%,
+    transparent 0
+  );
+}
+.wf-chart[data-kind='gauge']::before {
+  inset: 44% 22% 0;
+  place-items: end center;
+  padding-bottom: 2px;
+  border-bottom: 0;
+  border-radius: 999px 999px 0 0;
+}
+.wf-legend {
+  gap: 6px 14px;
+  color: var(--wf-ink-2);
+}
+.wf-legend > * {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.wf-legend > ::before {
+  content: '';
+  flex: none;
+  width: 11px;
+  height: 11px;
+  border: 1.5px solid var(--wf-pencil);
+  border-radius: 2px;
+  background: var(--wf-c1);
+}
+.wf-legend > :nth-child(2)::before {
+  background: var(--wf-c2);
+}
+.wf-legend > :nth-child(3)::before {
+  background: var(--wf-c3);
+}
+.wf-legend > :nth-child(n + 4)::before {
+  background: var(--wf-c4);
+}
+.wf-axis {
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+  font-size: 11px;
+}
+
+/* Media and overlays: .wf-img (an image placeholder; set its width or aspect-ratio inline),
+   .wf-map (a map placeholder; pins are <i style="--x:40%;--y:60%"></i>), .wf-backdrop (dims
+   the screen behind a .wf-modal or .wf-drawer; style="--w:560px" widens either), .wf-toast,
+   .wf-tooltip. */
+.wf-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: var(--wf-stroke) solid var(--wf-pencil);
+  border-radius: var(--wf-wobble-2);
+  background:
+    linear-gradient(
+      to top right,
+      transparent calc(50% - 0.8px),
+      var(--wf-line-2) 50%,
+      transparent calc(50% + 0.8px)
+    ),
+    linear-gradient(
+      to bottom right,
+      transparent calc(50% - 0.8px),
+      var(--wf-line-2) 50%,
+      transparent calc(50% + 0.8px)
+    ),
+    var(--wf-fill);
+}
+.wf-map,
+.wf-chart[data-kind='map'] {
+  position: relative;
+  display: block;
+  height: var(--h, 220px);
+  padding: 0;
+  border: var(--wf-stroke) solid var(--wf-pencil);
+  border-radius: var(--wf-wobble-2);
+  background:
+    linear-gradient(115deg, transparent 46%, var(--wf-surface) 0 48.5%, transparent 0),
+    linear-gradient(15deg, transparent 63%, var(--wf-surface) 0 65%, transparent 0),
+    radial-gradient(circle at 80% 26%, var(--wf-fill-2) 34px, transparent 35px),
+    linear-gradient(var(--wf-line) 1px, transparent 0) 0 0 / 32px 32px,
+    linear-gradient(90deg, var(--wf-line) 1px, transparent 0) 0 0 / 32px 32px,
+    var(--wf-fill);
+}
+:is(.wf-map, .wf-chart[data-kind='map']) > i {
+  position: absolute;
+  left: var(--x, 50%);
+  bottom: var(--y, 50%);
+  width: 14px;
+  height: 14px;
+  max-width: none;
+  margin: 0 0 -7px -7px;
+  border: 2px solid var(--wf-surface);
+  border-radius: 50%;
+  background: var(--wf-ink);
+}
+.wf-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgb(30 30 30 / 0.45);
+}
+.wf-modal {
+  width: min(100%, var(--w, 480px));
+  gap: 14px;
+  padding: 20px;
+}
+.wf-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 11;
+  gap: 14px;
+  width: min(100%, var(--w, 380px));
+  padding: 20px;
+  overflow-y: auto;
+  border-width: 0 0 0 var(--wf-stroke);
+  border-radius: 0;
+}
+.wf-toast {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 12;
+  gap: 12px;
+  max-width: min(380px, calc(100% - 32px));
+  padding: 10px 14px;
+  border-radius: var(--wf-wobble);
+  font-size: 13px;
+}
+.wf-tooltip {
+  position: relative;
+  display: inline-block;
+  align-self: flex-start;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+.wf-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border: 5px solid transparent;
+  border-top-color: var(--wf-ink);
+}
+
+/* Annotations: .wf-note is a designer's note beside the UI, not part of it: a yellow sticky.
+   Requirement pins: an element with data-req="R1" (or "R1 R2") shows its ids, in violet, while
+   the viewer turns pins on (<html class="wf-pins">). Put data-req on a wrapper, not on an
+   <input>, <select> or <img>. The viewer sets --wf-x-zoom so pins keep their size on screen
+   however small it shows the screen. */
+.wf-note {
+  padding: 10px 12px;
+  border-radius: 2px;
+  background: var(--wf-note);
+  color: var(--wf-ink-2);
+}
+:where(html.wf-pins [data-req]) {
+  position: relative;
+}
+html.wf-pins [data-req] {
+  outline: calc(1px * var(--wf-x-zoom, 1)) dashed var(--wf-pin);
+  outline-offset: calc(2px * var(--wf-x-zoom, 1));
+}
+html.wf-pins [data-req]::after {
+  content: attr(data-req);
+  position: absolute;
+  inset: calc(-9px * var(--wf-x-zoom, 1)) calc(-6px * var(--wf-x-zoom, 1)) auto auto;
+  z-index: 20;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0 calc(5px * var(--wf-x-zoom, 1));
+  transform: none;
+  border: 0;
+  border-radius: calc(8px * var(--wf-x-zoom, 1));
+  background: var(--wf-pin);
+  color: #fff;
+  font: 700 calc(10px * var(--wf-x-zoom, 1)) / calc(16px * var(--wf-x-zoom, 1)) var(--wf-font);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Tablets: grids take at most 2 columns. Phones: 1 column (2 for KPI tiles), and the sidebar
+   becomes a strip. */
+@media (max-width: 960px) {
+  .wf-sidebar {
+    width: 184px;
+  }
+  .wf-grid {
+    --wf-min: calc(50% - var(--wf-gap));
+  }
+  .wf-span-3 {
+    grid-column: 1 / -1;
+  }
+}
+@media (max-width: 640px) {
+  .wf-app {
+    grid-template: 'side' auto 'top' auto 'main' 1fr / minmax(0, 1fr);
+  }
+  .wf-sidebar {
+    flex-direction: row;
+    align-items: center;
+    width: auto;
+    padding: 8px 12px;
+    overflow-x: auto;
+    border-right: 0;
+    border-bottom: var(--wf-stroke) solid var(--wf-pencil);
+  }
+  .wf-sidebar .wf-nav {
+    flex-direction: row;
+  }
+  .wf-topbar {
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    padding: 8px 16px;
+  }
+  .wf-topbar .wf-nav {
+    order: 1;
+    flex: 1 1 100%;
+    overflow-x: auto;
+  }
+  .wf-topbar :is(.wf-search, .wf-input) {
+    flex: 1 1 120px;
+    width: auto;
+  }
+  .wf-main,
+  .wf-page {
+    padding: 16px;
+  }
+  .wf-grid {
+    --wf-min: 100%;
+  }
+  .wf-grid:has(> .wf-kpi) {
+    --wf-min: calc(50% - var(--wf-gap));
+  }
+  .wf-span-2 {
+    grid-column: auto;
+  }
+  .wf-row > .wf-col,
+  .wf-toolbar > .wf-spacer {
+    flex-basis: 100%;
+  }
+  .wf-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .wf-steps > li:not(.is-active) {
+    flex: none;
+    font-size: 0;
+  }
+}
