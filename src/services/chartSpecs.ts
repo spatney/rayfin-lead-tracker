@@ -66,23 +66,24 @@ export function withSketch(spec: ChartSpec, sketch: boolean): ChartSpec {
 }
 
 /**
- * Re-theme a spec for light or dark mode while preserving any custom palette a
- * builder baked in (e.g. stage/activity colors on funnels and donuts).
+ * Re-theme a spec for light or dark mode and apply the user's selected palette.
  */
-export function applyChartMode(spec: ChartSpec, dark: boolean): ChartSpec {
-  const current = spec.theme;
-  const palette =
-    current &&
-    typeof current === 'object' &&
-    current.color &&
-    Array.isArray(current.color.palette)
-      ? current.color.palette
-      : PALETTE;
+export function applyChartMode(
+  spec: ChartSpec,
+  dark: boolean,
+  palette: readonly string[] = PALETTE
+): ChartSpec {
   return {
     ...spec,
     theme: dark
-      ? { base: 'dark', color: { ...darkColors, palette } }
-      : { base: 'light', color: { ...baseColors, palette } },
+      ? {
+          base: 'dark',
+          color: { ...darkColors, accent: palette[0], palette: [...palette] },
+        }
+      : {
+          base: 'light',
+          color: { ...baseColors, accent: palette[0], palette: [...palette] },
+        },
   };
 }
 

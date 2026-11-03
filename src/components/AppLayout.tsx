@@ -10,6 +10,7 @@ import {
   UsersIcon,
 } from '@/components/icons';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import { PaletteSelect } from '@/components/PaletteSelect';
 import { useAuth } from '@/hooks/AuthContext';
 import { ResetWorkspaceOverlay } from '@/hooks/useResetWorkspace';
 
@@ -92,6 +93,7 @@ export function AppLayout() {
               Account
             </span>
             <div className="flex items-center gap-0.5">
+              <PaletteSelect variant="sidebar" placement="bottom" />
               <ThemeToggle variant="sidebar" className="hover:bg-slate-700" />
               <button
                 onClick={() => void signOut()}
@@ -125,6 +127,7 @@ export function AppLayout() {
               {navLabel}
             </NavLink>
           ))}
+          <PaletteSelect variant="sidebar" />
           <ThemeToggle variant="sidebar" />
           <button
             onClick={() => void signOut()}

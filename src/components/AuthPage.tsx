@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import { LogoMark } from '@/components/icons';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import { PaletteSelect } from '@/components/PaletteSelect';
 import { useAuth } from '@/hooks/AuthContext';
 
 const msLogo = (
@@ -45,7 +46,10 @@ export function AuthPage() {
 
   return (
     <div className="relative flex min-h-screen items-center justify-center bg-slate-50 p-4 dark:bg-slate-950">
-      <ThemeToggle className="absolute right-4 top-4" />
+      <div className="absolute right-4 top-4 flex items-center gap-2">
+        <PaletteSelect />
+        <ThemeToggle />
+      </div>
       <div className="w-full max-w-sm">
         <div className="mb-8 flex flex-col items-center text-center">
           <span className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-600 text-white shadow-sm shadow-indigo-600/30">

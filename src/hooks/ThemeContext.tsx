@@ -7,16 +7,20 @@ import {
   useState,
   type ReactNode,
 } from 'react';
+import { COLOR_PALETTES, type ColorPalette } from '@/services/colorPalettes';
 
 export type Theme = 'light' | 'dark';
 
 const STORAGE_KEY = 'leadflow-theme';
+const PALETTE_STORAGE_KEY = 'leadflow-palette';
 
 interface ThemeContextValue {
   theme: Theme;
   isDark: boolean;
   setTheme: (theme: Theme) => void;
   toggleTheme: () => void;
+  palette: ColorPalette;
+  setPalette: (palette: ColorPalette) => void;
 }
 
 const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
@@ -31,6 +35,14 @@ function readInitialTheme(): Theme {
     : 'light';
 }
 
+function readInitialPalette(): ColorPalette {
+  if (typeof window === 'undefined') return 'indigo';
+  const stored = window.localStorage.getItem(PALETTE_STORAGE_KEY);
+  return stored && Object.hasOwn(COLOR_PALETTES, stored)
+    ? (stored as ColorPalette)
+    : 'indigo';
+}
+
 /** Reflect the active theme onto <html> so Tailwind's `dark:` variant applies. */
 function applyThemeClass(theme: Theme) {
   if (typeof document === 'undefined') return;
@@ -39,23 +51,45 @@ function applyThemeClass(theme: Theme) {
   root.style.colorScheme = theme;
 }
 
+function applyPalette(palette: ColorPalette) {
+  if (typeof document === 'undefined') return;
+  document.documentElement.dataset.palette = palette;
+}
+
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setThemeState] = useState<Theme>(readInitialTheme);
+  const [palette, setPaletteState] = useState<ColorPalette>(readInitialPalette);
 
   useEffect(() => {
     applyThemeClass(theme);
     window.localStorage.setItem(STORAGE_KEY, theme);
   }, [theme]);
 
+  useEffect(() => {
+    applyPalette(palette);
+    window.localStorage.setItem(PALETTE_STORAGE_KEY, palette);
+  }, [palette]);
+
   const setTheme = useCallback((next: Theme) => setThemeState(next), []);
   const toggleTheme = useCallback(
     () => setThemeState((prev) => (prev === 'dark' ? 'light' : 'dark')),
     []
   );
+  const setPalette = useCallback(
+    (next: ColorPalette) => setPaletteState(next),
+    []
+  );
 
   const value = useMemo<ThemeContextValue>(
-    () => ({ theme, isDark: theme === 'dark', setTheme, toggleTheme }),
-    [theme, setTheme, toggleTheme]
+    () => ({
+      theme,
+      isDark: theme === 'dark',
+      setTheme,
+      toggleTheme,
+      palette,
+      setPalette,
+    }),
+    [theme, setTheme, toggleTheme, palette, setPalette]
   );
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;

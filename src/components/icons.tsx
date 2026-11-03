@@ -129,6 +129,17 @@ export function LayersIcon(props: IconProps) {
   );
 }
 
+export function PaletteIcon(props: IconProps) {
+  return (
+    <Base {...props}>
+      <path d="M12 3.5a8.5 8.5 0 1 0 0 17h1.2a2 2 0 0 0 1.4-3.4 1.5 1.5 0 0 1 1.1-2.6h1.1a3.7 3.7 0 0 0 3.7-3.7A7.3 7.3 0 0 0 12 3.5Z" />
+      <circle cx="7.5" cy="11" r="1" fill="currentColor" />
+      <circle cx="10" cy="7.5" r="1" fill="currentColor" />
+      <circle cx="15" cy="7.5" r="1" fill="currentColor" />
+    </Base>
+  );
+}
+
 export function DollarIcon(props: IconProps) {
   return (
     <Base {...props}>
