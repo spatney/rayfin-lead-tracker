@@ -93,7 +93,7 @@ export function AppLayout() {
               Account
             </span>
             <div className="flex items-center gap-0.5">
-              <PaletteSelect variant="sidebar" placement="bottom" />
+              <PaletteSelect variant="sidebar" placement="right" />
               <ThemeToggle variant="sidebar" className="hover:bg-slate-700" />
               <button
                 onClick={() => void signOut()}

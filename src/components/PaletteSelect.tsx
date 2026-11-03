@@ -9,7 +9,7 @@ export function PaletteSelect({
   placement,
 }: {
   variant?: 'sidebar' | 'surface';
-  placement?: 'top' | 'bottom';
+  placement?: 'top' | 'bottom' | 'right';
 }) {
   const { palette, setPalette } = useTheme();
   const [open, setOpen] = useState(false);
@@ -69,7 +69,7 @@ export function PaletteSelect({
       {open && (
         <div
           id={menuId}
-          className={`absolute right-0 z-50 w-36 rounded-xl border p-1.5 shadow-lg ${menuPlacement === 'top' ? 'bottom-full mb-2' : 'top-full mt-2'} ${menuStyles}`}
+          className={`absolute z-50 w-36 rounded-xl border p-1.5 shadow-lg ${menuPlacement === 'top' ? 'right-0 bottom-full mb-2' : menuPlacement === 'right' ? 'left-full bottom-0 ml-2' : 'right-0 top-full mt-2'} ${menuStyles}`}
         >
           {Object.entries(COLOR_PALETTES).map(([value, option]) => (
             <button
