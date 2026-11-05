@@ -89,9 +89,8 @@ function EmptyMetrics() {
         No operations captured yet
       </h2>
       <p className="mx-auto mt-2 max-w-md text-sm text-slate-500 dark:text-slate-400">
-        Every data operation is timed automatically. Generate or reset sample
-        data, load the dashboard, or edit a deal, and its latency and throughput
-        will appear here.
+        Every data operation is timed automatically. Load the dashboard or edit
+        a deal, and its latency and throughput will appear here.
       </p>
       <div className="mt-6">
         <Link

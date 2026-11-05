@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 
-import { GenerateDataButton, ResetDataButton } from '@/components/dataActions';
+import { ResetDataButton } from '@/components/dataActions';
 import { ThemedChart } from '@/components/ThemedChart';
 import {
   BuildingIcon,
@@ -154,12 +154,8 @@ export function AccountsPage() {
               No accounts yet
             </h2>
             <p className="mx-auto mt-2 max-w-sm text-sm text-slate-500 dark:text-slate-400">
-              Generate a sample workspace to populate accounts, their contacts
-              and every deal in play.
+              No accounts have been added to your workspace yet.
             </p>
-            <div className="mt-6 flex justify-center">
-              <GenerateDataButton />
-            </div>
           </div>
         </div>
       </>

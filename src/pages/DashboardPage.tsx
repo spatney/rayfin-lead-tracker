@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { createSelectionStore, useSelection } from '@graphein/react';
 import type { ChartSpec } from 'graphein';
 
-import { GenerateDataButton } from '@/components/dataActions';
 import { ThemedChart } from '@/components/ThemedChart';
 import {
   FunnelIcon,
@@ -72,11 +71,10 @@ function EmptyDashboard() {
           Bring your pipeline to life
         </h2>
         <p className="mx-auto mt-2 max-w-sm text-sm text-slate-500 dark:text-slate-400">
-          There's no data yet. Generate a realistic sample workspace — accounts,
-          contacts, deals, reps and activity — to explore the dashboard.
+          There's no data yet. Add deals to your workspace to see your pipeline
+          and activity here.
         </p>
         <div className="mt-6 flex flex-col items-center gap-3">
-          <GenerateDataButton />
           <Link
             to="/deals"
             className="text-sm font-medium text-slate-500 underline-offset-4 hover:text-indigo-600 hover:underline dark:text-slate-400 dark:hover:text-indigo-400"

@@ -3,8 +3,7 @@
  *  - `loadWorkspace()` — one relationship-joined read of everything the signed-in
  *    user owns, flattened into the `Workspace` shape the UI/analytics consume.
  *  - deal CRUD (`createDeal`, `updateDealStage`, `deleteDeal`).
- *  - `generateSampleData()` / `resetWorkspace()` — bulk seed/clear across the
- *    whole entity graph, inserting in dependency order and deleting in reverse.
+ *  - `resetWorkspace()` — clear the whole entity graph, deleting in reverse.
  *
  * Every operation is wrapped in `timed(...)` so the Performance page shows live
  * throughput. Relationships are read via typed dot-paths (e.g. `account.name`)
@@ -13,7 +12,6 @@
 
 import { getRayfinClient } from './rayfinClient';
 import { timed } from './metrics';
-import { buildSampleGraph, totalRecords, type SampleOptions } from './sampleData';
 import { STAGE_PROBABILITY } from './crmTypes';
 import type {
   Workspace,
@@ -151,22 +149,6 @@ async function collectIds(
 ): Promise<string[]> {
   const rows = await fetchAll(makeQuery);
   return rows.map((row) => String(row.id));
-}
-
-/** Create records in parallel chunks, returning their ids in input order. */
-async function createChunked<TSpec>(
-  items: TSpec[],
-  make: (item: TSpec) => Promise<{ id: string }>,
-  bump: (n: number) => void
-): Promise<string[]> {
-  const ids: string[] = [];
-  for (let i = 0; i < items.length; i += WRITE_CHUNK) {
-    const chunk = items.slice(i, i + WRITE_CHUNK);
-    const created = await Promise.all(chunk.map(make));
-    for (const record of created) ids.push(String(record.id));
-    bump(chunk.length);
-  }
-  return ids;
 }
 
 /** Delete ids in parallel chunks, reporting progress. */
@@ -416,137 +398,8 @@ export async function deleteDeal(id: string): Promise<void> {
 }
 
 // ---------------------------------------------------------------------------
-// Bulk seed / reset across the whole graph
+// Reset across the whole graph
 // ---------------------------------------------------------------------------
-
-async function insertGraph(options?: SampleOptions, onProgress?: ProgressFn): Promise<number> {
-  const client = getRayfinClient();
-  const userId = currentUserId();
-
-  // Start from a clean slate so re-running — e.g. retrying after a failed
-  // attempt — never duplicates roots or leaves orphaned rows behind.
-  await deleteGraph();
-
-  const graph = buildSampleGraph(options);
-  const total = totalRecords(graph);
-
-  let done = 0;
-  onProgress?.(0, total);
-  const bump = (n: number) => {
-    done += n;
-    onProgress?.(done, total);
-  };
-
-  // Phase 1 — independent roots.
-  const repIds = await createChunked(
-    graph.reps,
-    (r) => client.data.SalesRep.create({ ...r, user_id: userId }),
-    bump
-  );
-  const tagIds = await createChunked(
-    graph.tags,
-    (t) => client.data.Tag.create({ ...t, user_id: userId }),
-    bump
-  );
-
-  // Phase 2 — accounts (owned by reps).
-  const accountIds = await createChunked(
-    graph.accounts,
-    (a) =>
-      client.data.Account.create({
-        name: a.name,
-        industry: a.industry,
-        website: a.website,
-        city: a.city,
-        country: a.country,
-        employeeCount: a.employeeCount,
-        annualRevenue: a.annualRevenue,
-        tier: a.tier,
-        owner: { id: repIds[a.ownerIndex] },
-        createdAt: a.createdAt,
-        user_id: userId,
-      }),
-    bump
-  );
-
-  // Phase 3 — contacts (belong to accounts).
-  const contactIds = await createChunked(
-    graph.contacts,
-    (c) =>
-      client.data.Contact.create({
-        firstName: c.firstName,
-        lastName: c.lastName,
-        email: c.email,
-        phone: c.phone,
-        title: c.title,
-        account: { id: accountIds[c.accountIndex] },
-        createdAt: c.createdAt,
-        user_id: userId,
-      }),
-    bump
-  );
-
-  // Phase 4 — deals (account + optional contact + owner).
-  const dealIds = await createChunked(
-    graph.deals,
-    (d) =>
-      client.data.Deal.create({
-        name: d.name,
-        stage: d.stage,
-        source: d.source,
-        value: d.value,
-        score: d.score,
-        probability: d.probability,
-        expectedCloseDate: d.expectedCloseDate,
-        closedAt: d.closedAt ?? undefined,
-        account: { id: accountIds[d.accountIndex] },
-        contact: d.contactIndex != null ? { id: contactIds[d.contactIndex] } : undefined,
-        owner: { id: repIds[d.ownerIndex] },
-        createdAt: d.createdAt,
-        user_id: userId,
-      }),
-    bump
-  );
-
-  // Phase 5 — activities and deal↔tag links.
-  await createChunked(
-    graph.activities,
-    (a) =>
-      client.data.Activity.create({
-        type: a.type,
-        subject: a.subject,
-        notes: a.notes ?? undefined,
-        occurredAt: a.occurredAt,
-        deal: { id: dealIds[a.dealIndex] },
-        owner: { id: repIds[a.ownerIndex] },
-        createdAt: a.createdAt,
-        user_id: userId,
-      }),
-    bump
-  );
-
-  const dealTagPayloads = graph.deals.flatMap((deal, dealIndex) =>
-    deal.tagIndexes.map((tagIndex) => ({
-      deal: { id: dealIds[dealIndex] },
-      tag: { id: tagIds[tagIndex] },
-    }))
-  );
-  await createChunked(
-    dealTagPayloads,
-    (p) => client.data.DealTag.create({ ...p, user_id: userId }),
-    bump
-  );
-
-  return done;
-}
-
-/** Generate a coherent sample workspace, timed as an `insert` metric. */
-export function generateSampleData(
-  options?: SampleOptions,
-  onProgress?: ProgressFn
-): Promise<number> {
-  return timed('insert', 'Generate sample data', () => insertGraph(options, onProgress), (n) => n);
-}
 
 async function deleteGraph(onProgress?: ProgressFn): Promise<number> {
   const client = getRayfinClient();

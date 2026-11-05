@@ -2,10 +2,9 @@
 
 A visually polished, Fabric-authenticated **sales CRM** built on React + Vite,
 Tailwind, Rayfin data and the [graphein](https://github.com/spatney/graphein)
-visualization library. Sign in with Microsoft, generate a full sample workspace
-(reps, accounts, contacts, deals and activities), work deals through the
-pipeline, drill into accounts, track quota attainment — all persisted to Fabric
-with per-user row-level security.
+visualization library. Sign in with Microsoft, manage deals in your pipeline,
+drill into accounts, track quota attainment — all persisted to Fabric with
+per-user row-level security.
 
 > This is a Fabricator template: there is **no local backend, dev server, or
 > test harness**. You build your app and deploy it to a Fabric test workspace —
@@ -90,9 +89,8 @@ export class Deal {
 
 `src/services/crm.ts` wraps the typed Rayfin client with the data-access layer:
 `loadWorkspace` (parallel, joined reads that flatten the graph for the UI),
-`createDeal` / `updateDealStage` / `deleteDeal`, `generateSampleData` (seeds the
-whole graph in dependency order) and `resetWorkspace` (deletes children before
-parents).
+`createDeal` / `updateDealStage` / `deleteDeal` and `resetWorkspace` (deletes
+children before parents).
 
 ## Project structure
 
@@ -121,7 +119,7 @@ parents).
 │   │   ├── AppLayout.tsx   # Sidebar shell + routed content
 │   │   ├── icons.tsx       # Line icon set
 │   │   ├── ui.tsx          # KPI cards, chart cards, badges, chips
-│   │   └── dataActions.tsx # Generate-samples / reset-all buttons
+│   │   └── dataActions.tsx # Reset-all button
 │   ├── pages/
 │   │   ├── DashboardPage.tsx # graphein charts + KPI tiles + activity feed
 │   │   ├── DealsPage.tsx     # Interactive table, filters, add-deal modal
@@ -133,11 +131,10 @@ parents).
 │       ├── RayfinAuthService.ts   # Fabric brokered auth
 │       ├── rayfinClient.ts        # Typed Rayfin client singleton
 │       ├── crmTypes.ts            # Flattened item types + enums + display metadata
-│       ├── sampleData.ts          # Weighted sample-graph generator
 │       ├── analytics.ts           # KPI + chart aggregations (pure)
 │       ├── chartSpecs.ts          # graphein chart spec builders + theme
 │       ├── format.ts              # Currency / number / date formatters
-│       ├── crm.ts                 # Workspace load, deal CRUD, seed + reset
+│       ├── crm.ts                 # Workspace load, deal CRUD + reset
 │       ├── metrics.ts             # Data-operation timing instrumentation
 │       └── bootstrap.ts           # Reads env, builds the auth service
 └── package.json

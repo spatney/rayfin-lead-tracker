@@ -1,12 +1,11 @@
 import { useEffect, useMemo, useState } from 'react';
 
-import { GenerateDataButton, ResetDataButton } from '@/components/dataActions';
+import { ResetDataButton } from '@/components/dataActions';
 import {
   BriefcaseIcon,
   ChevronDownIcon,
   PlusIcon,
   SearchIcon,
-  SparklesIcon,
   TrashIcon,
   XIcon,
 } from '@/components/icons';
@@ -22,7 +21,6 @@ import {
   type DealStage,
   type NewDeal,
 } from '@/services/crmTypes';
-import { buildSampleDealScalars } from '@/services/sampleData';
 import { formatCurrency, formatNumber, relativeTime } from '@/services/format';
 
 const PAGE_SIZE = 12;
@@ -160,26 +158,6 @@ function AddDealModal({ onClose, onCreated }: AddDealModalProps) {
       prev.includes(id) ? prev.filter((t) => t !== id) : [...prev, id]
     );
 
-  const autoFill = () => {
-    const sample = buildSampleDealScalars();
-    const account =
-      accounts[Math.floor(Math.random() * accounts.length)] ?? accounts[0];
-    const owner = reps[Math.floor(Math.random() * reps.length)] ?? reps[0];
-    setForm({
-      name: sample.name,
-      accountId: account?.id ?? '',
-      contactId: '',
-      ownerId: owner?.id ?? '',
-      stage: sample.stage,
-      source: sample.source,
-      value: String(sample.value),
-      score: String(sample.score),
-    });
-    const shuffled = [...tags].sort(() => Math.random() - 0.5);
-    setTagIds(shuffled.slice(0, Math.min(2, shuffled.length)).map((t) => t.id));
-    setError(null);
-  };
-
   const submit = async () => {
     if (!form.name.trim()) {
       setError('A deal name is required.');
@@ -246,8 +224,7 @@ function AddDealModal({ onClose, onCreated }: AddDealModalProps) {
 
         {!canCreate ? (
           <p className="rounded-xl bg-amber-50 px-4 py-3 text-sm text-amber-700 dark:bg-amber-500/10 dark:text-amber-300">
-            Deals need an account and an owner. Generate sample data first, then
-            add deals of your own.
+            Add at least one account and sales rep before creating a deal.
           </p>
         ) : (
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -358,15 +335,6 @@ function AddDealModal({ onClose, onCreated }: AddDealModalProps) {
         {error && <p className="mt-4 text-sm text-rose-600 dark:text-rose-400">{error}</p>}
 
         <div className="mt-6 flex flex-col-reverse gap-2.5 sm:flex-row sm:items-center sm:justify-between">
-          <button
-            type="button"
-            onClick={autoFill}
-            disabled={!canCreate}
-            className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 hover:text-indigo-600 disabled:opacity-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 dark:hover:text-indigo-400"
-          >
-            <SparklesIcon className="h-4 w-4" />
-            Auto-fill sample
-          </button>
           <div className="flex justify-end gap-2.5">
             <button
               onClick={onClose}
@@ -541,7 +509,7 @@ export function DealsPage() {
         }
         actions={
           <>
-            {hasDeals ? <ResetDataButton /> : <GenerateDataButton tone="soft" />}
+            {hasDeals && <ResetDataButton />}
             <button
               onClick={() => setShowAdd(true)}
               className="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm shadow-indigo-600/30 transition-colors hover:bg-indigo-700"
@@ -734,11 +702,9 @@ function EmptyDeals({ onAdd }: { onAdd: () => void }) {
           No deals yet
         </h2>
         <p className="mx-auto mt-2 max-w-sm text-sm text-slate-500 dark:text-slate-400">
-          Generate a full sample workspace — reps, accounts, contacts, deals and
-          activities — to see the CRM come alive.
+          Your pipeline is empty. Add a deal to start tracking an opportunity.
         </p>
         <div className="mt-6 flex flex-col items-center gap-3">
-          <GenerateDataButton />
           <button
             onClick={onAdd}
             className="text-sm font-medium text-slate-500 underline-offset-4 hover:text-indigo-600 hover:underline dark:text-slate-400 dark:hover:text-indigo-400"
