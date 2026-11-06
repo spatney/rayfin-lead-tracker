@@ -1,0 +1,2774 @@
+[
+  {
+    "id": "00219639-eaeb-46c8-8572-c543ae59c053",
+    "deal_id": "e2b8e874-4f0c-4b38-9121-25de9d7542b1",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "0155d2bf-9ac4-4337-b3be-fe35585a6cf9",
+    "deal_id": "c3aa3ff4-f7aa-4cf6-9dee-f211c922855f",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "02126113-193f-42b5-9765-74c86d7eae10",
+    "deal_id": "398de980-edf7-4ca2-8605-4be738810351",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "025d1486-277c-4307-af90-dcb6c4beb372",
+    "deal_id": "eca9a87f-537a-4f23-bff7-bd0304eff15c",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "026a98e4-f642-40cf-ac1f-ee801607344f",
+    "deal_id": "e77fcf85-d595-44bf-9a3a-4593e6b649f6",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "027a1458-1263-42ee-85d0-6374b78da668",
+    "deal_id": "9a022bde-e8d6-4c0b-b843-ca0582135351",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "031712a2-a73a-404d-95f2-0e1fcebecf06",
+    "deal_id": "19de8a20-af0c-4725-afcd-28960d8880e5",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "0329d2df-c368-4674-b251-b1351777efb7",
+    "deal_id": "52aca3cb-364c-4a22-988d-e94f0ee669be",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "0358a0f9-2e7c-4414-b3a3-1da25a0d5523",
+    "deal_id": "dc3a0de3-9ae8-4c93-b945-c7a463393844",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "03903e60-231c-4b04-8c75-35052ced0ec3",
+    "deal_id": "7ad7ad85-6636-4c34-a37f-0a078035122b",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "04a45b08-d1ec-4d74-a68b-7c419de6aedc",
+    "deal_id": "6fcc6af3-8912-48b3-9da1-d8b19900c819",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "058faff3-e1fe-45f8-ac10-deb03c70f527",
+    "deal_id": "31d7465e-0887-462d-9933-774574dddf04",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "059ccf2a-4708-4a92-8f81-7915fd102483",
+    "deal_id": "52aca3cb-364c-4a22-988d-e94f0ee669be",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "06b165f7-e7a6-49f0-aba8-b234e4d9af0c",
+    "deal_id": "689ed59f-12f6-4319-b8d5-666469558f3a",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "06be17a8-8ed1-4237-96e0-ada981e8d3a3",
+    "deal_id": "0a5d2afb-b5a6-4ecd-ab83-c1e1b7e4c736",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "0756c20c-6850-4fe6-9c01-ba195df46dc1",
+    "deal_id": "2e9466a1-8d5f-4f7c-ad0c-3be8add2c313",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "08003ead-4600-4b80-beb1-dac1d7668838",
+    "deal_id": "cdd93563-07ce-4229-83a1-599e6ef85358",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "084d9791-5162-44a6-afc5-c46969b7ff9d",
+    "deal_id": "0a5d2afb-b5a6-4ecd-ab83-c1e1b7e4c736",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "084de547-d3f7-40a9-a2b1-8811db9f1ad1",
+    "deal_id": "e46d45a4-406a-4030-8e31-4bd15e5035c9",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "086d003d-8272-4fbf-8d10-ef3b2de262bf",
+    "deal_id": "87502d16-27cf-458d-9f9f-c41e948f1553",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "0893ad15-ebea-4630-bc45-35e723e6f7af",
+    "deal_id": "d9f08c8e-eef4-4242-8757-9bfadf636e63",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "089aeb72-fb59-4c6e-b711-01071076503a",
+    "deal_id": "97972e26-a63b-4937-a36c-5621a821a65d",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "09cf9052-6770-4c7c-8593-07a27ffa8a0f",
+    "deal_id": "e3bcd1b8-4496-4f7a-9f35-4b776085132b",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "0a14dfc6-1a72-4395-a6dc-624ebfb21ee7",
+    "deal_id": "0e442161-fe84-40e5-b878-e0a823435acd",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "0a493c97-f6ec-4c94-b361-1e339ef6c329",
+    "deal_id": "3b9dc1b1-0921-4560-9251-ec22b95d6132",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "0ae8c36b-a688-4aec-b1a7-99bae013525d",
+    "deal_id": "340bef50-86aa-4eb7-aa27-e078026a36db",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "0b7ee6d4-a659-42ef-a75e-e5406a9facb1",
+    "deal_id": "7f195e9c-c44b-4f1a-9f49-f80d0d705c37",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "0badcf3f-2692-42c9-947d-957eaaf9e6b7",
+    "deal_id": "d4fa696c-89d4-49ad-97e1-9af3b207314d",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "0bd29738-c8c9-437a-b20a-1f16974e3b0f",
+    "deal_id": "d4fa696c-89d4-49ad-97e1-9af3b207314d",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "0c12e052-3b5c-44ae-9876-48a1bd0c8459",
+    "deal_id": "87502d16-27cf-458d-9f9f-c41e948f1553",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "0c1ddfb2-a3b2-4083-9598-3373713a3992",
+    "deal_id": "c6659d3d-3d8e-4739-a327-dd33d17e2d51",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "0cb21576-7251-4222-98f0-d63d098a5edc",
+    "deal_id": "1925186d-0fe7-495b-99d6-2df979d12ad7",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "0db5dffe-084d-44a1-9278-6f753f26a7b4",
+    "deal_id": "22a2c305-a398-4d97-b6a9-4f2cea162bec",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "0e0754be-3f3b-4af1-8c5f-6e68ffdd968b",
+    "deal_id": "c689f36f-ec29-4492-88bd-6f35063d9265",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "0f44e10e-f989-46c2-98d3-d148f0ffc1e9",
+    "deal_id": "5bad4e73-d17f-4b2a-99b0-9d88d2ca0733",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "0fe71c3c-2097-45c9-a8b6-26534c855eb8",
+    "deal_id": "cea5b91a-0287-4ded-8580-99e06ef2631c",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "10c2f61d-ac56-438f-959f-9a4ed2991082",
+    "deal_id": "f0264b91-134e-41d7-8c46-96cff6cfda1d",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "122adc25-ab83-4a08-9381-cba5d8e6bc1b",
+    "deal_id": "662098fa-3041-454e-81b4-6f13be5efbd4",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "13d51888-abd2-454e-9319-34f0c416cefd",
+    "deal_id": "932cf2fe-f01a-42e5-827d-aebacfe2e89c",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "13f224e5-c8de-427e-8f9b-276399e60d82",
+    "deal_id": "82e35e4e-b22b-4caa-955c-3f597274362a",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "151383ed-83eb-41b5-92c7-3b032b191cdf",
+    "deal_id": "360fa614-060b-4234-8c09-abdd503175b4",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "1526b6a9-9bd5-4ce7-8ff6-87159087eab5",
+    "deal_id": "63f77334-95d1-4930-aa75-6341730365e8",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "15504f59-38ea-47b2-8727-b2e5009356a2",
+    "deal_id": "47cdfd09-8b14-458f-81d8-9f7eb0ddd44e",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "1565ff19-ebd2-42fe-aae5-2e0d6c63abc2",
+    "deal_id": "f469a28a-2552-42a4-8f59-290e88987e47",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "156a1771-d1bf-45cd-a582-53560f90aabb",
+    "deal_id": "49ecea25-eadd-4fd5-9104-14ba09f2702f",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "16018834-a072-47bf-835c-4fad53f29d53",
+    "deal_id": "3a149b72-7f22-4dc2-b401-dd88c7354dba",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "1613a7d4-8587-4ab5-bb42-65e5d7a34894",
+    "deal_id": "d99a7fb5-ae99-48b5-9467-36c74fe46d1f",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "173ade89-1a50-4860-80f7-30b780668155",
+    "deal_id": "75aa7d03-8802-45f2-a3c0-83d9a8df0f51",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "17690bd6-6b28-4ed6-a10a-5cea67d7a0ef",
+    "deal_id": "719d14e4-1a32-4a4a-a5c3-013fe6b28473",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "17b35f86-9f55-4b34-9d9e-7bd47515e59a",
+    "deal_id": "50298269-8e3c-4c09-ac48-d0d6f65ee49c",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "1897f3e6-fa42-4f7a-b051-8133c7726a6f",
+    "deal_id": "b5673cef-b9ac-498e-97c8-cf70c5477a9b",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "193c8eea-6199-4b50-a1ac-6759071b82e7",
+    "deal_id": "543a9793-bb93-4caa-ad5b-1fda6a1d1552",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "197e26d0-541e-4126-b741-425ddcc3c914",
+    "deal_id": "5a22397f-617f-46ed-877a-ea864f7ddca1",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "198062a3-72a9-438b-8bf8-63a6beef1eaa",
+    "deal_id": "003adc10-a65e-4cbd-bee5-19567ad472f7",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "199772f4-f92e-4e2d-9612-fdc35f722964",
+    "deal_id": "5b7979d7-903a-41b7-83e4-55eae8658abf",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "1af84d33-8897-443f-a1d5-63cfe1f59b33",
+    "deal_id": "f9d0a6b8-f038-48da-a900-778610b7f492",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "1bb7ca48-9c29-4721-bcb4-9e099100c94f",
+    "deal_id": "d9578ab8-dcb8-4204-be29-7bde069f590a",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "1bf89eb2-93ef-4e10-963f-e11ddedaeea9",
+    "deal_id": "bbd86782-6a0f-4d1b-91e1-1e14016d88e3",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "1c274d7f-b842-4c61-b202-60c19134c48f",
+    "deal_id": "10780abb-ea80-44c8-af51-efbc608b4326",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "1c9ecdb9-0a0b-48b8-9d92-a5b415f6511f",
+    "deal_id": "df23aa4e-ed3c-4f9b-8394-808d7398d534",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "1d2ac4db-b50f-4d62-9218-0fc2af7a8c38",
+    "deal_id": "3a759ff8-1076-4a9a-b152-1727d52c3bc6",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "1d9f324a-e685-4616-83df-2cdc5e34eee1",
+    "deal_id": "4f0aa376-e471-429a-afb6-f230e160b7c2",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "1e47a2a8-e98e-4f7c-9509-11c8aed86afd",
+    "deal_id": "116f0608-ce5b-44f4-8b22-2d41beda3b1b",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "1f04e28e-8e09-4023-abca-faf38b20e96c",
+    "deal_id": "61b1bf99-0b55-47f3-ac29-a8f5bacc33e2",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "1f2bdba8-0906-46b0-a169-ed1029e4af8c",
+    "deal_id": "0a5d2afb-b5a6-4ecd-ab83-c1e1b7e4c736",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "20a5f788-0782-48b6-acb4-2e278bf46d8b",
+    "deal_id": "f0bfab2a-a7b0-4f52-979f-1325e10b2dfe",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "22052e29-e1ba-45c9-bb89-79820d058e0c",
+    "deal_id": "e3397522-1048-4a00-807e-040576994c4e",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "224c86c4-a823-40f5-b81e-38fd5ba0e482",
+    "deal_id": "72153af7-b408-49bd-96c4-dacea8a95898",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "2367ae4b-6b15-4e59-8bba-2a5618e4d6f8",
+    "deal_id": "719d14e4-1a32-4a4a-a5c3-013fe6b28473",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "24318eb1-7507-4d6e-af5c-db753f9f79f1",
+    "deal_id": "e7b951f7-c259-40ff-81aa-0cbefb83e659",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "243892b6-36ae-4c1f-ab26-c484ff15c120",
+    "deal_id": "689ed59f-12f6-4319-b8d5-666469558f3a",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "25b8ccc5-9698-4ea9-9575-e76aefe33aac",
+    "deal_id": "dde392f6-a0cc-45e1-bf24-4f00e7a72964",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "25c6fa4c-35cd-481e-b6e8-6ac8aff53876",
+    "deal_id": "398de980-edf7-4ca2-8605-4be738810351",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "262144ce-f6d2-47de-bac6-aea86f34631f",
+    "deal_id": "056f1767-b401-43d6-b255-3e71d335d6e8",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "26221068-d558-4fe0-b19c-7bce6065e102",
+    "deal_id": "20c02ffe-94db-4403-814b-eee537567ff1",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "263ad2aa-9cd6-4e24-96a2-c379c0a5362e",
+    "deal_id": "d8759c10-3598-45be-bd93-14a49f4059de",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "274bd3c3-e323-4cdc-baaf-7d3a58a6c1fe",
+    "deal_id": "88e8ca26-c29b-4420-9d68-029ac26362dc",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "2a2e5f89-9506-4935-9af2-f59bbe2ce972",
+    "deal_id": "26fe2c8a-a51b-4fa7-90e8-25632adce65b",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "2ab4ea5f-f0ab-4908-a391-8b9658467c88",
+    "deal_id": "31d7465e-0887-462d-9933-774574dddf04",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "2b98e408-cbc5-49f8-aced-9c29884add87",
+    "deal_id": "e77fcf85-d595-44bf-9a3a-4593e6b649f6",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "2b998827-3f51-48ba-8e6b-7e8ed2a8f3d9",
+    "deal_id": "003adc10-a65e-4cbd-bee5-19567ad472f7",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "2c1c234d-3c00-495d-8338-3417e9314ea1",
+    "deal_id": "d56e75e0-31b2-4fd2-b411-a0fcc8fa22f1",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "2c73ec03-af38-4155-a02d-2bb570ec2214",
+    "deal_id": "e854f3b0-91de-45ae-8ae2-910c63336089",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "2e382814-69c0-4f54-ad55-98d2d49b523b",
+    "deal_id": "7ad7ad85-6636-4c34-a37f-0a078035122b",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "2f31720b-6e37-4764-833e-51e1a37eed0a",
+    "deal_id": "c3aa3ff4-f7aa-4cf6-9dee-f211c922855f",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "2f5bba2c-5f5a-44d3-9356-3d56fa02b7c3",
+    "deal_id": "0120e42c-66db-4b56-b9d1-dcab55523117",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "303fd197-9c47-441b-9464-cad5d2bce147",
+    "deal_id": "ebd6074d-443a-4710-b8b4-0425588502a3",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "30488910-c860-425a-b77e-d3151579ad0d",
+    "deal_id": "4ca64632-9d4d-4c40-84d4-4d67faddf1ab",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "308c3712-6bf2-444f-b082-cde1474d82e2",
+    "deal_id": "a9dd1763-5100-4d63-9eb7-0cf81d63c84f",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "30be7f3c-c397-4bf8-89f1-d04b9bc04107",
+    "deal_id": "c92bbbde-99f1-4b34-b618-d624ab49ad93",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "31eb3ca1-44ec-463a-9bfb-e310893c3ea7",
+    "deal_id": "93302733-ec8b-4f31-8a77-783859b592b1",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "329aa15a-6d58-4a73-8471-f04faa06cdaf",
+    "deal_id": "acf919df-8c51-4254-a803-3b39634c1a5d",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "32e062b0-866f-4c55-b95b-843e17c07c24",
+    "deal_id": "a89604bd-8741-4c20-9e92-3c108dab539e",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "3434f7a7-9fcd-48a5-8152-20cd807ce41b",
+    "deal_id": "b5673cef-b9ac-498e-97c8-cf70c5477a9b",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "34b63ee9-47a0-46ac-abac-9aad900e9fd9",
+    "deal_id": "a7c9d0cd-c05d-45de-97b4-fe150ee510c2",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "34c7118b-575b-4660-b45d-98cb83f71fe3",
+    "deal_id": "c6eb90ea-f0cd-4cc1-a0f2-43630de567c0",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "352a2a27-949d-4319-b05a-930728678407",
+    "deal_id": "5202d28d-63d1-48d8-bcd5-b45041f4bc56",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "35b1f87c-150f-4abf-8c25-fd2129d1c283",
+    "deal_id": "f11537dc-5fbd-4bd8-84f0-fa47f14cdc24",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "35b71eb7-6344-466c-ab84-12a0cabfbcf7",
+    "deal_id": "beea2d05-bb6e-4a51-b09c-abbf1ce0ab9f",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "35cb0f77-485a-40ee-85b6-42abd6487c31",
+    "deal_id": "5b7979d7-903a-41b7-83e4-55eae8658abf",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "36690801-7f28-4b82-b19f-9634ff106460",
+    "deal_id": "f35905d7-84f7-46b7-a163-8f4f8c43a3a9",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "3669f6c9-828d-4d25-9682-7d4bca1d077b",
+    "deal_id": "f750c0a9-1839-4f20-97e5-32cbb65cd980",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "36cf80e7-e964-4a39-9695-beca0b465654",
+    "deal_id": "b70738e3-37dc-4ea2-8b8b-7a28e7b0e564",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "36d53692-697f-4062-b325-b302b36a1dfb",
+    "deal_id": "5b7979d7-903a-41b7-83e4-55eae8658abf",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "377d9190-f5f3-4d56-b398-a750b6c3c736",
+    "deal_id": "7caae45e-9cd0-4e02-a506-7fd6564e4372",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "38133136-02f1-4b39-9b0d-484ef3479490",
+    "deal_id": "98f6b6a1-b6ba-4ccd-ac31-0d1675ebc79d",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "3820167e-8b60-4a0d-9348-8f4a9cc0808d",
+    "deal_id": "3b9dc1b1-0921-4560-9251-ec22b95d6132",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "39849ba7-ced3-49d9-a25c-96d3a34612e8",
+    "deal_id": "4cc854cd-447e-467b-8f85-c79fe8251985",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "3a1f4a82-05b1-45c7-953b-d2ff4100c49b",
+    "deal_id": "71e00039-652e-4449-83d9-df82f594a765",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "3ac17633-df5a-41a2-b272-9e3589792558",
+    "deal_id": "5bad4e73-d17f-4b2a-99b0-9d88d2ca0733",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "3bb70372-fd7f-43eb-b709-9241513127b8",
+    "deal_id": "ea8bfda8-5e13-43d9-9485-0536496ea050",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "3caba178-f4da-4c14-a87e-3527d95cc08b",
+    "deal_id": "63f77334-95d1-4930-aa75-6341730365e8",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "3ccd6d12-9add-4627-96ec-815fc12c35b4",
+    "deal_id": "42b4e529-9a48-49fa-aacb-918a4b0b1b7d",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "3cd700fd-7290-4c43-b033-7c3a3bcc3bca",
+    "deal_id": "c624b634-3b04-4a72-8720-34198f9f99d7",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "3e330875-2412-42e2-8eb9-43b3ba0291a2",
+    "deal_id": "d8759c10-3598-45be-bd93-14a49f4059de",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "3ecb3ccf-4d9d-4461-a7ac-d298a0add5e9",
+    "deal_id": "92ff3744-d04d-47f2-855a-47ddf8fc3b3f",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "3ee93ef5-6889-4a6c-b7d9-00fe128eb404",
+    "deal_id": "c6b81099-4364-4418-81c5-3e1670d5a2e3",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "413bbf5f-12da-48f7-8e45-4d6b8d675535",
+    "deal_id": "f469a28a-2552-42a4-8f59-290e88987e47",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "4195d1f0-59cf-4f95-a6b3-89d862c845c4",
+    "deal_id": "93302733-ec8b-4f31-8a77-783859b592b1",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "420e1fbf-e53c-4cec-8942-20c136639fa8",
+    "deal_id": "0190db1d-3f29-492b-b214-06246e9bdf1b",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "430ffa98-4b6d-42a0-9f22-46284474a3db",
+    "deal_id": "5acde0a9-e098-4b7c-a1a2-0c88d5aa1e43",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "4418f14a-00fe-4662-abce-d5a30a7d76b0",
+    "deal_id": "ff9431ed-6234-44cd-8c24-bff6c8228b85",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "44354d19-ebf3-4b15-a9ca-91b4d0368c9c",
+    "deal_id": "116f0608-ce5b-44f4-8b22-2d41beda3b1b",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "448707bd-aa6d-46e9-8f14-b7af0d276050",
+    "deal_id": "272b1cff-7659-4b67-ba00-e4115b26eaf6",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "4642e339-01eb-43d9-b1fc-98f8454526b2",
+    "deal_id": "2ac982e7-d70d-4e25-b1a9-a83ffb0d417c",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "4774f3aa-acef-424b-afbb-cad646e4a922",
+    "deal_id": "de39bdaa-697c-4dab-ba2a-1f6af1e78ac8",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "4775d652-e3f5-454f-a426-d21f1c549712",
+    "deal_id": "1a262e9b-faa5-4d4c-a953-4aef24b3eec8",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "479eb827-6e66-4b9e-a319-708ef2128888",
+    "deal_id": "63f77334-95d1-4930-aa75-6341730365e8",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "48319072-d571-4756-ad79-b68af3319ab5",
+    "deal_id": "c689f36f-ec29-4492-88bd-6f35063d9265",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "483b2796-0706-40f8-8afa-b68ef7fe8ca0",
+    "deal_id": "daedb06c-1f06-4684-ad87-a583c4bc4a02",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "486a0aca-d917-4fa6-b442-33fd6c6d596d",
+    "deal_id": "f315f988-c3fb-4c4f-85b9-3e4e55010b95",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "4978566f-6e67-4064-82d8-8da7f751f664",
+    "deal_id": "e00f0e45-f377-4921-886b-9dcbf4213e0d",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "499f3cdf-76b1-480f-ba85-edf090e2ee01",
+    "deal_id": "d2c9ac1b-0f52-4841-a794-8d68af9ebe3b",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "49a8ec11-9123-4f82-8fa5-f1b83bf63d28",
+    "deal_id": "5a22397f-617f-46ed-877a-ea864f7ddca1",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "4a82b31e-f82b-4980-8885-ddd19e725eaa",
+    "deal_id": "43ce0fe9-3e78-4f16-b858-7ee48ade0cd6",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "4a9ecba2-3241-4c45-afed-f8a40b64c48a",
+    "deal_id": "003adc10-a65e-4cbd-bee5-19567ad472f7",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "4b805229-28e0-4c33-bdd8-a518a2d4bba7",
+    "deal_id": "1dfc0be9-0f48-458c-93c2-775f78b76e96",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "4bc2b52a-8795-45f2-b45e-9b0d018e56d3",
+    "deal_id": "4fcb3a8e-b3be-4477-acde-2855abccd1a2",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "4bd21241-a1d7-4f27-8708-c879c373d854",
+    "deal_id": "d4ae171a-1d81-4f21-b36b-737adaf0e513",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "4bd29709-6fc1-4dbf-9d87-8a8bbdba422c",
+    "deal_id": "7f195e9c-c44b-4f1a-9f49-f80d0d705c37",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "4cae8652-6ff9-4601-9e5e-9066d462a47c",
+    "deal_id": "d9f08c8e-eef4-4242-8757-9bfadf636e63",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "4caf8f43-a743-4bd2-b562-f8015d123a38",
+    "deal_id": "e8c5ecc9-1a26-4fb9-b19e-dcbbc20386fc",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "4cfb65bc-06c1-42d4-a0a4-1674e1d709a2",
+    "deal_id": "d5d289e6-0071-495c-b1d3-7a35e95a14ca",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "4d649e62-e7db-404c-b18c-ef2d53a036fd",
+    "deal_id": "c6b81099-4364-4418-81c5-3e1670d5a2e3",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "4d806aba-539e-4a31-8153-3e13b8c1e4fe",
+    "deal_id": "65523544-670a-4f4e-92ef-22b39cb896b5",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "4d93c902-7319-4d3b-bf48-1baa6f58bc0e",
+    "deal_id": "360fa614-060b-4234-8c09-abdd503175b4",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "4da3e190-935c-49a0-ac1b-64ff43abc4f3",
+    "deal_id": "e89240b4-1e3c-44c3-aaff-d8b69571f2e4",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "4e051caa-d60b-4188-ba12-5ff13b67d96a",
+    "deal_id": "f9d0a6b8-f038-48da-a900-778610b7f492",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "4e632803-80f2-4457-8495-4330ef03f056",
+    "deal_id": "a774c001-d0cd-474b-bd54-6d197af2d02d",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "4e725735-ec09-4a72-b955-32c9c299dc9f",
+    "deal_id": "34e01a05-709b-46b2-9703-52011655c5c0",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "4ec6bd18-1365-4939-ac0f-825dee13f173",
+    "deal_id": "aa174dd2-6689-4cf2-8c6b-9c9e2a4990fe",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "4f72c2e7-90db-4133-aeda-08117cf6c72f",
+    "deal_id": "8383bb7a-10ec-4774-acc8-34ef73a023a2",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "4fa7ec24-aee6-410e-9b0d-935e791c130a",
+    "deal_id": "3ed0cbe3-f5b0-4e70-9e32-b75c88ca1ab5",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "4fc86ee2-3f81-4eb8-8729-43c0b7d6654a",
+    "deal_id": "ced1dac3-3dcd-4125-a4ec-ba0867242cd4",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "500e9875-25fc-4ef8-ac4c-d37c4e811df9",
+    "deal_id": "2a3fb58b-96e5-4be1-9bb1-5f58e93ede8a",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "510a4e09-b766-4aef-96fb-a72d71f438b8",
+    "deal_id": "daedb06c-1f06-4684-ad87-a583c4bc4a02",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "5124925c-26fa-4e1d-9a63-b9bcd28f84fa",
+    "deal_id": "50298269-8e3c-4c09-ac48-d0d6f65ee49c",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "51fc75e5-f942-4d78-b9ee-e95c17b6997e",
+    "deal_id": "ec82d035-603a-4ba2-8de0-7fccef2709ef",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "5294aa9c-1294-4ffa-80d0-a515569fb112",
+    "deal_id": "68934d69-a691-4c14-8cd5-120e5689942a",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "52b923c7-2dc6-44bd-be5a-80f99d8cb3cf",
+    "deal_id": "51e87a94-7435-485b-aa8d-cdcc9513a9f8",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "5411c9f6-ab14-478e-b246-6b461119e70e",
+    "deal_id": "e8c5ecc9-1a26-4fb9-b19e-dcbbc20386fc",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "5416dd92-7c20-4302-98e4-d407849b66c3",
+    "deal_id": "dffd0eb2-be39-4637-8584-1a928f3b823e",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "54ad795e-977d-4d81-8189-9e980996c3c7",
+    "deal_id": "19de8a20-af0c-4725-afcd-28960d8880e5",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "5521337d-c95f-42e8-93f1-dd168534bd97",
+    "deal_id": "e3bcd1b8-4496-4f7a-9f35-4b776085132b",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "57d82656-cdb8-42d8-8e55-dae40d7c61f0",
+    "deal_id": "e89240b4-1e3c-44c3-aaff-d8b69571f2e4",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "585e08d3-b739-44d1-b350-fe7be9dae65c",
+    "deal_id": "d56e75e0-31b2-4fd2-b411-a0fcc8fa22f1",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "58a427c9-af2a-45cf-b163-305d36264ef4",
+    "deal_id": "5bd34387-19a1-48fd-8a5f-3b213b27f9a1",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "59366fcb-7c47-4b19-a19d-04f3b13d1f1b",
+    "deal_id": "10780abb-ea80-44c8-af51-efbc608b4326",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "59a762ce-613c-4e8a-849f-2c21dac4e010",
+    "deal_id": "b5673cef-b9ac-498e-97c8-cf70c5477a9b",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "59e38375-3650-436c-9eef-f0576630700b",
+    "deal_id": "c6659d3d-3d8e-4739-a327-dd33d17e2d51",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "5bbe9dcd-6d1e-4a87-abb1-4e86dd306dc1",
+    "deal_id": "7f6130ac-089b-45a9-8e6b-7c7b4ad5bc39",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "5c8245b9-daa2-46ce-8c5f-8e49a6b638bc",
+    "deal_id": "1a59e2c5-b1e9-4611-9784-8e68c85c2305",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "5d0e51f0-8ec1-4800-87b3-9187e0750978",
+    "deal_id": "1dde528d-dc80-4ab8-a03c-c28e50ceec1e",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "5deda916-4b98-4911-a02d-fb6dcfb44b22",
+    "deal_id": "31d7465e-0887-462d-9933-774574dddf04",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "5e7bb2b3-5402-48c3-9f46-854c88cec49f",
+    "deal_id": "2c35f6ed-8f07-4da3-a468-feb6229a327c",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "5e870470-4ea7-46f4-acc3-8a56733aebbd",
+    "deal_id": "88e8ca26-c29b-4420-9d68-029ac26362dc",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "5f29cb5d-2fab-4e08-a226-6f110ecf50c4",
+    "deal_id": "3a866c39-144e-4a8a-9a71-2b066b1ecc42",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "5f3e9c2c-4bac-4a41-ae52-d9fa546d2852",
+    "deal_id": "a8f68449-6f05-496b-a1ec-11399caad4bd",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "5fb013eb-5ffb-4504-91ff-6e602e13afc7",
+    "deal_id": "56966f7c-5acd-41ea-b098-386ad142d410",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "62887f6e-0458-4cca-b280-39896d26681e",
+    "deal_id": "c65d788c-5ec8-41df-baeb-e0decc4b4083",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "643365fc-af34-4fa4-81b3-fe064f98cc9c",
+    "deal_id": "eee0de7b-f09c-4f12-b4a3-385ea64a006a",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "6451cfe7-8fb7-48d6-97d2-9b116d0258c1",
+    "deal_id": "eee0de7b-f09c-4f12-b4a3-385ea64a006a",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "64953efb-1989-459f-bfbd-7fc77136913d",
+    "deal_id": "d0f34a31-9284-430a-910f-42c80367c307",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "64f21233-f48c-49cb-9f02-f6d9b8a07871",
+    "deal_id": "7f4b723a-5d51-4f4d-9166-201faca51ab4",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "655d9b48-8577-47c0-8c38-2fe58a88dcd7",
+    "deal_id": "9c6a2e30-7985-4a22-b27b-1a55fc3692ec",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "6564279c-a234-4ce3-bd70-62c41e3f4182",
+    "deal_id": "6e88b661-e6bf-4ed7-969c-b0974f193650",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "659c4d22-37a7-46d0-b6ed-80617bb88b01",
+    "deal_id": "aaabd233-1161-4580-af3c-f5772586352b",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "65de01c1-9a23-46cf-b91b-6486e470f261",
+    "deal_id": "87e410ee-2dee-43a5-a300-9fd45c3c4208",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "66769ef6-e6c7-4444-9eba-7b8f5eb1e284",
+    "deal_id": "9b838e92-99f2-45de-a6a3-2d2a3a1860a1",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "68a289d1-f1de-42fc-b571-95e3f8259475",
+    "deal_id": "1a59e2c5-b1e9-4611-9784-8e68c85c2305",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "695f26a3-1f88-4f12-8fb9-83c1cd4b8d00",
+    "deal_id": "92ff3744-d04d-47f2-855a-47ddf8fc3b3f",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "6a83b1d3-87c3-494f-b3eb-e08d2c03b721",
+    "deal_id": "e4e096cc-3d41-4676-ba98-3db517cd471f",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "6af48469-0cdf-478d-99be-9974b94e9de3",
+    "deal_id": "0c0670f0-a3c4-46f9-866d-719d2836c689",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "6b6261a5-6bf2-45e8-a436-8789c9c9754b",
+    "deal_id": "5acde0a9-e098-4b7c-a1a2-0c88d5aa1e43",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "6b926748-7d2a-46b4-9c6e-0e91318d243f",
+    "deal_id": "d8cd54d9-f76b-40d1-b3fe-c4e0adf5517e",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "6c2fd528-63cc-4bb1-bf0e-a56de83bfa5b",
+    "deal_id": "932cf2fe-f01a-42e5-827d-aebacfe2e89c",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "6cc79ae5-13c6-4894-8652-74d108036cc4",
+    "deal_id": "a9dd1763-5100-4d63-9eb7-0cf81d63c84f",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "6d6946c2-68da-48ec-b718-b747bf6aa745",
+    "deal_id": "9703e966-8ff9-4eb8-8fca-525528b7602c",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "6d7ddc6c-2278-4a96-b769-f3845e0d3777",
+    "deal_id": "d8759c10-3598-45be-bd93-14a49f4059de",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "6e716915-db13-4081-9c6d-e7dc50cfc294",
+    "deal_id": "30d87b0e-4e53-4332-bccd-25e86a973b2c",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "6e9421b0-5df8-4733-b75d-03c135411ac7",
+    "deal_id": "d56e75e0-31b2-4fd2-b411-a0fcc8fa22f1",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "6ec8a92c-5643-43a1-9233-ce101bb35efa",
+    "deal_id": "1dfc0be9-0f48-458c-93c2-775f78b76e96",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "6f4a85e1-9086-4da5-bc73-872a0a072cf5",
+    "deal_id": "f315f988-c3fb-4c4f-85b9-3e4e55010b95",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "6f95e64e-b042-40f4-89f4-73701b67a585",
+    "deal_id": "3a149b72-7f22-4dc2-b401-dd88c7354dba",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "6fffbbc3-b5fe-4b81-8304-9e4e040221b6",
+    "deal_id": "75aa7d03-8802-45f2-a3c0-83d9a8df0f51",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "7010f02a-3d2b-48a1-ab3f-f9aaa25fe416",
+    "deal_id": "ad837bdb-0f82-4760-9781-7ed67617917f",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "703146ab-96f4-4e74-8f2b-f20354a6d9e8",
+    "deal_id": "c83c8cbb-144f-44e0-bfb8-e6fbf38b1f4e",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "7074fbc1-0bcf-41ad-9d8e-505787e1587a",
+    "deal_id": "d7250bc5-154d-4abf-a74d-c8a7a10d666d",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "71189bfd-c602-47d7-a889-ebe540563605",
+    "deal_id": "ad837bdb-0f82-4760-9781-7ed67617917f",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "7147f0b2-7860-4b16-ac3a-4786c6fce198",
+    "deal_id": "4fcb3a8e-b3be-4477-acde-2855abccd1a2",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "7165bea3-72ef-4a26-a825-0933f932a5b5",
+    "deal_id": "543a9793-bb93-4caa-ad5b-1fda6a1d1552",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "71ca5d10-5f88-4c6d-836b-14d34296b635",
+    "deal_id": "3b9dc1b1-0921-4560-9251-ec22b95d6132",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "726a0536-119a-4ea6-a9a3-8134333526fd",
+    "deal_id": "c79ef3b3-8ee6-460b-b9ac-76ecc64aec5c",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "72a4fc52-2d93-4303-a42a-890c0679ba09",
+    "deal_id": "df23aa4e-ed3c-4f9b-8394-808d7398d534",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "72bfea28-ded4-44e0-bd8e-c34716b239a1",
+    "deal_id": "1dfc0be9-0f48-458c-93c2-775f78b76e96",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "73097eb3-d607-4102-83fa-a9c23358c86a",
+    "deal_id": "17837470-23c3-4126-abf4-c3f7ec73ab68",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "73248b11-7f4f-431a-b096-9070a9a5f312",
+    "deal_id": "64104371-b734-4235-a1bb-c4d07daaf744",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "738e5949-8f62-4a1f-8578-e77522fb2e98",
+    "deal_id": "15cc4014-42cf-4f93-83dc-7e3c726d662b",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "742b68c9-cd4c-4a8b-8fda-77446d986c6f",
+    "deal_id": "beea2d05-bb6e-4a51-b09c-abbf1ce0ab9f",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "744823ed-a6fb-4ccc-8cee-97c46f4585d3",
+    "deal_id": "c1734444-86c3-49ad-9758-686e69971e6c",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "74519365-688f-4ad3-be18-2e504c77f5b2",
+    "deal_id": "6eb1ab69-d109-4d77-a5b8-4c3f0af4f30e",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "7472fc69-71cf-450b-9828-3aad0699f984",
+    "deal_id": "98f82e21-ce28-43c8-8fe1-e0b499e7f352",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "75337b60-668b-494b-a0cc-467babad10e0",
+    "deal_id": "0120e42c-66db-4b56-b9d1-dcab55523117",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "758136d3-0bf4-43c4-9c85-48b4dc20750c",
+    "deal_id": "4f0aa376-e471-429a-afb6-f230e160b7c2",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "758d2392-2847-444c-af25-2ba7906a54ce",
+    "deal_id": "3dcba5e2-f8b5-40d7-9d71-fc6fc37f4cff",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "759d959c-e8be-4dfb-8dd1-56bd286445dc",
+    "deal_id": "e5e13d4c-1708-436f-bd73-858b31001300",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "75b141eb-4dba-4168-bde2-27f99b81a91c",
+    "deal_id": "e483936c-25f5-41c1-a7a6-4c28aac39219",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "76114b75-e332-4e53-8eaa-610a6f347db1",
+    "deal_id": "dee74a82-7b28-4f5c-8e55-685800644fd8",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "7672d93d-9552-4608-aacd-ace58818ea97",
+    "deal_id": "0b1bb79e-c38d-4c36-85b4-3d9bd8e2b6b3",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "7a3ee4fd-e044-4792-8a6e-f34783ba6418",
+    "deal_id": "2b2bf934-9899-4f9c-b1fa-8cf2bfbed736",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "7b1599c3-40b5-4567-9680-172476d36629",
+    "deal_id": "98f82e21-ce28-43c8-8fe1-e0b499e7f352",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "7ba07d1e-66cf-4b3c-b859-8eec792aece4",
+    "deal_id": "c6659d3d-3d8e-4739-a327-dd33d17e2d51",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "7bf364de-a042-4e58-ba1c-5c5f078e04f0",
+    "deal_id": "22a2c305-a398-4d97-b6a9-4f2cea162bec",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "7c07a291-a61d-4897-bc8e-89d9c774ec69",
+    "deal_id": "e7b951f7-c259-40ff-81aa-0cbefb83e659",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "7c2b363f-45d4-4a8a-841d-41e089d949fe",
+    "deal_id": "5e23b6e3-58d3-45fa-8805-927fa8db2153",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "7c2b3e5b-0119-4f5b-9415-b5aeded01c2c",
+    "deal_id": "56966f7c-5acd-41ea-b098-386ad142d410",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "7c912cea-53ce-4d62-9f5b-2250455a1238",
+    "deal_id": "272b1cff-7659-4b67-ba00-e4115b26eaf6",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "7cf2d1f2-e1a9-4aac-9991-630af690be92",
+    "deal_id": "28b35a65-0e99-45eb-939f-1ad9d5c2e1b7",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "7d102152-029f-4ebc-b70d-ecd807cc670b",
+    "deal_id": "844a4e84-aac3-4950-bcb8-7def4af6ec22",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "7f000f75-7fe7-4ae1-b12e-44a75726c7c7",
+    "deal_id": "5bd34387-19a1-48fd-8a5f-3b213b27f9a1",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "800062ad-17fd-4c89-9950-b594370f9dd0",
+    "deal_id": "f35905d7-84f7-46b7-a163-8f4f8c43a3a9",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "80007beb-1346-43a1-9043-de2c06c68c3b",
+    "deal_id": "3a149b72-7f22-4dc2-b401-dd88c7354dba",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "815fab69-3e98-4782-9ee2-e0bbaf423ccf",
+    "deal_id": "ea8bfda8-5e13-43d9-9485-0536496ea050",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "824c9810-370e-40e7-aba9-5f57b0b5118e",
+    "deal_id": "5a22397f-617f-46ed-877a-ea864f7ddca1",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "83566292-9bd4-429d-a231-be8497d5d726",
+    "deal_id": "e89240b4-1e3c-44c3-aaff-d8b69571f2e4",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "8405291f-83b9-445c-a9e2-67328c442089",
+    "deal_id": "aa53e5f1-9a45-41e4-8ee2-a47c79721857",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "85eccb47-c4d2-4899-84d9-626442fb0b94",
+    "deal_id": "844a4e84-aac3-4950-bcb8-7def4af6ec22",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "868ac6f6-65ea-40e0-8c91-04fb475cd6a9",
+    "deal_id": "d5d289e6-0071-495c-b1d3-7a35e95a14ca",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "885bf82b-852b-42b7-848b-4fdac0dd19cf",
+    "deal_id": "7f6130ac-089b-45a9-8e6b-7c7b4ad5bc39",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "889c4938-61c0-4df9-8a79-c869b78714ab",
+    "deal_id": "dc3a0de3-9ae8-4c93-b945-c7a463393844",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "88c498e9-3803-42ff-a7dc-ddc91eda9733",
+    "deal_id": "0ade00b2-b9c9-4e24-a8c5-d082b6834252",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "88e3cff6-2eb4-481d-a254-4924224485c0",
+    "deal_id": "82e35e4e-b22b-4caa-955c-3f597274362a",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "89b4fd3f-726a-4659-855a-fc56cd859995",
+    "deal_id": "5e23b6e3-58d3-45fa-8805-927fa8db2153",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "8a7918b3-b522-4d3c-9873-46eafb2dcc10",
+    "deal_id": "5bd34387-19a1-48fd-8a5f-3b213b27f9a1",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "8a848cc1-7ed0-4aeb-9a1e-3a4d2deeac87",
+    "deal_id": "79fcfe96-cb21-412a-b417-0bc14348e8cc",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "8b2be49e-498c-4737-85f5-1b5073266e53",
+    "deal_id": "9b838e92-99f2-45de-a6a3-2d2a3a1860a1",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "8b5a7da7-bd66-4765-aeb4-9342c7034b8a",
+    "deal_id": "877a6dd9-074d-4713-bd12-f5e788ca8cba",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "8e3c75cf-b8d8-49dc-8f1c-1654decdbb70",
+    "deal_id": "1b19fd46-90e4-4b91-bcea-0a216d56bda5",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "8e9346b3-e34a-42b0-ab73-f428460e9a9f",
+    "deal_id": "feb6fc96-cb81-488d-b7cf-689e909868d2",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "8e9c0181-298e-4f02-9d6a-c0fad4c99ea0",
+    "deal_id": "96bb3b37-4193-443a-b512-d9aab3c706b2",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "8ecde328-5bfd-49da-8095-3e1ac59b9ce0",
+    "deal_id": "662131b6-a24b-4985-bff9-4d5fc0693418",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "8f5ab229-612d-4cb4-ab73-f2c02a8b9c70",
+    "deal_id": "0120e42c-66db-4b56-b9d1-dcab55523117",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "8f95bbd2-ca11-476b-8a38-13bcf8e2fae8",
+    "deal_id": "5202d28d-63d1-48d8-bcd5-b45041f4bc56",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "9060b118-19ea-4bc6-b7b2-6a0b9cc6c76f",
+    "deal_id": "340bef50-86aa-4eb7-aa27-e078026a36db",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "908381d1-325b-415b-953b-d35ab635f147",
+    "deal_id": "10780abb-ea80-44c8-af51-efbc608b4326",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "9187c0a1-eb25-43bf-8968-cc3c37642ead",
+    "deal_id": "fbe55b4a-2b3d-4852-9eb1-4b04e1148bc1",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "919f396c-5fa2-492a-8a8f-d3e709d425ac",
+    "deal_id": "92482007-b0c5-42e5-9c9e-e8c6fc34ff51",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "9227d96c-ca0b-4503-b5c6-029694d5d86a",
+    "deal_id": "358767ff-f8b3-4164-b326-028b28ce36fb",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "93578991-21f7-43fd-b858-bc53327ed9be",
+    "deal_id": "dc979a03-d09c-42ea-97a6-9d77e811a210",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "9372305c-4938-4934-92e8-32ee6be6868e",
+    "deal_id": "cf71d789-710b-4494-a4c1-33b346b49e15",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "938d14a7-ad12-435a-8737-2b8b960d5501",
+    "deal_id": "f6d583e6-490b-4f8a-a816-f20288ebdaa3",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "93b4361c-3a5e-4f60-a613-474fbab427d9",
+    "deal_id": "689ed59f-12f6-4319-b8d5-666469558f3a",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "9421ddd4-b767-490b-be81-0c7302f31099",
+    "deal_id": "e7b951f7-c259-40ff-81aa-0cbefb83e659",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "943173a1-43b5-46c6-8fe6-688ee18e57db",
+    "deal_id": "0b1bb79e-c38d-4c36-85b4-3d9bd8e2b6b3",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "9448fc10-e53b-498f-865c-7b2b027c1551",
+    "deal_id": "3a759ff8-1076-4a9a-b152-1727d52c3bc6",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "94b71e55-9151-4d90-830e-5e64ff921d02",
+    "deal_id": "63664f88-a26d-4fa8-998b-4a639c562260",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "9593ae28-3023-430e-bbbe-e8f96db28170",
+    "deal_id": "aaabd233-1161-4580-af3c-f5772586352b",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "95baa700-bf15-4334-8821-d44259d9b182",
+    "deal_id": "6fcc6af3-8912-48b3-9da1-d8b19900c819",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "95f8c8d0-f324-48ac-8df8-3cea844b8586",
+    "deal_id": "b70738e3-37dc-4ea2-8b8b-7a28e7b0e564",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "9650a5d7-3587-400a-b544-a251b3b498cf",
+    "deal_id": "bbd86782-6a0f-4d1b-91e1-1e14016d88e3",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "9686b102-e15a-4f15-8608-508cbeb010c0",
+    "deal_id": "7caae45e-9cd0-4e02-a506-7fd6564e4372",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "978cd3e9-152b-442d-bb1b-d07609eb87ce",
+    "deal_id": "7f5c9884-aadd-496c-8a9c-a291ba20c03b",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "98e744b4-2fe7-4ef1-8e19-6185785cddd1",
+    "deal_id": "15cc4014-42cf-4f93-83dc-7e3c726d662b",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "9a697b70-732a-4668-afb5-15ea5159dace",
+    "deal_id": "eca9a87f-537a-4f23-bff7-bd0304eff15c",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "9a8ddd6c-86c2-4523-a8cd-91d4b8713074",
+    "deal_id": "398de980-edf7-4ca2-8605-4be738810351",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "9b481cac-feeb-4ed8-98d7-3b1f07c2429c",
+    "deal_id": "30d4a612-c7e8-4bec-b041-bdc3f6206122",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "9c125423-6442-429c-aeb8-92d6219dfdeb",
+    "deal_id": "30d4a612-c7e8-4bec-b041-bdc3f6206122",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "9cb65a2a-0312-4cbc-b964-92b6ca990e99",
+    "deal_id": "47cdfd09-8b14-458f-81d8-9f7eb0ddd44e",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "9d25162e-3fea-4c3a-9c4a-5d099667401c",
+    "deal_id": "61b1bf99-0b55-47f3-ac29-a8f5bacc33e2",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "9d2feadf-4183-4a02-a144-b47a4347d2c1",
+    "deal_id": "7c89e192-6e97-4486-ac62-ab4bbde394bc",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "9d546143-0c15-4432-b79a-7b5f64e98d0f",
+    "deal_id": "50298269-8e3c-4c09-ac48-d0d6f65ee49c",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "9e23a176-0459-4c89-a2f4-390b6c375b1e",
+    "deal_id": "a659637f-487c-4e80-8093-bc9949f51ff2",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "9e2449e1-5831-44d2-adee-128077f5c8e6",
+    "deal_id": "91c59be0-d9ab-4db9-b0cf-37133f4591f8",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "9e24db3f-efea-4a60-9fd6-7a46fa9b1c73",
+    "deal_id": "49ecea25-eadd-4fd5-9104-14ba09f2702f",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "9f230424-a847-44dc-87a0-b4c750cb51d0",
+    "deal_id": "22a2c305-a398-4d97-b6a9-4f2cea162bec",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "9fa0134c-e115-4c45-a139-7f0187ebc99a",
+    "deal_id": "c6fe0911-af57-4deb-bd38-3b4417c9965f",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "a0446bee-a5ff-445a-aa9c-73bbc300881b",
+    "deal_id": "28b35a65-0e99-45eb-939f-1ad9d5c2e1b7",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "a0624307-a05e-4707-a127-94988ecc356b",
+    "deal_id": "d96a5371-96db-4d10-8483-6a8dd854305c",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "a08c809b-2c95-49c1-aef4-ff3a5f384ec2",
+    "deal_id": "92482007-b0c5-42e5-9c9e-e8c6fc34ff51",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "a0c53f4a-fe83-4248-9bf6-90dac3fcc287",
+    "deal_id": "f469a28a-2552-42a4-8f59-290e88987e47",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "a21292de-50a4-470d-b27c-f648c043b3b0",
+    "deal_id": "f3c92394-00a6-4193-be0a-7f07cbdc326e",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "a22b3ae3-220a-4935-b64d-b17ef60cf312",
+    "deal_id": "0190db1d-3f29-492b-b214-06246e9bdf1b",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "a29d1651-2b7a-46fb-a981-6429f7151cd7",
+    "deal_id": "4ca64632-9d4d-4c40-84d4-4d67faddf1ab",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "a2f959dc-b8ae-473e-84c8-4384abec92f9",
+    "deal_id": "26fe2c8a-a51b-4fa7-90e8-25632adce65b",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "a3271115-ae05-4ab9-927e-d48584aaf58d",
+    "deal_id": "feb6fc96-cb81-488d-b7cf-689e909868d2",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "a3dc426e-c2bc-4178-b75c-b4969768066b",
+    "deal_id": "dde392f6-a0cc-45e1-bf24-4f00e7a72964",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "a540a751-9b06-4a8c-b534-732fee829189",
+    "deal_id": "c624b634-3b04-4a72-8720-34198f9f99d7",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "a56108b3-e540-414c-80ac-1b1306a29308",
+    "deal_id": "dffd0eb2-be39-4637-8584-1a928f3b823e",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "a58ae008-ce47-46b8-bcf8-5f8bcff69b67",
+    "deal_id": "43ce0fe9-3e78-4f16-b858-7ee48ade0cd6",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "a693022a-7208-43ef-a1bd-e05433d6acd7",
+    "deal_id": "360e6a5e-5095-4699-9beb-937086e2e5cf",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "a6cfe5c9-bb6e-4dc8-aeb3-0a8e7c560953",
+    "deal_id": "543a9793-bb93-4caa-ad5b-1fda6a1d1552",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "a7246cf7-0527-4c4c-a72e-66d3b6b53ce9",
+    "deal_id": "877a6dd9-074d-4713-bd12-f5e788ca8cba",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "a7cbad0a-0d58-4707-ba42-ab7e4810714d",
+    "deal_id": "423db59c-607c-4936-8658-5b1239b28694",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "a7f47135-d8ab-4cf2-82a9-a3d6e89334e4",
+    "deal_id": "30d4a612-c7e8-4bec-b041-bdc3f6206122",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "aa0f8b20-a1ef-4e5a-89c6-9b734aefe3ca",
+    "deal_id": "b789b7d1-1272-4b05-a802-58dab795a6f2",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "aa4fe1b2-4873-4530-bcdf-f214718e628d",
+    "deal_id": "8887373e-a5d2-4270-84aa-169f6288c4c6",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "aa564dd1-94b5-464c-b395-5ca6b16288a1",
+    "deal_id": "360e6a5e-5095-4699-9beb-937086e2e5cf",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "aade0367-96c1-48cf-9abc-49276b27b1d4",
+    "deal_id": "c92bbbde-99f1-4b34-b618-d624ab49ad93",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "abf746eb-ee83-4abe-abba-6e90d128e8ca",
+    "deal_id": "51e87a94-7435-485b-aa8d-cdcc9513a9f8",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "aca7b8a6-3c52-46d3-ac54-dea31556bdec",
+    "deal_id": "358767ff-f8b3-4164-b326-028b28ce36fb",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "ad5f75ce-2fd7-47d2-aac9-dc6db890d6d0",
+    "deal_id": "89d1c168-0f1f-4f81-bf9d-016fe188dc01",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "addbdaa5-b3a4-4bb0-8f42-902eda137ad5",
+    "deal_id": "72153af7-b408-49bd-96c4-dacea8a95898",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "adf9e7bc-cc83-45d7-b782-6691092df4b1",
+    "deal_id": "d4fa696c-89d4-49ad-97e1-9af3b207314d",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "ae083824-05a3-4747-9311-1ab43be42515",
+    "deal_id": "5b0130c2-39a7-4627-8218-a367740b16b5",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "aeec5c2f-2545-4388-b5d0-a768ce4bb3a5",
+    "deal_id": "844a4e84-aac3-4950-bcb8-7def4af6ec22",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "af0f9cfb-579f-40fd-823a-8a3b2f9ed74f",
+    "deal_id": "65523544-670a-4f4e-92ef-22b39cb896b5",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "af789d8d-bcf0-4e3d-9c28-2fadda83b0c2",
+    "deal_id": "89d1c168-0f1f-4f81-bf9d-016fe188dc01",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "af83374e-6f53-4a2b-95da-2edcacb78e4a",
+    "deal_id": "21580766-2acb-4d3d-b397-78edb7b1320a",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "af8b6d99-26c7-4bf7-a490-ba6229cefe02",
+    "deal_id": "dee74a82-7b28-4f5c-8e55-685800644fd8",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "b0dd9e60-7ee0-4f35-a17d-759fb793443d",
+    "deal_id": "c736a681-897f-4c08-8e85-47cec7637f78",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "b13aa46f-1235-429b-a8e2-bedc89ddf58a",
+    "deal_id": "47fd711c-02a3-4f2f-bad4-ac95da4db7a4",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "b14221f5-1530-4567-a7ab-b04d62b39db8",
+    "deal_id": "662098fa-3041-454e-81b4-6f13be5efbd4",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "b4b2dd95-8605-4d89-ad28-7c581951d404",
+    "deal_id": "b8b703b4-f83a-46c3-89d4-70d5d04d03df",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "b51990c7-bf5c-42a5-b1ae-d3baeff3e240",
+    "deal_id": "19de8a20-af0c-4725-afcd-28960d8880e5",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "b738a6b5-6732-4fbb-aabe-9a65571cfa35",
+    "deal_id": "7ad7ad85-6636-4c34-a37f-0a078035122b",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "b78d7d88-f97d-49e4-8fbd-8cce950df629",
+    "deal_id": "48b2f15c-581b-40c3-8b19-e1aac37ed065",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "b800af7f-2f8b-47c5-8601-72a27ca58716",
+    "deal_id": "beea2d05-bb6e-4a51-b09c-abbf1ce0ab9f",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "b84c7194-1606-4825-a794-0d6345fb99a8",
+    "deal_id": "d2c9ac1b-0f52-4841-a794-8d68af9ebe3b",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "b95e5e74-c7c5-45aa-b96a-d19ec5041650",
+    "deal_id": "aaabd233-1161-4580-af3c-f5772586352b",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "bc6ea41e-db77-4be2-99a8-f090adbb8849",
+    "deal_id": "7911c45b-cc3c-414e-a224-4882ccf282b5",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "bca90383-a818-46fb-8756-a27873c85076",
+    "deal_id": "c3aa3ff4-f7aa-4cf6-9dee-f211c922855f",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "bd79cf84-6e58-49f6-9c37-13035920e7a7",
+    "deal_id": "30d87b0e-4e53-4332-bccd-25e86a973b2c",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "bdada6f9-2a24-495a-9260-b333868bdd08",
+    "deal_id": "80b92833-42b6-4287-b452-b23f72ca722e",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "bfee7ed3-658b-42c4-a3f4-758595a0dcef",
+    "deal_id": "7c89e192-6e97-4486-ac62-ab4bbde394bc",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "c016cd4f-d3e8-46bf-b955-40095f7a8c83",
+    "deal_id": "42abdd30-9a0d-401c-9fa7-39d9cb7ae4e8",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "c0d1ac0c-6eb9-4a90-96cc-2c67c01d9b5d",
+    "deal_id": "153f6259-e3ae-44ea-9ba9-e03672fd1b70",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "c2d97e11-b009-4e5c-b8fa-83c2ecf67c2a",
+    "deal_id": "eee0de7b-f09c-4f12-b4a3-385ea64a006a",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "c30861cd-3782-4cf9-9429-10f7963699e2",
+    "deal_id": "1bd619b4-3ba2-4d1d-8bf8-a41e3c17d047",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "c32aec7c-0c5e-472e-a44a-ae13f93dca6a",
+    "deal_id": "9a022bde-e8d6-4c0b-b843-ca0582135351",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "c441cd1b-d2fb-4dad-9e11-123ee87f4793",
+    "deal_id": "f750c0a9-1839-4f20-97e5-32cbb65cd980",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "c4a21376-eb22-4857-9937-fc2bcf1bc44b",
+    "deal_id": "2eb75f24-cbaf-44b3-8e84-4d141768c751",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "c50337cb-3a4f-4d8f-a89c-e0e39a0ad13f",
+    "deal_id": "ea4caf57-84f6-447e-8546-e552a4ac931b",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "c6cce383-2ed0-43a5-877a-2dbe3e7ec025",
+    "deal_id": "17d96c82-08ba-4acf-84a6-935efa7b86cd",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "c753704f-a1ee-494d-9ae5-f6699fab03a8",
+    "deal_id": "393e5aa1-18bc-499c-9cfc-3db705863128",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "c7a4dedc-7e68-4b9e-9099-c1d40bc0ee38",
+    "deal_id": "dc979a03-d09c-42ea-97a6-9d77e811a210",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "c7eedb75-957c-41d3-a26e-008b807b781e",
+    "deal_id": "195685a1-e032-4b00-bbd2-e575f9e68668",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "c7f3c7f2-23d2-4491-8d8c-10fd67b8a0f7",
+    "deal_id": "daedb06c-1f06-4684-ad87-a583c4bc4a02",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "c83dded0-47db-4740-a64e-34c1f18939c7",
+    "deal_id": "21580766-2acb-4d3d-b397-78edb7b1320a",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "c9258595-9a7d-415a-aa35-8aa7ba09a49c",
+    "deal_id": "47df2701-5efe-4c31-80a9-69c3aae4a56c",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "c96df431-cf57-4f19-9df3-5fba363e587b",
+    "deal_id": "0b6321e9-073f-4e52-b2c7-1e508636333b",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "c9857e11-6fb7-45b5-bb65-d6df26cd4043",
+    "deal_id": "0c0670f0-a3c4-46f9-866d-719d2836c689",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "ca059649-0f26-4154-bcc6-33bf13ed680b",
+    "deal_id": "423db59c-607c-4936-8658-5b1239b28694",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "ca367b9e-a937-449f-b64d-cb4d0959eb87",
+    "deal_id": "ec82d035-603a-4ba2-8de0-7fccef2709ef",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "cb9ea9dd-f7d4-462e-9d45-41aabaeede6d",
+    "deal_id": "87502d16-27cf-458d-9f9f-c41e948f1553",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "cc41812d-1945-4699-9207-f2852aafddd4",
+    "deal_id": "4ca64632-9d4d-4c40-84d4-4d67faddf1ab",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "cc604ad2-46b0-439c-8c41-e6159c2a4792",
+    "deal_id": "a9dd1763-5100-4d63-9eb7-0cf81d63c84f",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "cca75417-0371-4cb1-9cdf-0354bd4abaa3",
+    "deal_id": "b3b4dfba-3b5c-49cd-900a-5865fdbc0102",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "cd4d63c4-0a1f-4f21-8793-2ac8c624cc8d",
+    "deal_id": "7caae45e-9cd0-4e02-a506-7fd6564e4372",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "cd74ea17-a30b-4707-995c-86d5eba38696",
+    "deal_id": "a0d2f778-ed9e-4fe7-9d04-2e54f021813e",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "ce0fae20-226e-40a7-9f4e-9c8b80d7fcb5",
+    "deal_id": "d9578ab8-dcb8-4204-be29-7bde069f590a",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "ce81b0ee-041d-47db-a759-a269ea5bc750",
+    "deal_id": "d0f34a31-9284-430a-910f-42c80367c307",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "d010dc2e-3a80-4de5-8208-59f03bc48a74",
+    "deal_id": "f6c63dc4-5c03-4ab6-be10-020a7e947e3e",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "d03f51ef-7ce7-413c-9cdd-52fd236cb9c9",
+    "deal_id": "e77fcf85-d595-44bf-9a3a-4593e6b649f6",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "d057f448-125f-401b-8451-de88b9a381d2",
+    "deal_id": "52aca3cb-364c-4a22-988d-e94f0ee669be",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "d108a18a-a78b-450e-b142-875d169f92d0",
+    "deal_id": "2b2bf934-9899-4f9c-b1fa-8cf2bfbed736",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "d1fe6ffa-feaa-4730-a670-5c6080a0a556",
+    "deal_id": "98f82e21-ce28-43c8-8fe1-e0b499e7f352",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "d27739d0-ab64-443a-8263-38fbe7d8f64a",
+    "deal_id": "ca67a958-ecaa-4e08-9442-fd42ba3164ab",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "d33b7237-aed6-4909-b2f9-f515159de1c4",
+    "deal_id": "47df2701-5efe-4c31-80a9-69c3aae4a56c",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "d34f3527-9a7e-47ad-9ee4-e8d6971a59d1",
+    "deal_id": "1b19fd46-90e4-4b91-bcea-0a216d56bda5",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "d41d436e-f158-40f2-8f3d-dfadaf97966e",
+    "deal_id": "0190db1d-3f29-492b-b214-06246e9bdf1b",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "d490d732-ebc6-4b10-ab3d-6bfb5b0c60d3",
+    "deal_id": "3a866c39-144e-4a8a-9a71-2b066b1ecc42",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "d56c36c6-2981-4d76-b7e1-cf2dc73bbd86",
+    "deal_id": "17d96c82-08ba-4acf-84a6-935efa7b86cd",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "d570578d-6724-4a27-9426-de6905f65fb3",
+    "deal_id": "a89604bd-8741-4c20-9e92-3c108dab539e",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "d7012291-92ef-4f83-919a-40e19be40eb9",
+    "deal_id": "72153af7-b408-49bd-96c4-dacea8a95898",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "d7edc513-c6d1-4200-8500-9a996a29c29d",
+    "deal_id": "f3c92394-00a6-4193-be0a-7f07cbdc326e",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "d7fad9ec-950c-46ad-a9ac-7c4ec704bcb8",
+    "deal_id": "877a6dd9-074d-4713-bd12-f5e788ca8cba",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "d9adec0b-58eb-4ef9-9821-d69e505e1cea",
+    "deal_id": "34da9e1d-20c6-4f83-9524-8d937b7676d6",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "d9eaa7c7-1e8c-4ff8-85b0-66a53ed5f642",
+    "deal_id": "f11537dc-5fbd-4bd8-84f0-fa47f14cdc24",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "da0b0e5a-0535-4950-b2f1-77c9809bd6ea",
+    "deal_id": "3236e1f5-7e44-4328-a728-dfcaa21289a8",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "da59c6fb-7f5b-437d-97a3-4dc239a14bfc",
+    "deal_id": "d2b8c9de-3931-4901-8403-d13b2eb71b45",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "db166c91-1daa-4dc1-afb5-8b130b3a7aaa",
+    "deal_id": "7f6130ac-089b-45a9-8e6b-7c7b4ad5bc39",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "db89d502-11a1-4933-90de-793e1fd8ba4c",
+    "deal_id": "f6c63dc4-5c03-4ab6-be10-020a7e947e3e",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "db8f612e-d010-4755-801b-df5bc1267c9e",
+    "deal_id": "7f5c9884-aadd-496c-8a9c-a291ba20c03b",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "dc010049-f7ec-4443-b32a-aceaf51d9cef",
+    "deal_id": "e00f0e45-f377-4921-886b-9dcbf4213e0d",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "dc804a78-c753-40e2-82da-c501ab93d4cb",
+    "deal_id": "d2b8c9de-3931-4901-8403-d13b2eb71b45",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "dd9f360e-448d-4928-b572-b9b8e5ad4c7c",
+    "deal_id": "e1cdf4df-af9f-49b7-a7e2-b247c65c14b6",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "df23234c-260b-402c-98f1-d03aea99ea98",
+    "deal_id": "116f0608-ce5b-44f4-8b22-2d41beda3b1b",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "df6f1c7d-7b67-4e31-8b99-d178a75495c4",
+    "deal_id": "17d96c82-08ba-4acf-84a6-935efa7b86cd",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "dfd2fd63-2d60-44e0-8680-5dfec599f42f",
+    "deal_id": "6fcc6af3-8912-48b3-9da1-d8b19900c819",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "dfd7b98c-b2e1-4d95-812a-4b84d57e5085",
+    "deal_id": "c6b81099-4364-4418-81c5-3e1670d5a2e3",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "e030c332-691a-4a03-ac86-f4c6012210bd",
+    "deal_id": "8383bb7a-10ec-4774-acc8-34ef73a023a2",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "e26eb045-b6e1-4f9b-9781-900a6569efa5",
+    "deal_id": "75aa7d03-8802-45f2-a3c0-83d9a8df0f51",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "e31a42d3-86b3-4dcc-b557-60e19fbcdccc",
+    "deal_id": "92ff3744-d04d-47f2-855a-47ddf8fc3b3f",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "e3c6c86c-fb3a-453f-ba0d-315827a2c218",
+    "deal_id": "5b0130c2-39a7-4627-8218-a367740b16b5",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "e3c8c5f6-d364-46c7-9d51-e4d7d57c51a4",
+    "deal_id": "c3e28cf4-e42b-476a-bbae-92f4258fc877",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "e5428ad7-817a-4a5a-a064-f8d19b90265f",
+    "deal_id": "719d14e4-1a32-4a4a-a5c3-013fe6b28473",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "e6f8c6ee-c537-4faa-bb8a-a2c5e2e1f990",
+    "deal_id": "c736a681-897f-4c08-8e85-47cec7637f78",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "e75e7104-9687-46fe-b5af-dec197714033",
+    "deal_id": "1a262e9b-faa5-4d4c-a953-4aef24b3eec8",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "e7b407f1-7870-4f9e-aa82-0b22d003d3ee",
+    "deal_id": "15130995-cf84-42a9-96a5-ba0add4bee08",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "e88b329e-45cc-4372-9176-a80f15e43814",
+    "deal_id": "56da2424-b18b-453c-910d-4cce3b60ee6f",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "e8af33e1-a3a9-4a6b-9cd8-f7cfa12eb489",
+    "deal_id": "d9f08c8e-eef4-4242-8757-9bfadf636e63",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "e9631da3-65a8-4eea-9f52-66afd19e5201",
+    "deal_id": "98f6b6a1-b6ba-4ccd-ac31-0d1675ebc79d",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "e99d1547-695e-48e1-b267-11e045d865a7",
+    "deal_id": "ec7ede66-f8cc-48f6-8222-b2e6c1a5773a",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "e9be933a-6007-405b-a04f-162fe489e1bf",
+    "deal_id": "8887373e-a5d2-4270-84aa-169f6288c4c6",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "e9f78afb-cd9c-4fb0-8c3e-2e445a88f46b",
+    "deal_id": "c6eb90ea-f0cd-4cc1-a0f2-43630de567c0",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "ead3a047-bb39-4e16-999a-f17949bc02a9",
+    "deal_id": "f6d583e6-490b-4f8a-a816-f20288ebdaa3",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "ec4b7435-32cf-4e79-b728-fcf71c759304",
+    "deal_id": "f83bd178-8d42-41b9-bede-d687d98164b0",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "ece96198-33bd-417e-ba45-36d5a997624d",
+    "deal_id": "95c7142e-3a71-459b-b9f9-7aa36ca6baf1",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "ed22d279-0120-4fd2-b38f-052b633141b8",
+    "deal_id": "4fcb3a8e-b3be-4477-acde-2855abccd1a2",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "ed89d023-1f09-48aa-ad3e-ddc7c4b36663",
+    "deal_id": "4f0aa376-e471-429a-afb6-f230e160b7c2",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "ee74a8ac-0745-4cab-986f-da6628694c3e",
+    "deal_id": "2fc81d64-c125-4ebf-b891-3d1b340da225",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "eeee4d99-10b7-45fe-bb9f-c3d06d416ed8",
+    "deal_id": "6eb1ab69-d109-4d77-a5b8-4c3f0af4f30e",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "ef3a1834-4c69-4c27-9fcc-37e93f2fb00a",
+    "deal_id": "d9578ab8-dcb8-4204-be29-7bde069f590a",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "ef8ebcc1-6ce2-4347-a137-12a13ab705e6",
+    "deal_id": "e3397522-1048-4a00-807e-040576994c4e",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "efb23243-7ad6-42ef-8fbe-26bcf57f3633",
+    "deal_id": "7c89e192-6e97-4486-ac62-ab4bbde394bc",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "efcd20fd-9dfd-43ed-a02b-5d03f320d4d7",
+    "deal_id": "1389af06-1de1-41df-aeef-2558e09f5c16",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "f051b35c-7b4b-417d-ba1b-14a53a0b403b",
+    "deal_id": "2e9466a1-8d5f-4f7c-ad0c-3be8add2c313",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "f07083bc-502c-4e35-92a7-a81944669fa6",
+    "deal_id": "acf919df-8c51-4254-a803-3b39634c1a5d",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "f2869217-01e8-41ff-8d12-d53f6ff20047",
+    "deal_id": "15cc4014-42cf-4f93-83dc-7e3c726d662b",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "f2e933fd-ea94-463f-bbb3-1e5de1783be6",
+    "deal_id": "eed3de95-6761-4f22-854b-f993e2c477cc",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "f328fe1f-2520-4c57-820e-83b6d1d02ca8",
+    "deal_id": "1bd619b4-3ba2-4d1d-8bf8-a41e3c17d047",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "f3f834ab-5c62-4920-9b70-c0a26113658a",
+    "deal_id": "7f4b723a-5d51-4f4d-9166-201faca51ab4",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "f4b6450c-4317-4856-875c-5413c99e7c4b",
+    "deal_id": "dd1265ab-50da-4942-af9a-b8f2c0dda5d1",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "f500d553-b0c2-4173-862d-a3b06a04944f",
+    "deal_id": "662098fa-3041-454e-81b4-6f13be5efbd4",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "f505d03c-8a10-4260-95fa-403210c73e3e",
+    "deal_id": "a659637f-487c-4e80-8093-bc9949f51ff2",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "f56fd215-c8f6-4fe3-b87f-0c54856d74c0",
+    "deal_id": "5f0d14a1-d68e-4804-a013-ffc25af271c8",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "f59f4215-b4dc-47ad-8097-85337200db15",
+    "deal_id": "2ac982e7-d70d-4e25-b1a9-a83ffb0d417c",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "f5ab629d-bac7-481d-81ca-9b2b8ba34084",
+    "deal_id": "f9d0a6b8-f038-48da-a900-778610b7f492",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "f5c33fde-dba3-422e-973e-0ba7688bb9e6",
+    "deal_id": "1dde528d-dc80-4ab8-a03c-c28e50ceec1e",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "f5c47e62-1731-4e90-bdc9-28136c71a2fb",
+    "deal_id": "eed3de95-6761-4f22-854b-f993e2c477cc",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "f61b8ccf-2250-4daf-90b3-6466cccd9aba",
+    "deal_id": "a8d0dde2-4a4f-4268-84a4-b094cd35ff0e",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "f66a63d0-e8fb-4422-99e6-a5e51a89fcfb",
+    "deal_id": "42abdd30-9a0d-401c-9fa7-39d9cb7ae4e8",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "f7226f43-c915-4098-b5db-90abd61d3362",
+    "deal_id": "c6fe0911-af57-4deb-bd38-3b4417c9965f",
+    "tag_id": "6297e30a-7bc2-4954-a3b1-db083a441bc7",
+    "user_id": "$developer"
+  },
+  {
+    "id": "f7336727-e4e7-460c-9521-f127b70f5a06",
+    "deal_id": "fd36a841-c8ed-479e-98c9-10d86c7ec39c",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "f794127b-8cd4-4307-9a88-c4386c083647",
+    "deal_id": "95c7142e-3a71-459b-b9f9-7aa36ca6baf1",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "f7c5ab9f-bd05-4d9b-83ad-0ba2777c7a4e",
+    "deal_id": "c65d788c-5ec8-41df-baeb-e0decc4b4083",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "f7f95353-e9bf-4ec1-bc72-b28d694941f3",
+    "deal_id": "34361eb1-11e8-4246-8799-49e28dcb94a4",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "f818efd2-e98b-4995-8627-4354cdfb3513",
+    "deal_id": "9a022bde-e8d6-4c0b-b843-ca0582135351",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "f93ad2a7-cf84-4d93-9c40-a1cfee950f9e",
+    "deal_id": "3a759ff8-1076-4a9a-b152-1727d52c3bc6",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "f95ee865-3d9c-4ad1-956e-9b1fad6d5290",
+    "deal_id": "7f195e9c-c44b-4f1a-9f49-f80d0d705c37",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "f9b883cb-599d-459c-9d0a-30307f498e37",
+    "deal_id": "0427d882-815a-43a5-a68a-5ec805608214",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "faefc7a4-7ed2-4167-b1a3-859e9c341ec7",
+    "deal_id": "a89604bd-8741-4c20-9e92-3c108dab539e",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  },
+  {
+    "id": "faf618d7-ad12-40bf-8215-2eedccfbf09d",
+    "deal_id": "d5d289e6-0071-495c-b1d3-7a35e95a14ca",
+    "tag_id": "d595fb7b-1f73-41cb-8e79-e9027c0d986a",
+    "user_id": "$developer"
+  },
+  {
+    "id": "fb3c6c0e-befd-4cf6-8057-f927f042892a",
+    "deal_id": "87e410ee-2dee-43a5-a300-9fd45c3c4208",
+    "tag_id": "a2f4c1f1-8182-4920-9109-b2c5f253deb3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "fb6c88c4-b624-48a2-993f-bd8b2fdf3c29",
+    "deal_id": "6e88b661-e6bf-4ed7-969c-b0974f193650",
+    "tag_id": "f50ec975-3f11-4b27-a470-fe8fa80f6d2b",
+    "user_id": "$developer"
+  },
+  {
+    "id": "fb81d8eb-fe57-4772-be1a-fd6066cf687a",
+    "deal_id": "e483936c-25f5-41c1-a7a6-4c28aac39219",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "fbc21b8b-64c2-438c-a0ca-f3ee9d40e5de",
+    "deal_id": "9703e966-8ff9-4eb8-8fca-525528b7602c",
+    "tag_id": "09e237df-8a68-4530-abf7-17e7805c3eee",
+    "user_id": "$developer"
+  },
+  {
+    "id": "fcc9d7f9-a345-4302-85e0-4d506ad9e286",
+    "deal_id": "f3755cce-28fb-48df-91c4-48c620a99e3b",
+    "tag_id": "318acd33-00a8-4efe-abff-d198563789ce",
+    "user_id": "$developer"
+  },
+  {
+    "id": "fcd878f2-3b93-489b-8354-acd2c98aed52",
+    "deal_id": "0139c112-5263-4a4d-b0f8-4c7202ef8c3c",
+    "tag_id": "c8a523c0-6dd8-46e3-8672-a075ee116158",
+    "user_id": "$developer"
+  },
+  {
+    "id": "fd3970d4-821b-4fda-b7b8-7c9b5f48a239",
+    "deal_id": "cf71d789-710b-4494-a4c1-33b346b49e15",
+    "tag_id": "47137b52-b9be-48a4-a580-bdf3e868cf43",
+    "user_id": "$developer"
+  },
+  {
+    "id": "fe5d4932-72ab-4cb0-b1eb-8086fc31e321",
+    "deal_id": "63664f88-a26d-4fa8-998b-4a639c562260",
+    "tag_id": "eaad117a-6164-423a-a000-3d04494af7b3",
+    "user_id": "$developer"
+  },
+  {
+    "id": "fed0fa60-f3e2-4155-a94e-6bfe5ecbf8c7",
+    "deal_id": "b9f178b6-41f7-4145-b73c-3a8ce78dcc93",
+    "tag_id": "b24d4580-c361-412d-bbfe-3ac9e7b7d7b9",
+    "user_id": "$developer"
+  }
+]
